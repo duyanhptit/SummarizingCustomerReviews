@@ -15,14 +15,14 @@ import java.util.Hashtable;
 /**
  * Class DecomposeUnicode is used to decompode composed unicode characters
  */
-public class DecomposeUnicode {
+public class ComposeUnicodeUtils {
 
 	private final Hashtable UNICODE_TABLE;
 	private final Hashtable MIRROR_UNICODE_TABLE;
 	private final Hashtable HTML_CODE_TABLE;
 
 	// Constructor
-	public DecomposeUnicode() {
+	public ComposeUnicodeUtils() {
 
 		// Prepare data for UNICODE_TABLE
 		UNICODE_TABLE = new Hashtable();

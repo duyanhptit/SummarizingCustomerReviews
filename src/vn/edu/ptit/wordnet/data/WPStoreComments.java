@@ -9,7 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import vn.edu.ptit.wordnet.utils.DecomposeUnicode;
+import vn.edu.ptit.wordnet.utils.ComposeUnicodeUtils;
 
 public class WPStoreComments implements GetComments {
 
@@ -21,7 +21,7 @@ public class WPStoreComments implements GetComments {
 	public List<String> getComments(String appName) {
 		List<String> comments = new LinkedList<String>();
 		String url = RESOURCE_URL_ZALO;
-		DecomposeUnicode decomposeUnicode = new DecomposeUnicode();
+		ComposeUnicodeUtils decomposeUnicode = new ComposeUnicodeUtils();
 		System.out.println("Getting comments of app: " + appName + " ...");
 		while (true) {
 			try {
