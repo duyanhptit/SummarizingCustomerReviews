@@ -1153,8 +1153,6 @@
 		<w pos="V">qì</w>
 		<w pos="P">cả</w>
 		<w pos="...">...</w>
-		<w pos="V">></w>
-		<w pos="N"><</w>
 	</s>
 	<s>
 		<w pos="C">Hay</w>
@@ -1277,10 +1275,8 @@
 		<w pos="V">nâng cấp</w>
 		<w pos=".">.</w>
 		<w pos="X">Nhất là</w>
-		<w pos=""">"</w>
 		<w pos="V">gọi</w>
 		<w pos="N">điện</w>
-		<w pos=""">"</w>
 		<w pos="R">chưa</w>
 		<w pos="A">thực sự</w>
 		<w pos="A">tốt</w>
@@ -1304,9 +1300,7 @@
 		<w pos="C">mà</w>
 		<w pos="E">trong</w>
 		<w pos="N">tình trạng</w>
-		<w pos=""">"</w>
 		<w pos="V">thuê bao</w>
-		<w pos=""">"</w>
 	</s>
 	<s>
 		<w pos="Np">Good</w>
@@ -4617,7 +4611,6 @@
 		<w pos="V">chạy</w>
 		<w pos="A">nhanh</w>
 		<w pos="V">kinh khủng</w>
-		<w pos="A"><</w>
 		<w pos="M">3</w>
 	</s>
 	<s>
@@ -8404,9 +8397,6 @@
 		<w pos="V">ad</w>
 		<w pos="V">lừa đảo</w>
 		<w pos="N">àk</w>
-		<w pos="V">></w>
-		<w pos=""">"</w>
-		<w pos="N"><</w>
 	</s>
 	<s>
 		<w pos="N">Bản</w>
@@ -8607,7 +8597,6 @@
 	</s>
 	<s>
 		<w pos="Np">Thanks All</w>
-		<w pos=""">"</w>
 		<w pos="L">các</w>
 		<w pos="N">a</w>
 		<w pos="N">chị</w>
@@ -9965,9 +9954,7 @@
 		<w pos=",">,</w>
 		<w pos="V">thíc</w>
 		<w pos="N">vlìn</w>
-		<w pos="A">></w>
 		<w pos=".">.</w>
-		<w pos="EOS"><</w>
 	</s>
 	<s>
 		<w pos="N">Good</w>
@@ -10410,14 +10397,13 @@
 		<w pos="N">caj</w>
 		<w pos="?">?</w>
 		<w pos="Np">Tkjen.chu</w>
-		<w pos=""">"</w>
 		<w pos=",">,</w>
 		<w pos="N">may</w>
 		<w pos="V">pan</w>
 		<w pos=".">.</w>
 		<w pos="N">Cu</w>
-		<w pos=""">"</w>
-		<w pos="M">xồn2</w>
+		<w pos="A">xồn</w>
+		<w pos="M">2</w>
 	</s>
 	<s>
 		<w pos="P">Sao</w>
@@ -11661,9 +11647,7 @@
 		<w pos="N">them</w>
 		<w pos="V">cai</w>
 		<w pos="N">dau</w>
-		<w pos=""">"</w>
-		<w pos="V">stick</w>
-		<w pos=""">"</w>
+		<w pos="N">stick</w>
 		<w pos=",">,</w>
 		<w pos="P">ai</w>
 		<w pos="V">onl</w>
@@ -14525,7 +14509,6 @@
 		<w pos="V">so</w>
 		<w pos="E">với</w>
 		<w pos="N">androi</w>
-		<w pos="CC">&</w>
 		<w pos="N">ios</w>
 		<w pos=".">.</w>
 		<w pos="Np">Nói chung</w>
@@ -16661,9 +16644,7 @@
 		<w pos="N">ios</w>
 		<w pos="V">bây</w>
 		<w pos="N">h</w>
-		<w pos="A">></w>
 		<w pos=".">.</w>
-		<w pos="EOS"><</w>
 	</s>
 	<s>
 		<w pos="C">Hay</w>
@@ -16859,11 +16840,10 @@
 		<w pos="V">di</w>
 		<w pos="V">mua</w>
 		<w pos="N">may</w>
-		<w pos="N">khac</w>
-		<w pos="Np">=</w>
+		<w pos="V">khac</w>
+		<w pos="N">=</w>
 		<w pos=".">.</w>
-		<w pos="V">=</w>
-		<w pos=""">"</w>
+		<w pos="EOS">=</w>
 	</s>
 	<s>
 		<w pos="N">Ad</w>
@@ -18511,10 +18491,8 @@
 		<w pos="C">mà</w>
 		<w pos="V">thất vọng</w>
 		<w pos="R">quá</w>
-		<w pos="A">></w>
 		<w pos="M"> </w>
-		<w pos="M"> </w>
-		<w pos="N"><</w>
+		<w pos="N"> </w>
 		<w pos="V">có</w>
 		<w pos="R">quá</w>
 		<w pos="A">ít</w>
@@ -20134,8 +20112,8 @@
 		<w pos="C">như</w>
 		<w pos="E">trên</w>
 		<w pos="Np">Android</w>
-		<w pos="CC">&</w>
-		<w pos="Np">iOS</w>
+		<w pos="V">i</w>
+		<w pos="Np">OS</w>
 		<w pos="CC">và</w>
 		<w pos="V">cải thiện</w>
 		<w pos="N">pin</w>
@@ -20607,8 +20585,6 @@
 		<w pos="V">bực</w>
 		<w pos="N">wa</w>
 		<w pos="...">...</w>
-		<w pos="V">></w>
-		<w pos="N"><</w>
 	</s>
 	<s>
 		<w pos="V">Ũa</w>
@@ -22020,9 +21996,7 @@
 		<w pos=".">.</w>
 		<w pos="V">Ức chế</w>
 		<w pos="!">!</w>
-		<w pos="M">></w>
 		<w pos=".">.</w>
-		<w pos="EOS"><</w>
 	</s>
 	<s>
 		<w pos="V">Quá</w>
@@ -25176,7 +25150,6 @@
 		<w pos=".">.</w>
 		<w pos="V">Chan</w>
 		<w pos="N">nan</w>
-		<w pos="N">@</w>
 	</s>
 	<s>
 		<w pos="Np">Lam</w>
@@ -25820,9 +25793,7 @@
 	</s>
 	<s>
 		<w pos="L">Các</w>
-		<w pos=""">"</w>
 		<w pos="N">thánh</w>
-		<w pos=""">"</w>
 		<w pos="X">làm gì</w>
 		<w pos="E">vào</w>
 		<w pos="P">đây</w>
@@ -26225,13 +26196,11 @@
 		<w pos="A">ko</w>
 		<w pos="E">vào</w>
 		<w pos="N">room</w>
-		<w pos=""">"</w>
-		<w pos="V">ko</w>
+		<w pos="N">ko</w>
 		<w pos="V">có</w>
 		<w pos="N">room</w>
 		<w pos="E">để</w>
 		<w pos="V">vào</w>
-		<w pos=""">"</w>
 		<w pos="R">chỉ</w>
 		<w pos="V">có</w>
 		<w pos="N">fần</w>

@@ -14,8 +14,6 @@
 package vn.ptit.anhdinh.scr.utils;
 
 import java.util.Hashtable;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Class DecomposeUnicode is used to decompode composed unicode characters
@@ -519,21 +517,4 @@ public class ComposeUnicodeUtils {
 		}
 		return newStr.toString();
 	}
-
-	/**
-	 * Convert the decomposed unicode into composed unicode list string
-	 * 
-	 * @param decomposedStrs The decomposed unicode list string.
-	 * @return The composed unicode list string.
-	 */
-
-	public List<String> convertComposeUnicode(List<String> decomposeStrs) {
-		List<String> composeStrs = new LinkedList<String>();
-		for (String decomposeStr : decomposeStrs) {
-			String composeStr = getComposedUnicode(decomposeStr);
-			composeStrs.add(composeStr);
-		}
-		return composeStrs;
-	}
-
 }

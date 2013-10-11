@@ -13,6 +13,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import vn.ptit.anhdinh.scr.utils.FileUtils;
+
 public class TGDDComments implements GetComments {
 	private static final String RESOURCE_URL_TEMPLATE = "http://www.thegioididong.com/comment/Services/CommentSvc.asmx/GetCommentsByFilterPage?lDetailId=%s&strCMTCategoryId=2&intWatchBy=-1&intOrderBy=1&intCache=1&intPage=%s";
 

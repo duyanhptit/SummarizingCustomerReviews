@@ -1,4 +1,4 @@
-package vn.edu.ptit.wordnet.utils;
+package vn.ptit.anhdinh.scr.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
