@@ -6,6 +6,9 @@
  * 
  * Developer: Keeper
  * Email: louis.keeper@gmail.com
+ * 
+ * Modify by Đinh Duy Anh
+ * Infomation Technology - PTIT(2009-2014)
  */
 
 package vn.edu.ptit.wordnet.utils;
@@ -354,53 +357,65 @@ public class ComposeUnicodeUtils {
 		MIRROR_UNICODE_TABLE.put("\u0102\u0303", new Character('\u1eb4')); // A(~
 		MIRROR_UNICODE_TABLE.put("\u0102\u0323", new Character('\u1eb6')); // A(.
 
-		MIRROR_UNICODE_TABLE.put("\u00c2\u0301", new Character('\u1ea4'));
-		MIRROR_UNICODE_TABLE.put("\u00c2\u0300", new Character('\u1ea6'));
-		MIRROR_UNICODE_TABLE.put("\u00c2\u0309", new Character('\u1ea8'));
-		MIRROR_UNICODE_TABLE.put("\u00c2\u0303", new Character('\u1eaa'));
-		MIRROR_UNICODE_TABLE.put("\u00c2\u0323", new Character('\u1eac'));
+		MIRROR_UNICODE_TABLE.put("\u00c2\u0301", new Character('\u1ea4')); // A^'
+		MIRROR_UNICODE_TABLE.put("\u00c2\u0300", new Character('\u1ea6')); // A^`
+		MIRROR_UNICODE_TABLE.put("\u00c2\u0309", new Character('\u1ea8')); // A^?
+		MIRROR_UNICODE_TABLE.put("\u00c2\u0303", new Character('\u1eaa')); // A^~
+		MIRROR_UNICODE_TABLE.put("\u00c2\u0323", new Character('\u1eac')); // A^.
 
-		MIRROR_UNICODE_TABLE.put("\u0045\u0309", new Character('\u1eba'));
-		MIRROR_UNICODE_TABLE.put("\u0045\u0303", new Character('\u1ebc'));
-		MIRROR_UNICODE_TABLE.put("\u0045\u0323", new Character('\u1eb8'));
+		MIRROR_UNICODE_TABLE.put("\u0045\u0301", new Character('\u00c9')); // E'
+		MIRROR_UNICODE_TABLE.put("\u0045\u0300", new Character('\u00c8')); // E`
+		MIRROR_UNICODE_TABLE.put("\u0045\u0309", new Character('\u1eba')); // E?
+		MIRROR_UNICODE_TABLE.put("\u0045\u0303", new Character('\u1ebc')); // E~
+		MIRROR_UNICODE_TABLE.put("\u0045\u0323", new Character('\u1eb8')); // E.
 
-		MIRROR_UNICODE_TABLE.put("\u00ca\u0301", new Character('\u1ebe'));
+		MIRROR_UNICODE_TABLE.put("\u00ca\u0301", new Character('\u1ebe')); // E^'
+		MIRROR_UNICODE_TABLE.put("\u00ca\u0300", new Character('\u1ec0')); // E^`
+		MIRROR_UNICODE_TABLE.put("\u00ca\u0309", new Character('\u1ec2')); // E^?
+		MIRROR_UNICODE_TABLE.put("\u00ca\u0303", new Character('\u1ec4')); // E^~
+		MIRROR_UNICODE_TABLE.put("\u00ca\u0323", new Character('\u1ec6')); // E^.
 
-		MIRROR_UNICODE_TABLE.put("\u00ca\u0300", new Character('\u1ec0'));
-		MIRROR_UNICODE_TABLE.put("\u00ca\u0309", new Character('\u1ec2'));
-		MIRROR_UNICODE_TABLE.put("\u00ca\u0303", new Character('\u1ec4'));
-		MIRROR_UNICODE_TABLE.put("\u00ca\u0323", new Character('\u1ec6'));
+		MIRROR_UNICODE_TABLE.put("\u0049\u0301", new Character('\u00cd')); // I'
+		MIRROR_UNICODE_TABLE.put("\u0049\u0300", new Character('\u00cc')); // I`
+		MIRROR_UNICODE_TABLE.put("\u0049\u0309", new Character('\u1ec8')); // I?
+		MIRROR_UNICODE_TABLE.put("\u0049\u0303", new Character('\u0128')); // I~
+		MIRROR_UNICODE_TABLE.put("\u0049\u0323", new Character('\u1eca')); // I.
 
-		MIRROR_UNICODE_TABLE.put("\u0049\u0309", new Character('\u1ec8'));
-		MIRROR_UNICODE_TABLE.put("\u0049\u0323", new Character('\u1eca'));
+		MIRROR_UNICODE_TABLE.put("\u004f\u0301", new Character('\u00d3')); // O'
+		MIRROR_UNICODE_TABLE.put("\u004f\u0300", new Character('\u00d2')); // O`
+		MIRROR_UNICODE_TABLE.put("\u004f\u0309", new Character('\u1ece')); // O?
+		MIRROR_UNICODE_TABLE.put("\u004f\u0303", new Character('\u00d5')); // O~
+		MIRROR_UNICODE_TABLE.put("\u004f\u0323", new Character('\u1ecc')); // O.
 
-		MIRROR_UNICODE_TABLE.put("\u004f\u0309", new Character('\u1ece'));
-		MIRROR_UNICODE_TABLE.put("\u004f\u0323", new Character('\u1ecc'));
+		MIRROR_UNICODE_TABLE.put("\u00d4\u0301", new Character('\u1ed0')); // O^'
+		MIRROR_UNICODE_TABLE.put("\u00d4\u0300", new Character('\u1ed2')); // O^`
+		MIRROR_UNICODE_TABLE.put("\u00d4\u0309", new Character('\u1ed4')); // O^?
+		MIRROR_UNICODE_TABLE.put("\u00d4\u0303", new Character('\u1ed6')); // O^~
+		MIRROR_UNICODE_TABLE.put("\u00d4\u0323", new Character('\u1ed8')); // O^.
 
-		MIRROR_UNICODE_TABLE.put("\u00d4\u0301", new Character('\u1ed0'));
-		MIRROR_UNICODE_TABLE.put("\u00d4\u0300", new Character('\u1ed2'));
-		MIRROR_UNICODE_TABLE.put("\u00d4\u0309", new Character('\u1ed4'));
-		MIRROR_UNICODE_TABLE.put("\u00d4\u0303", new Character('\u1ed6'));
-		MIRROR_UNICODE_TABLE.put("\u00d4\u0323", new Character('\u1ed8'));
+		MIRROR_UNICODE_TABLE.put("\u01a0\u0301", new Character('\u1eda')); // O+'
+		MIRROR_UNICODE_TABLE.put("\u01a0\u0300", new Character('\u1edc')); // O+`
+		MIRROR_UNICODE_TABLE.put("\u01a0\u0309", new Character('\u1ede')); // O+?
+		MIRROR_UNICODE_TABLE.put("\u01a0\u0303", new Character('\u1ee0')); // O+~
+		MIRROR_UNICODE_TABLE.put("\u01a0\u0323", new Character('\u1ee2')); // O+.
 
-		MIRROR_UNICODE_TABLE.put("\u01a0\u0301", new Character('\u1eda'));
-		MIRROR_UNICODE_TABLE.put("\u01a0\u0300", new Character('\u1edc'));
-		MIRROR_UNICODE_TABLE.put("\u01a0\u0309", new Character('\u1ede'));
-		MIRROR_UNICODE_TABLE.put("\u01a0\u0303", new Character('\u1ee0'));
-		MIRROR_UNICODE_TABLE.put("\u01a0\u0323", new Character('\u1ee2'));
+		MIRROR_UNICODE_TABLE.put("\u0055\u0301", new Character('\u00da')); // U'
+		MIRROR_UNICODE_TABLE.put("\u0055\u0300", new Character('\u00d9')); // U`
+		MIRROR_UNICODE_TABLE.put("\u0055\u0309", new Character('\u1ee6')); // U?
+		MIRROR_UNICODE_TABLE.put("\u0055\u0303", new Character('\u0168')); // U~
+		MIRROR_UNICODE_TABLE.put("\u0055\u0323", new Character('\u1ee4')); // U.
 
-		MIRROR_UNICODE_TABLE.put("\u0055\u0309", new Character('\u1ee6'));
-		MIRROR_UNICODE_TABLE.put("\u0055\u0323", new Character('\u1ee4'));
+		MIRROR_UNICODE_TABLE.put("\u01af\u0301", new Character('\u1ee8')); // U+'
+		MIRROR_UNICODE_TABLE.put("\u01af\u0300", new Character('\u1eea')); // U+`
+		MIRROR_UNICODE_TABLE.put("\u01af\u0309", new Character('\u1eec')); // U+?
+		MIRROR_UNICODE_TABLE.put("\u01af\u0303", new Character('\u1eee')); // U+~
+		MIRROR_UNICODE_TABLE.put("\u01af\u0323", new Character('\u1ef0')); // U+.
 
-		MIRROR_UNICODE_TABLE.put("\u01af\u0301", new Character('\u1ee8'));
-		MIRROR_UNICODE_TABLE.put("\u01af\u0300", new Character('\u1eea'));
-		MIRROR_UNICODE_TABLE.put("\u01af\u0309", new Character('\u1eec'));
-		MIRROR_UNICODE_TABLE.put("\u01af\u0303", new Character('\u1eee'));
-		MIRROR_UNICODE_TABLE.put("\u01af\u0323", new Character('\u1ef0'));
-
-		MIRROR_UNICODE_TABLE.put("\u0059\u0309", new Character('\u1ef6'));
-		MIRROR_UNICODE_TABLE.put("\u0059\u0303", new Character('\u1ef8'));
-		MIRROR_UNICODE_TABLE.put("\u0059\u0323", new Character('\u1ef4'));
+		MIRROR_UNICODE_TABLE.put("\u0059\u0301", new Character('\u00dd')); // Y'
+		MIRROR_UNICODE_TABLE.put("\u0059\u0300", new Character('\u1ef2')); // Y`
+		MIRROR_UNICODE_TABLE.put("\u0059\u0309", new Character('\u1ef6')); // Y?
+		MIRROR_UNICODE_TABLE.put("\u0059\u0303", new Character('\u1ef8')); // Y~
+		MIRROR_UNICODE_TABLE.put("\u0059\u0323", new Character('\u1ef4')); // Y.
 	}
 
 	/**
