@@ -13,8 +13,7 @@ import vn.hus.nlp.tagger.VietnameseMaxentTagger;
 public class VietnameseTaggerTest {
 
 	public static void main(String[] args) {
-		// test();
-		taggerComments();
+		test();
 	}
 
 	public static void test() {
@@ -28,13 +27,5 @@ public class VietnameseTaggerTest {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	public static void taggerComments() {
-		String inFile = "data/commentsOfZalo.txt";
-		String outFile = "data/commentsOfZalo.xml";
-
-		VietnameseMaxentTagger tagger = new VietnameseMaxentTagger();
-		tagger.tagFile(inFile, outFile);
 	}
 }

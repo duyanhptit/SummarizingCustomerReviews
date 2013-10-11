@@ -9,8 +9,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import vn.ptit.anhdinh.scr.utils.ComposeUnicodeUtils;
-
 public class WPStoreComments implements GetComments {
 
 	private static final String RESOURCE_URL_ZALO = "http://www.windowsphone.com/vi-vn/store/app/zalo/ca5b631e-1cb9-4e39-b03e-9499443afe73";
@@ -21,16 +19,15 @@ public class WPStoreComments implements GetComments {
 	public List<String> getComments(String appName) {
 		List<String> comments = new LinkedList<String>();
 		String url = RESOURCE_URL_ZALO;
-		ComposeUnicodeUtils decomposeUnicode = new ComposeUnicodeUtils();
 		System.out.println("Getting comments of app: " + appName + " ...");
 		while (true) {
 			try {
 				Document doc = Jsoup.connect(url).get();
 				Elements elComments = doc.getElementsByClass(CLASS_COMMENTS);
 				for (Element elComment : elComments) {
-					byte[] byteString = elComment.text().getBytes("UTF-8");
-					String comment = new String(byteString, "UTF-8");
-					comments.add(decomposeUnicode.getComposedUnicode(comment));
+					// byte[] byteString = elComment.text().getBytes("UTF-8");
+					// String comment = new String(byteString, "UTF-8");
+					comments.add(elComment.text());
 				}
 				Element nextPage = doc.getElementById(ID_PAGE_NEXT);
 				if (nextPage == null) {
