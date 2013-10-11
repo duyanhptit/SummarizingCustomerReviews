@@ -11,7 +11,7 @@
  * Infomation Technology - PTIT(2009-2014)
  */
 
-package vn.edu.ptit.wordnet.utils;
+package vn.ptit.anhdinh.scr.utils;
 
 import java.util.Hashtable;
 

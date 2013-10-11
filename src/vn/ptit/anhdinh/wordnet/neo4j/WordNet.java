@@ -1,6 +1,6 @@
-package vn.edu.ptit.wordnet.neo4j;
+package vn.ptit.anhdinh.wordnet.neo4j;
 
-import vn.edu.ptit.wordnet.model.Word;
+import vn.ptit.anhdinh.wordnet.model.Word;
 
 public class WordNet {
 

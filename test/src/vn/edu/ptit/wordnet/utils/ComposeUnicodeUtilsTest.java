@@ -3,6 +3,8 @@ package vn.edu.ptit.wordnet.utils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import vn.ptit.anhdinh.scr.utils.ComposeUnicodeUtils;
+
 public class ComposeUnicodeUtilsTest {
 	
 	private static final String[] DECOMPOSE_UNICODE = {

@@ -1,4 +1,4 @@
-package vn.edu.ptit.wordnet.neo4j;
+package vn.ptit.anhdinh.wordnet.neo4j;
 
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;

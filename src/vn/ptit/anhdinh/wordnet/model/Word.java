@@ -1,4 +1,4 @@
-package vn.edu.ptit.wordnet.model;
+package vn.ptit.anhdinh.wordnet.model;
 
 public class Word {
 	private final String mName;

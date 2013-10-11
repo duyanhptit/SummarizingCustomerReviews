@@ -1,4 +1,4 @@
-package vn.edu.ptit.wordnet.neo4j;
+package vn.ptit.anhdinh.wordnet.neo4j;
 
 import java.util.List;
 import java.util.Map;
@@ -8,7 +8,7 @@ import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.index.UniqueFactory;
 
-import vn.edu.ptit.wordnet.model.Word;
+import vn.ptit.anhdinh.wordnet.model.Word;
 
 public class Neo4JWordNetDAO implements WordNetDAO {
 

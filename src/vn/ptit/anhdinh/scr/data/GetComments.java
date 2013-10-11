@@ -1,4 +1,4 @@
-package vn.edu.ptit.wordnet.data;
+package vn.ptit.anhdinh.scr.data;
 
 import java.util.List;
 

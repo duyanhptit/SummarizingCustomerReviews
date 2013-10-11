@@ -1,10 +1,10 @@
-package vn.edu.ptit.wordnet.main;
+package vn.ptit.anhdinh.scr;
 
 import java.util.List;
 
-import vn.edu.ptit.wordnet.data.FileUtils;
-import vn.edu.ptit.wordnet.data.GetComments;
-import vn.edu.ptit.wordnet.data.WPStoreComments;
+import vn.ptit.anhdinh.scr.data.FileUtils;
+import vn.ptit.anhdinh.scr.data.GetComments;
+import vn.ptit.anhdinh.scr.data.WPStoreComments;
 
 public class RunApplication {
 

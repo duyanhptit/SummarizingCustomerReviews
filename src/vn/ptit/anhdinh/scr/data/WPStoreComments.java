@@ -1,4 +1,4 @@
-package vn.edu.ptit.wordnet.data;
+package vn.ptit.anhdinh.scr.data;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -9,7 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import vn.edu.ptit.wordnet.utils.ComposeUnicodeUtils;
+import vn.ptit.anhdinh.scr.utils.ComposeUnicodeUtils;
 
 public class WPStoreComments implements GetComments {
 
