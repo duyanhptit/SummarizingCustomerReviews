@@ -20,23 +20,23 @@ import java.util.Hashtable;
  */
 public class ComposeUnicodeUtils {
 
-	private final Hashtable UNICODE_TABLE;
-	private final Hashtable MIRROR_UNICODE_TABLE;
-	private final Hashtable HTML_CODE_TABLE;
+	private final Hashtable<Character, String> UNICODE_TABLE;
+	private final Hashtable<String, Character> MIRROR_UNICODE_TABLE;
+	private final Hashtable<String, String> HTML_CODE_TABLE;
 
 	// Constructor
 	public ComposeUnicodeUtils() {
 
 		// Prepare data for UNICODE_TABLE
-		UNICODE_TABLE = new Hashtable();
+		UNICODE_TABLE = new Hashtable<Character, String>();
 		// prepareUNICODE_TABLE();
 
 		// Prepare data for HTML_CODE_TABLE
-		HTML_CODE_TABLE = new Hashtable();
+		HTML_CODE_TABLE = new Hashtable<String, String>();
 		// prepareHTML_CODE_TABLE();
 
 		// Prepare data for MIRROR_UNICODE_TABLE
-		MIRROR_UNICODE_TABLE = new Hashtable();
+		MIRROR_UNICODE_TABLE = new Hashtable<String, Character>();
 		prepareMIRROR_UNICODE_TABLE(); // Use this application.
 
 	}

@@ -11,12 +11,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import vn.ptit.anhdinh.wordnet.model.RelationType;
+
 public class GetRelationWord {
 	private static final String URL_TEMPLATE = "http://tratu.soha.vn/index.php?title=#&dict=vn_vn&action=edit";
 	private static final String ID_CONTENT = "wpTextbox1";
 
-	public static final String KEY_SYNONYMS = "Đồng nghĩa";
-	public static final String KEY_ANTONYMS = "Trái nghĩa";
+	public static final String KEY_SYNONYMS = RelationType.SYNONYM.getmKey();
+	public static final String KEY_ANTONYMS = RelationType.ANTONYM.getmKey();
 
 	public Map<String, List<String>> getRelationWord(String word) {
 		String url = createURL(word);
