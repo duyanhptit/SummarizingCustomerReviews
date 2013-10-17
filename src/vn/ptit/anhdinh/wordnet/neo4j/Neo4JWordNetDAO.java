@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.neo4j.cypher.javacompat.ExecutionEngine;
+import org.neo4j.cypher.javacompat.ExecutionResult;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Transaction;
@@ -19,9 +20,9 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 
 	private GraphDatabaseService mGraphDatabaseService;
 	private ExecutionEngine mExecutionEngine;
-	private Index<Node> wordIndex;
-	private Index<Node> synsetIndex;
-	// private final UniqueFactory<Node> mUniqueFactory = null;
+	private ExecutionResult mExecutionResult;
+	private Index<Node> mWordIndex;
+	private Index<Node> mSynsetIndex;
 
 	private static final String SYNSET_KEY = "synsets";
 	private static final String WORD_KEY = "words";
@@ -39,53 +40,91 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 	public Neo4JWordNetDAO(GraphDatabaseService graphDatabaseService) {
 		mGraphDatabaseService = graphDatabaseService;
 		mExecutionEngine = new ExecutionEngine(mGraphDatabaseService);
-		synsetIndex = mGraphDatabaseService.index().forNodes(SYNSET_KEY);
-		wordIndex = mGraphDatabaseService.index().forNodes(WORD_KEY);
-		// mUniqueFactory = getUniqueFactory();
+		mWordIndex = mGraphDatabaseService.index().forNodes(SYNSET_KEY);
+		mSynsetIndex = mGraphDatabaseService.index().forNodes(WORD_KEY);
 	}
-
-	// private UniqueFactory<Node> getUniqueFactory() {
-	// Transaction transaction = getTransaction();
-	// try {
-	// UniqueFactory<Node> uniqueFactory = new UniqueFactory.UniqueNodeFactory(mGraphDatabaseService, NAME_INDEX) {
-	//
-	// @Override
-	// protected void initialize(Node created, Map<String, Object> properties) {
-	// created.setProperty(LEMMA, properties.get(LEMMA));
-	// }
-	// };
-	// return uniqueFactory;
-	// } finally {
-	// transaction.finish();
-	// }
-	// }
 
 	private Transaction getTransaction() {
 		return mGraphDatabaseService.beginTx();
 	}
 
 	@Override
-	public Word insertWord(Word word) {
-		// TODO Auto-generated method stub
-		return null;
+	public Word insertWord(long synsetId, Word word) {
+		if (wordIsExist(word)) {
+			System.out.println("Word: " + word.getmLemma() + " is exist.");
+			return null;
+		}
+		Transaction transaction = getTransaction();
+		try {
+			Node headSynset = mGraphDatabaseService.getNodeById(synsetId);
+			Word insertedWord = insertNode(headSynset, word);
+			transaction.success();
+			return insertedWord;
+		} catch (Exception e) {
+			System.out.println("Error when insert word is exist: " + e.toString());
+			return null;
+		} finally {
+			transaction.finish();
+		}
 	}
 
 	@Override
 	public Synset insertSynset(Synset synset) {
+		List<Word> words = synset.getmWords();
+		if (words == null | words.isEmpty()) {
+			System.out.println("Synset hasn't word.");
+			return null;
+		}
+		if (synsetIsExist(synset)) {
+			return insertSynsetIsExist(synset);
+		}
+		return insertSynsetNotExist(synset);
+	}
+
+	private Synset insertSynsetIsExist(Synset synset) {
 		Transaction transaction = getTransaction();
 		try {
-			Node headSynset = insertHeadSynset(synset);
 			List<Word> words = synset.getmWords();
-			if (words == null | words.isEmpty()) {
-				transaction.success();
-				return new Synset(headSynset.getId(), words, POS.valueOf((String) headSynset.getProperty(POS_LABEL)), Opinion.valueOf((String) headSynset.getProperty(OPINION)));
-			}
-			List<Word> addedWords = new LinkedList<Word>();
+			Node headSynset = null;
+			List<Word> addWords = new LinkedList<Word>();
 			for (Word word : words) {
-				addedWords.add(insertNode(headSynset, word));
+				if (wordIsExist(word) && headSynset == null) {
+					Node nodeWord = mWordIndex.get(LEMMA, word.getmLemma()).getSingle();
+					long idSynset = Long.parseLong((String) nodeWord.getProperty(SYNSET_ID));
+					headSynset = mGraphDatabaseService.getNodeById(idSynset);
+				} else {
+					addWords.add(word);
+				}
+			}
+			if (!addWords.isEmpty()) {
+				for (Word word : addWords) {
+					insertNode(headSynset, word);
+				}
 			}
 			transaction.success();
-			return new Synset(headSynset.getId(), addedWords, POS.valueOf((String) headSynset.getProperty(POS_LABEL)), Opinion.valueOf((String) headSynset.getProperty(OPINION)));
+			return new Synset(headSynset.getId(), synset.getmWords(), synset.getmPOS(), synset.getmOpinion());
+			// } catch (Exception e) {
+			// System.out.println("Error when insert synset is exist: " + e.toString());
+			// return null;
+		} finally {
+			transaction.finish();
+		}
+	}
+
+	private Synset insertSynsetNotExist(Synset synset) {
+		Transaction transaction = getTransaction();
+		try {
+			List<Word> words = synset.getmWords();
+			Node headSynset = insertHeadSynset(synset);
+			List<Word> insertedWords = new LinkedList<Word>();
+			for (Word word : words) {
+				insertedWords.add(insertNode(headSynset, word));
+			}
+			transaction.success();
+			return new Synset(headSynset.getId(), insertedWords, POS.valueOf((String) headSynset.getProperty(POS_LABEL)), Opinion.valueOf((String) headSynset.getProperty(OPINION)));
+			// } catch (Exception e) {
+			// System.out.println("Error when insert synset isn't exist: " + e.toString());
+			// return null;
 		} finally {
 			transaction.finish();
 		}
@@ -97,11 +136,12 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 		try {
 			Node synsetNode = mGraphDatabaseService.getNodeById(synsetId);
 			synsetNode.setProperty(OPINION, opinion.name());
-			synsetIndex.add(synsetNode, OPINION, synsetNode.getProperty(OPINION));
+			mSynsetIndex.add(synsetNode, OPINION, synsetNode.getProperty(OPINION));
 			transaction.success();
 			System.out.println("Set opinion for nodeId(" + String.valueOf(synsetId) + ") is " + opinion.name());
 			return true;
 		} catch (Exception e) {
+			System.out.println("Error when set opinion: " + e.toString());
 			return false;
 		} finally {
 			transaction.finish();
@@ -120,6 +160,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 			System.out.println("Create relationship for nodeId(" + String.valueOf(synsetId1) + ") and nodeId(" + String.valueOf(synsetId2) + ") is " + relationType.name());
 			return true;
 		} catch (Exception e) {
+			System.out.println("Error when create relationship isn't exist: " + e.toString());
 			return false;
 		} finally {
 			transaction.finish();
@@ -127,9 +168,50 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 	}
 
 	@Override
-	public Synset loadSynset(POS pos, String lemma) {
-		// TODO Auto-generated method stub
-		return null;
+	public Opinion getOpinion(Word word) {
+		String query = "START word=node:words(lemma=\"" + word.getmLemma() + "\") " //
+				+ "MATCH word-[:" + RelationType.SYNONYM.name() + "]->synset " //
+				+ "WHERE synset.pos = \"" + POS.ADJECTIVE.name() + "\" " //
+				+ "RETURN synset.opinion";
+		mExecutionResult = mExecutionEngine.execute(query);
+		List<String> results = mExecutionResult.columns();
+		String result = results.get(0);
+		return Opinion.valueOf(result);
+	}
+
+	@Override
+	public Synset loadSynset(Word word) {
+		if (!wordIsExist(word)) {
+			return null;
+		}
+		Node nodeWord = mWordIndex.get(LEMMA, word.getmLemma()).getSingle();
+		Node headWord = mGraphDatabaseService.getNodeById((long) nodeWord.getProperty(SYNSET_ID));
+		List<Word> words = new LinkedList<Word>();
+		for (Node node : mWordIndex.get(SYNSET_ID, headWord.getId())) {
+			words.add(new Word(node.getId(), (String) node.getProperty(LEMMA), POS.valueOf((String) node.getProperty(POS_LABEL)), (String) node.getProperty(DEFINATION)));
+		}
+		return new Synset(headWord.getId(), words, POS.valueOf((String) headWord.getProperty(POS_LABEL)), Opinion.valueOf((String) headWord.getProperty(OPINION)));
+	}
+
+	private boolean wordIsExist(Word word) {
+		Node nodeWord = mWordIndex.get(LEMMA, word.getmLemma()).getSingle();
+		if (nodeWord == null) {
+			return false;
+		}
+		if (word.getmPOS().name().equals(nodeWord.getProperty(POS_LABEL))) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean synsetIsExist(Synset synset) {
+		List<Word> words = synset.getmWords();
+		for (Word word : words) {
+			if (wordIsExist(word)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private Node insertHeadSynset(Synset synset) {
@@ -141,7 +223,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 		} else {
 			headSynset.setProperty(OPINION, Opinion.UNDEFINED.name());
 		}
-		synsetIndex.add(headSynset, POS_LABEL, headSynset.getProperty(POS_LABEL));
+		mSynsetIndex.add(headSynset, POS_LABEL, headSynset.getProperty(POS_LABEL));
 		System.out.println("Added head synset: \"" + String.valueOf(headSynset.getId()) + "\"");
 		return headSynset;
 	}
@@ -151,11 +233,14 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 		nodeWord.setProperty(TYPE, WORD);
 		nodeWord.setProperty(SYNSET_ID, headSynset.getId());
 		nodeWord.setProperty(LEMMA, word.getmLemma());
+		nodeWord.setProperty(POS_LABEL, word.getmPOS().name());
 		nodeWord.setProperty(DEFINATION, word.getmDefination());
 		nodeWord.createRelationshipTo(headSynset, RelationType.SYNONYM);
 
-		wordIndex.add(nodeWord, LEMMA, nodeWord.getProperty(LEMMA));
+		mWordIndex.add(nodeWord, LEMMA, nodeWord.getProperty(LEMMA));
+		mWordIndex.add(nodeWord, SYNSET_ID, nodeWord.getProperty(SYNSET_ID));
 		System.out.println("Added word: \"" + word.getmLemma() + "\"");
-		return new Word(nodeWord.getId(), (String) nodeWord.getProperty(LEMMA), (String) nodeWord.getProperty(DEFINATION));
+		return new Word(nodeWord.getId(), (String) nodeWord.getProperty(LEMMA), POS.valueOf((String) nodeWord.getProperty(POS_LABEL)), (String) nodeWord.getProperty(DEFINATION));
 	}
+
 }
