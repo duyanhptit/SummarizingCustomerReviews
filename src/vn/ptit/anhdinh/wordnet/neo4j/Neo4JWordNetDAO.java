@@ -18,11 +18,11 @@ import vn.ptit.anhdinh.wordnet.model.Word;
 
 public class Neo4JWordNetDAO implements WordNetDAO {
 
-	private GraphDatabaseService mGraphDatabaseService;
-	private ExecutionEngine mExecutionEngine;
+	private final GraphDatabaseService mGraphDatabaseService;
+	private final ExecutionEngine mExecutionEngine;
 	private ExecutionResult mExecutionResult;
-	private Index<Node> mWordIndex;
-	private Index<Node> mSynsetIndex;
+	private final Index<Node> mWordIndex;
+	private final Index<Node> mSynsetIndex;
 
 	private static final String SYNSET_KEY = "synsets";
 	private static final String WORD_KEY = "words";
@@ -40,8 +40,8 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 	public Neo4JWordNetDAO(GraphDatabaseService graphDatabaseService) {
 		mGraphDatabaseService = graphDatabaseService;
 		mExecutionEngine = new ExecutionEngine(mGraphDatabaseService);
-		mWordIndex = mGraphDatabaseService.index().forNodes(SYNSET_KEY);
-		mSynsetIndex = mGraphDatabaseService.index().forNodes(WORD_KEY);
+		mWordIndex = mGraphDatabaseService.index().forNodes(WORD_KEY);
+		mSynsetIndex = mGraphDatabaseService.index().forNodes(SYNSET_KEY);
 	}
 
 	private Transaction getTransaction() {
@@ -76,6 +76,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 			return null;
 		}
 		if (synsetIsExist(synset)) {
+			System.out.println("Synset is exist!");
 			return insertSynsetIsExist(synset);
 		}
 		return insertSynsetNotExist(synset);
@@ -90,9 +91,10 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 			for (Word word : words) {
 				if (wordIsExist(word) && headSynset == null) {
 					Node nodeWord = mWordIndex.get(LEMMA, word.getmLemma()).getSingle();
-					long idSynset = Long.parseLong((String) nodeWord.getProperty(SYNSET_ID));
+					long idSynset = (long) nodeWord.getProperty(SYNSET_ID);
 					headSynset = mGraphDatabaseService.getNodeById(idSynset);
-				} else {
+				}
+				if (!wordIsExist(word)) {
 					addWords.add(word);
 				}
 			}
@@ -103,9 +105,9 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 			}
 			transaction.success();
 			return new Synset(headSynset.getId(), synset.getmWords(), synset.getmPOS(), synset.getmOpinion());
-			// } catch (Exception e) {
-			// System.out.println("Error when insert synset is exist: " + e.toString());
-			// return null;
+		} catch (Exception e) {
+			System.out.println("Error when insert synset is exist: " + e.toString());
+			return null;
 		} finally {
 			transaction.finish();
 		}
@@ -122,9 +124,9 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 			}
 			transaction.success();
 			return new Synset(headSynset.getId(), insertedWords, POS.valueOf((String) headSynset.getProperty(POS_LABEL)), Opinion.valueOf((String) headSynset.getProperty(OPINION)));
-			// } catch (Exception e) {
-			// System.out.println("Error when insert synset isn't exist: " + e.toString());
-			// return null;
+		} catch (Exception e) {
+			System.out.println("Error when insert synset isn't exist: " + e.toString());
+			return null;
 		} finally {
 			transaction.finish();
 		}
@@ -169,14 +171,17 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 
 	@Override
 	public Opinion getOpinion(Word word) {
+		if (!wordIsExist(word)) {
+			return null;
+		}
 		String query = "START word=node:words(lemma=\"" + word.getmLemma() + "\") " //
 				+ "MATCH word-[:" + RelationType.SYNONYM.name() + "]->synset " //
 				+ "WHERE synset.pos = \"" + POS.ADJECTIVE.name() + "\" " //
-				+ "RETURN synset.opinion";
+				+ "RETURN synset";
 		mExecutionResult = mExecutionEngine.execute(query);
-		List<String> results = mExecutionResult.columns();
-		String result = results.get(0);
-		return Opinion.valueOf(result);
+		Node synsetNode = (Node) mExecutionResult.columnAs("synset").next();
+		String opinion = (String) synsetNode.getProperty(OPINION);
+		return Opinion.valueOf(opinion);
 	}
 
 	@Override
@@ -218,11 +223,8 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 		Node headSynset = mGraphDatabaseService.createNode();
 		headSynset.setProperty(TYPE, SYNSET);
 		headSynset.setProperty(POS_LABEL, synset.getmPOS().name());
-		if (synset.getmOpinion() != null) {
-			headSynset.setProperty(OPINION, synset.getmOpinion().name());
-		} else {
-			headSynset.setProperty(OPINION, Opinion.UNDEFINED.name());
-		}
+		headSynset.setProperty(OPINION, synset.getmOpinion().name());
+
 		mSynsetIndex.add(headSynset, POS_LABEL, headSynset.getProperty(POS_LABEL));
 		System.out.println("Added head synset: \"" + String.valueOf(headSynset.getId()) + "\"");
 		return headSynset;

@@ -18,6 +18,7 @@ public class Synset {
 	public Synset(List<Word> words, POS pos) {
 		mWords = words;
 		mPOS = pos;
+		mOpinion = Opinion.UNDEFINED;
 	}
 
 	public long getmId() {

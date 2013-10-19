@@ -2,9 +2,9 @@ package vn.ptit.anhdinh.wordnet.model;
 
 public class Word {
 	private long mId;
-	private String mLemma;
-	private POS mPOS;
-	private String mDefination;
+	private final String mLemma;
+	private final POS mPOS;
+	private final String mDefination;
 
 	public Word(long id, String lemma, POS pos, String defination) {
 		mId = id;
