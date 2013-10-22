@@ -175,7 +175,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 			return null;
 		}
 		String query = "START word=node:words(lemma=\"" + word.getmLemma() + "\") " //
-				+ "MATCH word-[:" + RelationType.SYNONYM.name() + "]->synset " //
+				+ "MATCH word-[:" + RelationType.SIMILARITY.name() + "]->synset " //
 				+ "WHERE synset.pos = \"" + POS.ADJECTIVE.name() + "\" " //
 				+ "RETURN synset";
 		mExecutionResult = mExecutionEngine.execute(query);
@@ -237,7 +237,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 		nodeWord.setProperty(LEMMA, word.getmLemma());
 		nodeWord.setProperty(POS_LABEL, word.getmPOS().name());
 		nodeWord.setProperty(DEFINATION, word.getmDefination());
-		nodeWord.createRelationshipTo(headSynset, RelationType.SYNONYM);
+		nodeWord.createRelationshipTo(headSynset, RelationType.SIMILARITY);
 
 		mWordIndex.add(nodeWord, LEMMA, nodeWord.getProperty(LEMMA));
 		mWordIndex.add(nodeWord, SYNSET_ID, nodeWord.getProperty(SYNSET_ID));

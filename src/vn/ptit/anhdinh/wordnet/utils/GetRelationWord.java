@@ -18,23 +18,24 @@ public class GetRelationWord {
 
 	private static final String KEY_GET_DEFINATION = "=====";
 	public static final String KEY_DEFINATION = "Định nghĩa";
-	public static final String KEY_SYNONYMS = RelationType.SYNONYM.getmKey();
+	public static final String KEY_SYNONYMS = RelationType.SIMILARITY.getmKey();
 	public static final String KEY_ANTONYMS = RelationType.ANTONYM.getmKey();
 
 	public static Map<String, List<String>> getRelationWord(String word) {
 		String url = createURL(word);
-		try {
-			Document doc = Jsoup.connect(url).get();
-			Element element = doc.getElementById(ID_CONTENT);
-			if (element == null) {
-				return null;
+		while (true) {
+			try {
+				Document doc = Jsoup.connect(url).get();
+				Element element = doc.getElementById(ID_CONTENT);
+				if (element == null) {
+					return null;
+				}
+				String content = element.text();
+				return processContent(content);
+			} catch (IOException e) {
+				System.out.println("Error get data form URL: " + url);
 			}
-			String content = element.text();
-			return processContent(content);
-		} catch (IOException e) {
-			System.out.println("Error get data form URL: " + url);
 		}
-		return null;
 	}
 
 	private static Map<String, List<String>> processContent(String content) {
@@ -42,8 +43,12 @@ public class GetRelationWord {
 		List<String> definations = new LinkedList<String>();
 		List<String> synonyms = new LinkedList<String>();
 		List<String> antonyms = new LinkedList<String>();
+		boolean isAdjective = false;
 		String[] lines = content.split("\n");
 		for (String line : lines) {
+			if (line.contains("=== Tính từ ===")) {
+				isAdjective = true;
+			}
 			if (line.contains("=== Phụ từ ===")) {
 				break;
 			}
@@ -59,6 +64,9 @@ public class GetRelationWord {
 			if (line.contains(KEY_ANTONYMS)) {
 				antonyms.addAll(getWordInLine(line));
 			}
+		}
+		if (!isAdjective) {
+			return null;
 		}
 		relationWords.put(KEY_DEFINATION, definations);
 		relationWords.put(KEY_SYNONYMS, synonyms);

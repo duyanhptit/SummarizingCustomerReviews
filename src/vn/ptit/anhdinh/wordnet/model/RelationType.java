@@ -3,7 +3,7 @@ package vn.ptit.anhdinh.wordnet.model;
 import org.neo4j.graphdb.RelationshipType;
 
 public enum RelationType implements RelationshipType {
-	SYNONYM("Đồng nghĩa"), //
+	SIMILARITY("Đồng nghĩa"), //
 	ANTONYM("Trái nghĩa"), //
 	HYPERNYM(""), //
 	HYPONYM(""), //

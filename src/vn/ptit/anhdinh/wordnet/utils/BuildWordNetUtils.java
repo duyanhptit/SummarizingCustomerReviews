@@ -40,7 +40,6 @@ public class BuildWordNetUtils {
 			NodeList nodeValue = elAdjective.getChildNodes();
 			String stringValue = nodeValue.item(0).getNodeValue();
 			String adjective = stringValue.toLowerCase();
-			System.out.println(adjective);
 			if (!mAdjectives.contains(adjective)) {
 				mAdjectives.add(adjective);
 			}

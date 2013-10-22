@@ -11,9 +11,14 @@ public class BuildWordNet {
 	private static int mSum = 0;
 
 	public static void main(String[] args) throws Exception {
+		WordNetAPI wordNetAPI = new WordNetAPI();
 		List<String> adjectives = BuildWordNetUtils.getAllAdjective();
+		for (String adjective : adjectives) {
+			System.out.println(adjective);
+		}
 		for (int i = 0; i < adjectives.size(); i++) {
 			Cluster cluster = BuildWordNetUtils.buildCluster(adjectives.get(i), 1);
+			wordNetAPI.insertCluster(cluster);
 			System.out.println("(" + String.valueOf(i + 1) + "/" + String.valueOf(adjectives.size()) + " )");
 			System.out.println("ĐỒNG NGHĨA:");
 			printSynset(cluster.getmSynset1());
@@ -22,6 +27,7 @@ public class BuildWordNet {
 			System.out.println("==============================================================================");
 		}
 		System.out.println("Summarizing has: " + String.valueOf(mSum) + " words.");
+		wordNetAPI.shutDown();
 	}
 
 	public static void printSynset(Synset synset) {
