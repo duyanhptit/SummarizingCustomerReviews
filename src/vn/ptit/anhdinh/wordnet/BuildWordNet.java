@@ -17,8 +17,8 @@ public class BuildWordNet {
 			System.out.println(adjective);
 		}
 		for (int i = 0; i < adjectives.size(); i++) {
-			Cluster cluster = BuildWordNetUtils.buildCluster(adjectives.get(i), 1);
-			wordNetAPI.insertCluster(cluster);
+			Cluster cluster = BuildWordNetUtils.buildCluster(adjectives.get(i), 5);
+			// wordNetAPI.insertCluster(cluster);
 			System.out.println("(" + String.valueOf(i + 1) + "/" + String.valueOf(adjectives.size()) + " )");
 			System.out.println("ĐỒNG NGHĨA:");
 			printSynset(cluster.getmSynset1());
@@ -28,6 +28,15 @@ public class BuildWordNet {
 		}
 		System.out.println("Summarizing has: " + String.valueOf(mSum) + " words.");
 		wordNetAPI.shutDown();
+		// testBuildCluster();
+	}
+
+	public static void testBuildCluster() {
+		Cluster cluster = BuildWordNetUtils.buildCluster("đẹp", 100);
+		System.out.println("ĐỒNG NGHĨA:");
+		printSynset(cluster.getmSynset1());
+		System.out.println("TRÁI NGHĨA:");
+		printSynset(cluster.getmSynset2());
 	}
 
 	public static void printSynset(Synset synset) {

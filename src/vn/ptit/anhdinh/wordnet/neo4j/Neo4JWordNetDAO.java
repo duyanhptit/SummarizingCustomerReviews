@@ -185,17 +185,31 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 	}
 
 	@Override
-	public Synset loadSynset(Word word) {
+	public Synset loadSynsetByWord(Word word) {
 		if (!wordIsExist(word)) {
 			return null;
 		}
 		Node nodeWord = mWordIndex.get(LEMMA, word.getmLemma()).getSingle();
-		Node headWord = mGraphDatabaseService.getNodeById((long) nodeWord.getProperty(SYNSET_ID));
+		return loadSynsetById(Long.parseLong(nodeWord.getProperty(SYNSET_ID).toString()));
+	}
+
+	@Override
+	public Synset loadSynsetById(long id) {
+		Node headWord = mGraphDatabaseService.getNodeById(id);
 		List<Word> words = new LinkedList<Word>();
 		for (Node node : mWordIndex.get(SYNSET_ID, headWord.getId())) {
 			words.add(new Word(node.getId(), (String) node.getProperty(LEMMA), POS.valueOf((String) node.getProperty(POS_LABEL)), (String) node.getProperty(DEFINATION)));
 		}
 		return new Synset(headWord.getId(), words, POS.valueOf((String) headWord.getProperty(POS_LABEL)), Opinion.valueOf((String) headWord.getProperty(OPINION)));
+	}
+
+	@Override
+	public List<Synset> loadSynsetByOpinion(Opinion opinion) {
+		List<Synset> synsets = new LinkedList<Synset>();
+		for (Node node : mSynsetIndex.get(OPINION, opinion.name())) {
+			synsets.add(loadSynsetById(node.getId()));
+		}
+		return synsets;
 	}
 
 	private boolean wordIsExist(Word word) {
@@ -225,7 +239,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 		headSynset.setProperty(POS_LABEL, synset.getmPOS().name());
 		headSynset.setProperty(OPINION, synset.getmOpinion().name());
 
-		mSynsetIndex.add(headSynset, POS_LABEL, headSynset.getProperty(POS_LABEL));
+		mSynsetIndex.add(headSynset, OPINION, headSynset.getProperty(OPINION));
 		System.out.println("Added head synset: \"" + String.valueOf(headSynset.getId()) + "\"");
 		return headSynset;
 	}
@@ -244,5 +258,4 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 		System.out.println("Added word: \"" + word.getmLemma() + "\"");
 		return new Word(nodeWord.getId(), (String) nodeWord.getProperty(LEMMA), POS.valueOf((String) nodeWord.getProperty(POS_LABEL)), (String) nodeWord.getProperty(DEFINATION));
 	}
-
 }

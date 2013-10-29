@@ -80,6 +80,9 @@ public class GetRelationWord {
 			return words;
 		}
 		String strWords = line.split("</font>")[1];
+		if (strWords.contains("<")) {
+			return words;
+		}
 		String[] arrayStr = strWords.split(",");
 		for (String str : arrayStr) {
 			words.add(str.trim());

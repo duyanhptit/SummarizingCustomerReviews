@@ -4,7 +4,7 @@ public enum Opinion {
 	POSITIVE("tích cực"), //
 	NEGATIVE("tiêu cực"), //
 	UNDEFINED("chưa xác định"), //
-	UNKNOWN("không xác định");
+	NEUTRAL("trung lập");
 
 	private String mName;
 

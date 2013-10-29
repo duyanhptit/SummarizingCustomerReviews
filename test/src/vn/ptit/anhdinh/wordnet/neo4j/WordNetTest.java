@@ -37,7 +37,7 @@ public class WordNetTest {
 
 		wordNetDAO.insertSynset(synsetBeauty);
 
-		Synset synset = wordNetDAO.loadSynset(new Word("đẹp", POS.ADJECTIVE, "có hình thức hoặc phẩm chất đem lại sự hứng thú đặc biệt, làm cho người ta thích nhìn ngắm hoặc kính nể"));
+		Synset synset = wordNetDAO.loadSynsetByWord(new Word("đẹp", POS.ADJECTIVE, "có hình thức hoặc phẩm chất đem lại sự hứng thú đặc biệt, làm cho người ta thích nhìn ngắm hoặc kính nể"));
 		for (Word word : synset.getmWords()) {
 			System.out.println(word.getmLemma());
 		}
