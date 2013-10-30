@@ -3,7 +3,6 @@ package vn.ptit.anhdinh.wordnet.utils;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -23,12 +22,12 @@ import vn.ptit.anhdinh.wordnet.model.Word;
 
 public class BuildWordNetUtils {
 
-	public static List<String> mAdjectives = new LinkedList<String>();
-	private static Queue<String> mStackSynonym = new LinkedList<String>();
-	private static Queue<String> mStackAntonym = new LinkedList<String>();
+	private static List<String> mAdjective = new LinkedList<String>();
+	private static List<String> mSynonym = new LinkedList<String>();
+	private static List<String> mAntonym = new LinkedList<String>();
 
-	public static List<String> getAllAdjective() throws Exception {
-		String inputFile = "data/commentsOfZalo.xml";
+	public static List<String> getAllAdjective(String filePath) throws Exception {
+		String inputFile = filePath;
 		Document document = FileUtils.ReadFileXML(inputFile);
 
 		XPathFactory xPathFactory = XPathFactory.newInstance();
@@ -40,77 +39,84 @@ public class BuildWordNetUtils {
 			NodeList nodeValue = elAdjective.getChildNodes();
 			String stringValue = nodeValue.item(0).getNodeValue();
 			String adjective = stringValue.toLowerCase();
-			if (!mAdjectives.contains(adjective)) {
-				mAdjectives.add(adjective);
+			if (!mAdjective.contains(adjective)) {
+				mAdjective.add(adjective);
 			}
 		}
-		return mAdjectives;
+		return mAdjective;
+	}
+
+	private static void buildCluster(List<String> synonyms, List<String> antonyms, int depth) {
+		if (depth > 0) {
+			List<String> tempSynonyms = new LinkedList<String>();
+			List<String> tempAntonyms = new LinkedList<String>();
+			for (String synonym : synonyms) {
+				Map<String, List<String>> relationWord = GetRelationWord.getRelationWord(synonym);
+				if (relationWord != null) {
+					tempSynonyms.addAll(onlyAddNewWord(mSynonym, synonyms, relationWord.get(GetRelationWord.KEY_SYNONYMS)));
+					tempAntonyms.addAll(onlyAddNewWord(mAntonym, antonyms, relationWord.get(GetRelationWord.KEY_ANTONYMS)));
+				}
+			}
+			for (String antonym : antonyms) {
+				Map<String, List<String>> relationWord = GetRelationWord.getRelationWord(antonym);
+				if (relationWord != null) {
+					tempSynonyms.addAll(onlyAddNewWord(mSynonym, synonyms, relationWord.get(GetRelationWord.KEY_ANTONYMS)));
+					tempAntonyms.addAll(onlyAddNewWord(mAntonym, antonyms, relationWord.get(GetRelationWord.KEY_SYNONYMS)));
+				}
+			}
+			mSynonym.addAll(tempSynonyms);
+			mAntonym.addAll(tempAntonyms);
+			buildCluster(tempSynonyms, tempAntonyms, depth - 1);
+		}
+	}
+
+	private static List<String> onlyAddNewWord(List<String> mWords, List<String> tempWords, List<String> newWords) {
+		List<String> words = new LinkedList<String>();
+		for (String newWord : newWords) {
+			if (!mWords.contains(newWord) && !tempWords.contains(newWord) && !words.contains(newWord)) {
+				words.add(newWord);
+			}
+		}
+		return words;
 	}
 
 	public static Cluster buildCluster(String keyWord, int depth) {
-		List<Word> synonym = new LinkedList<Word>();
-		List<Word> antonym = new LinkedList<Word>();
-
-		int depthSynonym = depth;
-		int depthAntonym = depth - 1;
-		mStackSynonym.add(keyWord);
-		while (!mStackSynonym.isEmpty() || !mStackAntonym.isEmpty()) {
-			if (!mStackSynonym.isEmpty()) {
-				String lemma = mStackSynonym.poll();
-				Map<String, List<String>> relationWord = GetRelationWord.getRelationWord(lemma);
-				if (relationWord != null) {
-					List<String> definations = relationWord.get(GetRelationWord.KEY_DEFINATION);
-					String defination = definations.isEmpty() ? "" : definations.get(0);
-					synonym.add(new Word(lemma, POS.ADJECTIVE, defination));
-					if (depthSynonym > 0) {
-						addToStackSynonym(relationWord.get(GetRelationWord.KEY_SYNONYMS), synonym);
-						addToStackAntonym(relationWord.get(GetRelationWord.KEY_ANTONYMS), antonym);
-						depthSynonym--;
-					}
-				}
-			}
-			if (!mStackAntonym.isEmpty()) {
-				String lemma = mStackAntonym.poll();
-				Map<String, List<String>> relationWord = GetRelationWord.getRelationWord(lemma);
-				if (relationWord != null) {
-					List<String> definations = relationWord.get(GetRelationWord.KEY_DEFINATION);
-					String defination = definations.isEmpty() ? "" : definations.get(0);
-					antonym.add(new Word(lemma, POS.ADJECTIVE, defination));
-					if (depthAntonym > 0) {
-						addToStackAntonym(relationWord.get(GetRelationWord.KEY_SYNONYMS), antonym);
-						addToStackSynonym(relationWord.get(GetRelationWord.KEY_ANTONYMS), synonym);
-						depthAntonym--;
-					}
-				}
-			}
+		if (checkValidWord(keyWord)) {
+			mSynonym.add(keyWord);
+			buildCluster(mSynonym, mAntonym, depth);
 		}
 
-		Synset synset1 = new Synset(synonym, POS.ADJECTIVE);
-		Synset synset2 = new Synset(antonym, POS.ADJECTIVE);
+		List<Word> synonymWords = new LinkedList<Word>();
+		List<Word> antonymWords = new LinkedList<Word>();
+		for (String word : mSynonym) {
+			synonymWords.add(createWord(word));
+		}
+		mSynonym.clear();
+		for (String word : mAntonym) {
+			antonymWords.add(createWord(word));
+		}
+		mAntonym.clear();
+
+		Synset synset1 = new Synset(synonymWords, POS.ADJECTIVE);
+		Synset synset2 = new Synset(antonymWords, POS.ADJECTIVE);
+
 		return new Cluster(RelationType.ANTONYM, synset1, synset2);
 	}
 
-	private static void addToStackSynonym(List<String> words, List<Word> synonym) {
-		for (String word : words) {
-			if (!mStackSynonym.contains(word) && !checkContains(synonym, word)) {
-				mStackSynonym.add(word);
-			}
+	private static Word createWord(String lemma) {
+		Map<String, List<String>> relationWord = GetRelationWord.getRelationWord(lemma);
+		if (relationWord != null) {
+			List<String> definations = relationWord.get(GetRelationWord.KEY_DEFINATION);
+			String defination = definations.isEmpty() ? "" : definations.get(0);
+			return new Word(lemma, POS.ADJECTIVE, defination);
 		}
+		return null;
 	}
 
-	private static void addToStackAntonym(List<String> words, List<Word> antonym) {
-		for (String word : words) {
-			if (!mStackAntonym.contains(word) && !checkContains(antonym, word)) {
-				mStackAntonym.add(word);
-			}
-		}
-	}
-
-	private static boolean checkContains(List<Word> words, String lemma) {
-		for (Word word : words) {
-			if (lemma.equals(word.getmLemma())) {
-				return true;
-			}
+	private static boolean checkValidWord(String lemma) {
+		Map<String, List<String>> relationWord = GetRelationWord.getRelationWord(lemma);
+		if (relationWord != null) {
+			return true;
 		}
 		return false;
 	}

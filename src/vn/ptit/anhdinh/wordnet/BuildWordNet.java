@@ -12,12 +12,12 @@ public class BuildWordNet {
 
 	public static void main(String[] args) throws Exception {
 		WordNetAPI wordNetAPI = new WordNetAPI();
-		List<String> adjectives = BuildWordNetUtils.getAllAdjective();
+		List<String> adjectives = BuildWordNetUtils.getAllAdjective("data/commentsOfZalo.xml");
 		for (String adjective : adjectives) {
 			System.out.println(adjective);
 		}
 		for (int i = 0; i < adjectives.size(); i++) {
-			Cluster cluster = BuildWordNetUtils.buildCluster(adjectives.get(i), 5);
+			Cluster cluster = BuildWordNetUtils.buildCluster(adjectives.get(i), 3);
 			// wordNetAPI.insertCluster(cluster);
 			System.out.println("(" + String.valueOf(i + 1) + "/" + String.valueOf(adjectives.size()) + " )");
 			System.out.println("ĐỒNG NGHĨA:");
@@ -32,7 +32,7 @@ public class BuildWordNet {
 	}
 
 	public static void testBuildCluster() {
-		Cluster cluster = BuildWordNetUtils.buildCluster("đẹp", 100);
+		Cluster cluster = BuildWordNetUtils.buildCluster("đẹp", 5);
 		System.out.println("ĐỒNG NGHĨA:");
 		printSynset(cluster.getmSynset1());
 		System.out.println("TRÁI NGHĨA:");
