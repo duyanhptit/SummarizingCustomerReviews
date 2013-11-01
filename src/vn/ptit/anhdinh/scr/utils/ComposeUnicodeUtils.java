@@ -426,7 +426,7 @@ public class ComposeUnicodeUtils {
 	 */
 	public String getUnicodeComposeString(char composedUniChar) {
 		if (UNICODE_TABLE.get(new Character(composedUniChar)) != null) {
-			return (String) UNICODE_TABLE.get(new Character(composedUniChar));
+			return UNICODE_TABLE.get(new Character(composedUniChar));
 		} else {
 			return composedUniChar + "";
 		}
@@ -443,7 +443,7 @@ public class ComposeUnicodeUtils {
 		int strLen = composedUniStr.length();
 		for (int i = 0; i < strLen; i++) {
 			char charAtI = composedUniStr.charAt(i);
-			String returnStr = (String) UNICODE_TABLE.get(new Character(charAtI));
+			String returnStr = UNICODE_TABLE.get(new Character(charAtI));
 			if (returnStr != null) {
 				newStr.append(returnStr);
 			} else {
@@ -471,7 +471,7 @@ public class ComposeUnicodeUtils {
 
 				String aHTMLCode = text.substring(i, indexOfSemiColon + 1);
 
-				aHTMLCode = (String) HTML_CODE_TABLE.get(aHTMLCode);
+				aHTMLCode = HTML_CODE_TABLE.get(aHTMLCode);
 
 				if (aHTMLCode != null) {
 					newString.append(aHTMLCode);
@@ -480,7 +480,7 @@ public class ComposeUnicodeUtils {
 					newString.append(charAtI);
 				}
 			} else {
-				String returnStr = (String) UNICODE_TABLE.get(new Character(charAtI));
+				String returnStr = UNICODE_TABLE.get(new Character(charAtI));
 				if (returnStr != null) {
 					newString.append(returnStr);
 				} else {
@@ -499,7 +499,6 @@ public class ComposeUnicodeUtils {
 	 */
 
 	public String getComposedUnicode(String decomposedStr) {
-
 		StringBuffer newStr = new StringBuffer();
 
 		for (int i = 0; i < decomposedStr.length(); i++) {
@@ -516,5 +515,15 @@ public class ComposeUnicodeUtils {
 			}
 		}
 		return newStr.toString();
+	}
+
+	public boolean checkVietnameseReviews(String ComposedUniStr) {
+		for (int i = 0; i < ComposedUniStr.length(); i++) {
+			char charAtI = ComposedUniStr.charAt(i);
+			if (MIRROR_UNICODE_TABLE.contains(new Character(charAtI))) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

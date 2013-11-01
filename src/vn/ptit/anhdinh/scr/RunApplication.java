@@ -1,72 +1,111 @@
 package vn.ptit.anhdinh.scr;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
-import vn.hus.nlp.tagger.VietnameseMaxentTagger;
-import vn.ptit.anhdinh.scr.data.GetComments;
-import vn.ptit.anhdinh.scr.data.WPStoreComments;
+import vn.ptit.anhdinh.scr.data.GetReviews;
+import vn.ptit.anhdinh.scr.data.WPStoreReviews;
 import vn.ptit.anhdinh.scr.utils.FileUtils;
-import vn.ptit.anhdinh.wordnet.WordNetAPI;
 import vn.ptit.anhdinh.wordnet.model.Opinion;
 import edu.stanford.nlp.ling.WordTag;
 
 public class RunApplication {
 
-	private static VietnameseMaxentTagger mVnTagger = new VietnameseMaxentTagger();
-	private static WordNetAPI mWordNetAPI = new WordNetAPI();
+	// private static WordNetAPI mWordNetAPI = new WordNetAPI();
+	private List<String> mReviews = new LinkedList<String>();
+	private List<List<WordTag>> mReviewsTagged = new LinkedList<List<WordTag>>();
+	private List<String> mFeatures = new LinkedList<String>();
+	private final Map<List<WordTag>, Integer> mOpinionReviews = new HashMap<List<WordTag>, Integer>();
 
 	public static void main(String[] args) throws Exception {
-		String appName = "Zalo";
-		GetComments wpscm = new WPStoreComments();
-		List<String> rawComments = wpscm.getComments(appName);
+		RunApplication runApp = new RunApplication();
+		// runApp.downloadReviews();
+		runApp.vnTagging();
+		// runApp.taggingToFile();
+		runApp.featureExtraction();
+		runApp.opinionReviewsExtraction();
+		runApp.showOpinionReviews();
+	}
 
-		PreprocessorData preprocessorData = new PreprocessorData(rawComments);
+	private void downloadReviews() {
+		String appName = "Zalo";
+		GetReviews wpsrs = new WPStoreReviews();
+		List<String> rawReviews = wpsrs.getReviews(appName);
+
+		PreprocessorData preprocessorData = new PreprocessorData(rawReviews);
 		preprocessorData.convertComposeUnicode();
 		preprocessorData.deleteSpecialCharacter();
-		List<String> comments = preprocessorData.getComments();
+		preprocessorData.removeReviewsNotVietnamese();
+		List<String> reviews = preprocessorData.getReviews();
 
-		System.out.print("Write comments to file: commentsOf" + appName + ".txt... ");
-		FileUtils.WriteFile("data/commentsOf" + appName + ".txt", comments, false);
+		System.out.print("Write reiviews to file: reviewsOf" + appName + ".txt... ");
+		FileUtils.WriteFile("data/reviewsOf" + appName + ".txt", reviews, false);
 		System.out.println("OK");
-
-		SummarizingCustomerReviews(comments);
-		// System.out.println("Beginning Vietnamese Tagger comments...");
-		// String inFile = "data/commentsOf" + appName + ".txt";
-		// String outFile = "data/commentsOf" + appName + ".xml";
-		// mVnTagger.tagFile(inFile, outFile);
-		// System.out.println("Ended Vietnamese tagger.");
 	}
 
-	public static void SummarizingCustomerReviews(List<String> comments) throws Exception {
-		System.out.println("Starting Summarizing Customer Reviews...");
-		List<List<WordTag>> commentsTagged = taggerPOS(comments);
-		// List<String> topNouns = getTopNoun(commentsTagged, 0.7);
-
+	private void vnTagging() {
+		mReviews = FileUtils.ReadFile("data/reviewsOfZalo.txt");
+		ReviewsPOSTagging reviewsTagging = new ReviewsPOSTagging(mReviews);
+		mReviewsTagged = reviewsTagging.getReviewsTagged();
 	}
 
-	public static List<List<WordTag>> taggerPOS(List<String> comments) {
-		List<List<WordTag>> commentsTagged = new LinkedList<List<WordTag>>();
-		for (String comment : comments) {
-			commentsTagged.add(mVnTagger.tagText2(comment));
+	private void featureExtraction() {
+		FeatureExtraction featureExtraction = new FeatureExtraction(mReviewsTagged);
+		mFeatures = featureExtraction.getFrequentFeature(0.02);
+		for (String nouns : mFeatures) {
+			System.out.println(nouns);
 		}
-		return commentsTagged;
 	}
 
-	public static Opinion getOpinionOfComment(String comment) {
-		int resultOpinion = 0;
-		List<WordTag> wordTags = mVnTagger.tagText2(comment);
-		for (WordTag wordTag : wordTags) {
-			if ("A".equals(wordTag.tag())) {
-				Opinion opinion = mWordNetAPI.getOpinion(wordTag.word());
-				if (Opinion.NEGATIVE.equals(opinion)) {
-					resultOpinion--;
-				}
-				if (Opinion.POSITIVE.equals(opinion)) {
-					resultOpinion++;
-				}
+	private void opinionReviewsExtraction() {
+		for (int i = 0; i < mReviewsTagged.size(); i++) {
+			List<WordTag> reviewTagged = mReviewsTagged.get(i);
+			if (checkOpinionReview(reviewTagged)) {
+				mOpinionReviews.put(reviewTagged, i);
 			}
 		}
+	}
+
+	private boolean checkOpinionReview(List<WordTag> reviewTagged) {
+		boolean hasAdjective = false;
+		boolean hasFeature = false;
+		for (WordTag wordTag : reviewTagged) {
+			if ("A".equals(wordTag.tag())) {
+				hasAdjective = true;
+			} else if (mFeatures.contains(wordTag.word())) {
+				hasFeature = true;
+			}
+		}
+		if (hasAdjective && hasFeature) {
+			return true;
+		}
+		return false;
+	}
+
+	private void showOpinionReviews() {
+		for (List<WordTag> reviewTagged : mOpinionReviews.keySet()) {
+			String review = mReviews.get(mOpinionReviews.get(reviewTagged));
+			System.out.println(review);
+		}
+		System.out.println("Total: " + mOpinionReviews.keySet().size());
+	}
+
+	public Opinion getOpinionOfComment(String comment) {
+		int resultOpinion = 0;
+		// List<WordTag> wordTags = mVnTagger.tagText2(comment);
+		// for (WordTag wordTag : wordTags) {
+		// if ("A".equals(wordTag.tag())) {
+		// Opinion opinion = mWordNetAPI.getOpinion(wordTag.word());
+		// if (Opinion.NEGATIVE.equals(opinion)) {
+		// resultOpinion--;
+		// }
+		// if (Opinion.POSITIVE.equals(opinion)) {
+		// resultOpinion++;
+		// }
+		// }
+		// }
 		if (resultOpinion < 0) {
 			return Opinion.NEGATIVE;
 		}
@@ -76,11 +115,8 @@ public class RunApplication {
 		return Opinion.NEUTRAL;
 	}
 
-	public static List<String> getTopNoun(List<List<WordTag>> commentsTagged, float percent) {
-		for (int i = 0; i < commentsTagged.size(); i++) {
-			List<WordTag> wordTags = commentsTagged.get(i);
-
-		}
-		return null;
+	private void taggingToFile() {
+		ReviewsPOSTagging.writeFileTagged("Zalo");
 	}
+
 }

@@ -9,14 +9,14 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class WPStoreComments implements GetComments {
+public class WPStoreReviews implements GetReviews {
 
 	private static final String RESOURCE_URL_ZALO = "http://www.windowsphone.com/vi-vn/store/app/zalo/ca5b631e-1cb9-4e39-b03e-9499443afe73";
 	private static final String CLASS_COMMENTS = "reviewText";
 	private static final String ID_PAGE_NEXT = "moreReviews";
 
 	@Override
-	public List<String> getComments(String appName) {
+	public List<String> getReviews(String appName) {
 		List<String> comments = new LinkedList<String>();
 		String url = RESOURCE_URL_ZALO;
 		System.out.println("Getting comments of app: " + appName + " ...");
