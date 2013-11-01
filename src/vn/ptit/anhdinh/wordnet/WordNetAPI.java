@@ -1,10 +1,7 @@
 package vn.ptit.anhdinh.wordnet;
 
 import vn.ptit.anhdinh.wordnet.model.Cluster;
-import vn.ptit.anhdinh.wordnet.model.Opinion;
-import vn.ptit.anhdinh.wordnet.model.POS;
 import vn.ptit.anhdinh.wordnet.model.Synset;
-import vn.ptit.anhdinh.wordnet.model.Word;
 import vn.ptit.anhdinh.wordnet.neo4j.Neo4JConnectionPool;
 import vn.ptit.anhdinh.wordnet.neo4j.WordNetDAO;
 
@@ -31,10 +28,6 @@ public class WordNetAPI {
 			return cluster;
 		}
 		return null;
-	}
-
-	public Opinion getOpinion(String adjective) {
-		return mWordNetDAO.getOpinion(new Word(adjective, POS.ADJECTIVE, ""));
 	}
 
 	public void shutDown() {

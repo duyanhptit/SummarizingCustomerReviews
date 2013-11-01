@@ -110,7 +110,7 @@ public class BuildWordNetUtils {
 			String defination = definations.isEmpty() ? "" : definations.get(0);
 			return new Word(lemma, POS.ADJECTIVE, defination);
 		}
-		return null;
+		return new Word(lemma, POS.ADJECTIVE, "");
 	}
 
 	private static boolean checkValidWord(String lemma) {

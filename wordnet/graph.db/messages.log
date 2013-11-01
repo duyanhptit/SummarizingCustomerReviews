@@ -1,0 +1,752 @@
+2013-11-01 12:18:36.064+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics START ---
+2013-11-01 12:18:36.095+0000 INFO  [org.neo4j]: Neo4j Kernel properties:
+    neostore.propertystore.db.mapped_memory=26M
+    neostore.nodestore.db.mapped_memory=7M
+    neostore.relationshipstore.db.mapped_memory=32M
+    neostore.propertystore.db.strings.mapped_memory=22M
+    store_dir=wordnet/graph.db
+    neostore.propertystore.db.arrays.mapped_memory=26M
+    ephemeral=false
+2013-11-01 12:18:36.095+0000 INFO  [org.neo4j]: Diagnostics providers:
+    org.neo4j.kernel.configuration.Config
+    org.neo4j.kernel.info.DiagnosticsManager
+    SYSTEM_MEMORY
+    JAVA_MEMORY
+    OPERATING_SYSTEM
+    JAVA_VIRTUAL_MACHINE
+    CLASSPATH
+    LIBRARY_PATH
+    SYSTEM_PROPERTIES
+    NETWORK
+    NodeCache
+    RelationshipCache
+2013-11-01 12:18:36.095+0000 INFO  [org.neo4j]: System memory information:
+    Total Physical memory: 1,91 GB
+    Free Physical memory: 920,33 MB
+    Committed virtual memory: 110,18 MB
+    Total swap space: 4,15 GB
+    Free swap space: 2,28 GB
+2013-11-01 12:18:36.111+0000 INFO  [org.neo4j]: JVM memory information:
+    Free  memory: 19,52 MB
+    Total memory: 28,00 MB
+    Max   memory: 435,50 MB
+    Garbage Collector: PS Scavenge: [PS Eden Space, PS Survivor Space]
+    Garbage Collector: PS MarkSweep: [PS Eden Space, PS Survivor Space, PS Old Gen, PS Perm Gen]
+    Memory Pool: Code Cache (Non-heap memory): committed=2,44 MB, used=2,23 MB, max=48,00 MB, threshold=0,00 B
+    Memory Pool: PS Eden Space (Heap memory): committed=8,50 MB, used=1,37 MB, max=161,50 MB, threshold=?
+    Memory Pool: PS Survivor Space (Heap memory): committed=1,00 MB, used=0,00 B, max=1,00 MB, threshold=?
+    Memory Pool: PS Old Gen (Heap memory): committed=18,50 MB, used=7,11 MB, max=326,50 MB, threshold=0,00 B
+    Memory Pool: PS Perm Gen (Non-heap memory): committed=21,00 MB, used=9,49 MB, max=82,00 MB, threshold=0,00 B
+2013-11-01 12:18:36.111+0000 INFO  [org.neo4j]: Operating system information:
+    Operating System: Windows 7; version: 6.1; arch: amd64; cpus: 4
+    Process id: 7368@tuan-PC
+    Byte order: LITTLE_ENDIAN
+    Local timezone: Asia/Bangkok
+2013-11-01 12:18:36.127+0000 INFO  [org.neo4j]: JVM information:
+    VM Name: Java HotSpot(TM) 64-Bit Server VM
+    VM Vendor: Oracle Corporation
+    VM Version: 24.0-b56
+    JIT compiler: HotSpot 64-Bit Tiered Compilers
+    VM Arguments: [-Dfile.encoding=UTF-8]
+2013-11-01 12:18:36.127+0000 INFO  [org.neo4j]: Java classpath:
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/scala-library-2.10.0.jar
+     [bootstrap] C:\Program Files\Java\jre7\lib\resources.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-vnTagger/edu.stanford.nlp.tagger-2.0.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-lucene-index-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\scala-library-2.10.0.jar
+     [loader.1] file:/C:/Program%20Files/Java/jre7/lib/ext/zipfs.jar
+     [loader.1] file:/C:/Program%20Files/Java/jre7/lib/ext/jaccess.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-consistency-check-1.9.4.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-graph-algo-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-kernel-1.9.4.jar
+     [bootstrap] C:\Program Files\Java\jre7\lib\jsse.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib\junit-4.10.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/bin/
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/geronimo-jta_1.1_spec-1.1.1.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-shell-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-cluster-1.9.4.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-vnTagger/vn.hus.nlp.tokenizer-4.1.1.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-com-1.9.4.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-cluster-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\org.apache.servicemix.bundles.jline-0.9.94_1.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-ha-1.9.4.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/slf4j-api-1.6.2.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-vnTagger/vn.hus.nlp.fsm-1.0.0.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\concurrentlinkedhashmap-lru-1.3.1.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-vnTagger/vn.hus.nlp.utils-1.0.0.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/netty-3.6.3.Final.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib/jsoup-1.7.2.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-management-1.9.4.jar
+     [bootstrap] C:\Program Files\Java\jre7\lib\jce.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/org.apache.servicemix.bundles.jline-0.9.94_1.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-udc-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-vnTagger\vn.hus.nlp.utils-1.0.0.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-lucene-index-1.9.4.jar
+     [bootstrap] C:\Program Files\Java\jre7\lib\sunrsasign.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-vnTagger\vn.hus.nlp.fsm-1.0.0.jar
+     [loader.1] file:/C:/Program%20Files/Java/jre7/lib/ext/dnsns.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-cypher-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-vnTagger\vn.hus.nlp.tokenizer-4.1.1.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-shell-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-graph-algo-1.9.4.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-backup-1.9.4.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib/json-simple-1.1.1.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-consistency-check-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\lucene-core-3.6.2.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\server-api-1.9.4.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-graph-matching-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\windows-service-wrapper-5.jar
+     [bootstrap] C:\Program Files\Java\jre7\classes
+     [bootstrap] C:\Program Files\Java\jre7\lib\jfr.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib\jsoup-1.7.2.jar
+     [loader.1] file:/C:/Program%20Files/Java/jre7/lib/ext/sunmscapi.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-vnTagger\commons-cli-1.2.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-jmx-1.9.4.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/windows-service-wrapper-5.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-vnTagger\edu.stanford.nlp.tagger-2.0.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/concurrentlinkedhashmap-lru-1.3.1.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/server-api-1.9.4.jar
+     [bootstrap] C:\Program Files\Java\jre7\lib\rt.jar
+     [loader.1] file:/C:/Program%20Files/Java/jre7/lib/ext/access-bridge-64.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib/junit-4.10.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\bin
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/lucene-core-3.6.2.jar
+     [bootstrap] C:\Program Files\Java\jre7\lib\charsets.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\slf4j-api-1.6.2.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-cypher-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-jmx-1.9.4.jar
+     [loader.1] file:/C:/Program%20Files/Java/jre7/lib/ext/localedata.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-graph-matching-1.9.4.jar
+     [loader.1] file:/C:/Program%20Files/Java/jre7/lib/ext/sunjce_provider.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-com-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib\json-simple-1.1.1.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-vnTagger/commons-cli-1.2.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-udc-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-ha-1.9.4.jar
+     [loader.0] file:/C:/Users/Anh%20Dinh/git/SummarizingCustomerReviews/lib-neo4j/neo4j-kernel-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-management-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\netty-3.6.3.Final.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\neo4j-backup-1.9.4.jar
+     [classpath] C:\Users\Anh Dinh\git\SummarizingCustomerReviews\lib-neo4j\geronimo-jta_1.1_spec-1.1.1.jar
+     [loader.1] file:/C:/Program%20Files/Java/jre7/lib/ext/sunec.jar
+2013-11-01 12:18:36.142+0000 INFO  [org.neo4j]: Library path:
+    C:\Program Files\Java\jre7\bin
+    C:\Windows\Sun\Java\bin
+    C:\Windows\System32
+    C:\Windows
+    C:\Windows\System32
+    C:\Windows
+    C:\Windows\System32\wbem
+    C:\Windows\System32\WindowsPowerShell\v1.0
+    C:\Program Files\Java\jdk1.7.0_40\bin
+    C:\Users\Anh Dinh\git\SummarizingCustomerReviews
+2013-11-01 12:18:36.142+0000 INFO  [org.neo4j]: System.properties:
+    sun.boot.library.path = C:\Program Files\Java\jre7\bin
+    user.country.format = VN
+    path.separator = ;
+    file.encoding.pkg = sun.io
+    user.country = US
+    user.script = 
+    sun.java.launcher = SUN_STANDARD
+    sun.os.patch.level = Service Pack 1
+    user.dir = C:\Users\Anh Dinh\git\SummarizingCustomerReviews
+    user.variant = 
+    sun.jnu.encoding = Cp1258
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    user.home = C:\Users\Anh Dinh
+    user.timezone = Asia/Bangkok
+    file.encoding = UTF-8
+    user.name = Anh Dinh
+    sun.java.command = vn.ptit.anhdinh.wordnet.BuildWordNet
+    sun.arch.data.model = 64
+    user.language = en
+    user.language.format = vi
+    awt.toolkit = sun.awt.windows.WToolkit
+    file.separator = \
+    sun.io.unicode.encoding = UnicodeLittle
+    sun.cpu.endian = little
+    sun.desktop = windows
+    sun.cpu.isalist = amd64
+2013-11-01 12:18:36.142+0000 INFO  [org.neo4j]: Network information:
+    Interface Software Loopback Interface 1:
+        address: 127.0.0.1
+        address: 0:0:0:0:0:0:0:1
+    Interface WAN Miniport (SSTP):
+    Interface WAN Miniport (L2TP):
+    Interface WAN Miniport (PPTP):
+    Interface WAN Miniport (PPPOE):
+    Interface WAN Miniport (IPv6):
+    Interface WAN Miniport (Network Monitor):
+    Interface WAN Miniport (IP):
+    Interface RAS Async Adapter:
+    Interface WAN Miniport (IKEv2):
+    Interface Realtek PCIe GBE Family Controller:
+        address: fe80:0:0:0:4973:dd0f:1ac1:3035%11
+    Interface Atheros AR9002WB-1NG Wireless Network Adapter:
+        address: 192.168.1.5
+        address: fe80:0:0:0:1033:6355:6004:4bfe%12
+    Interface Bluetooth Device (RFCOMM Protocol TDI):
+    Interface Bluetooth Device (Personal Area Network):
+    Interface Apple Mobile Device Ethernet:
+    Interface Microsoft Virtual WiFi Miniport Adapter:
+        address: fe80:0:0:0:f8ae:5c9e:a29f:857c%16
+    Interface avast! Firewall NDIS Filter Miniport:
+    Interface Apple Mobile Device Ethernet #2:
+    Interface Atheros AR9002WB-1NG Wireless Network Adapter-Connectify LightWeight Filter-0000:
+    Interface Atheros AR9002WB-1NG Wireless Network Adapter-QoS Packet Scheduler-0000:
+    Interface Atheros AR9002WB-1NG Wireless Network Adapter-Virtual WiFi Filter Driver-0000:
+    Interface Realtek PCIe GBE Family Controller-Connectify LightWeight Filter-0000:
+    Interface Realtek PCIe GBE Family Controller-QoS Packet Scheduler-0000:
+    Interface Realtek PCIe GBE Family Controller-WFP LightWeight Filter-0000:
+    Interface WAN Miniport (Network Monitor)-Connectify LightWeight Filter-0000:
+    Interface WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000:
+    Interface WAN Miniport (IP)-Connectify LightWeight Filter-0000:
+    Interface WAN Miniport (IP)-QoS Packet Scheduler-0000:
+    Interface WAN Miniport (IPv6)-Connectify LightWeight Filter-0000:
+    Interface WAN Miniport (IPv6)-QoS Packet Scheduler-0000:
+    Interface Atheros AR9002WB-1NG Wireless Network Adapter-Native WiFi Filter Driver-0000:
+    Interface Atheros AR9002WB-1NG Wireless Network Adapter-WFP LightWeight Filter-0000:
+    Interface Microsoft Virtual WiFi Miniport Adapter-Native WiFi Filter Driver-0000:
+    Interface Microsoft Virtual WiFi Miniport Adapter-Connectify LightWeight Filter-0000:
+    Interface Microsoft Virtual WiFi Miniport Adapter-QoS Packet Scheduler-0000:
+    Interface Microsoft Virtual WiFi Miniport Adapter-WFP LightWeight Filter-0000:
+2013-11-01 12:18:36.251+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics END ---
+2013-11-01 12:18:36.454+0000 INFO  [org.neo4j]: Creating new db @ wordnet\graph.db\neostore
+2013-11-01 12:18:36.501+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.nodestore.db] brickCount=0 brickSize=73395b mappedMem=7340032b (storeSize=0b)
+2013-11-01 12:18:36.532+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.nodestore.db hit=1 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.641+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.relationshiptypestore.db.names] brickCount=0 brickSize=0b mappedMem=0b (storeSize=38b)
+2013-11-01 12:18:36.641+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.relationshiptypestore.db] brickCount=0 brickSize=0b mappedMem=0b (storeSize=0b)
+2013-11-01 12:18:36.641+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.relationshiptypestore.db.names hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.657+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.relationshiptypestore.db hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.657+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.relationshiptypestore.db.names] brickCount=0 brickSize=0b mappedMem=0b (storeSize=38b)
+2013-11-01 12:18:36.657+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.relationshiptypestore.db] brickCount=0 brickSize=0b mappedMem=0b (storeSize=0b)
+2013-11-01 12:18:36.657+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db.strings] brickCount=0 brickSize=23040b mappedMem=23068672b (storeSize=128b)
+2013-11-01 12:18:36.657+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db.index.keys] brickCount=0 brickSize=0b mappedMem=0b (storeSize=38b)
+2013-11-01 12:18:36.657+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db.index] brickCount=0 brickSize=0b mappedMem=0b (storeSize=0b)
+2013-11-01 12:18:36.657+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db.arrays] brickCount=0 brickSize=27136b mappedMem=27262976b (storeSize=128b)
+2013-11-01 12:18:36.673+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db] brickCount=0 brickSize=272609b mappedMem=27262976b (storeSize=0b)
+2013-11-01 12:18:36.673+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.relationshipstore.db] brickCount=0 brickSize=335544b mappedMem=33554432b (storeSize=0b)
+2013-11-01 12:18:36.673+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.nodestore.db] brickCount=0 brickSize=7335b mappedMem=7340032b (storeSize=9b)
+2013-11-01 12:18:36.673+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore] brickCount=0 brickSize=0b mappedMem=0b (storeSize=0b)
+2013-11-01 12:18:36.673+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.relationshiptypestore.db.names hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.688+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.relationshiptypestore.db hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.688+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db.strings hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.688+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db.index.keys hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.704+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db.index hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.704+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db.arrays hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.704+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.719+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.relationshipstore.db hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.719+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.nodestore.db hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:36.719+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore hit=0 miss=8 switches=0 ooe=0
+2013-11-01 12:18:36.735+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.relationshiptypestore.db.names] brickCount=0 brickSize=0b mappedMem=0b (storeSize=38b)
+2013-11-01 12:18:36.735+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.relationshiptypestore.db] brickCount=0 brickSize=0b mappedMem=0b (storeSize=0b)
+2013-11-01 12:18:36.735+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db.strings] brickCount=0 brickSize=23040b mappedMem=23068672b (storeSize=128b)
+2013-11-01 12:18:36.735+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db.index.keys] brickCount=0 brickSize=0b mappedMem=0b (storeSize=38b)
+2013-11-01 12:18:36.735+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db.index] brickCount=0 brickSize=0b mappedMem=0b (storeSize=0b)
+2013-11-01 12:18:36.735+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db.arrays] brickCount=0 brickSize=27136b mappedMem=27262976b (storeSize=128b)
+2013-11-01 12:18:36.735+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.propertystore.db] brickCount=0 brickSize=272609b mappedMem=27262976b (storeSize=0b)
+2013-11-01 12:18:36.735+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.relationshipstore.db] brickCount=0 brickSize=335544b mappedMem=33554432b (storeSize=0b)
+2013-11-01 12:18:36.751+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore.nodestore.db] brickCount=0 brickSize=7335b mappedMem=7340032b (storeSize=9b)
+2013-11-01 12:18:36.751+0000 INFO  [org.neo4j]: [wordnet\graph.db\neostore] brickCount=0 brickSize=0b mappedMem=0b (storeSize=54b)
+2013-11-01 12:18:36.766+0000 INFO  [org.neo4j]: Opened logical log [wordnet\graph.db\nioneo_logical.log.1] version=0, lastTxId=1 (clean)
+2013-11-01 12:18:36.766+0000 INFO  [org.neo4j]: TM new log: tm_tx_log.1
+2013-11-01 12:18:37.000+0000 INFO  [org.neo4j]: BackupServer communication server started and bound to /0.0.0.0:6362
+2013-11-01 12:18:37.031+0000 INFO  [org.neo4j]: Opened logical log [wordnet\graph.db\index\lucene.log.1] version=0, lastTxId=1 (clean)
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions START ---
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: Graph Database: org.neo4j.kernel.EmbeddedGraphDatabase StoreId[time:1383308316470, id:-2391473050381063431, store version: 13561656364791302]
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: Kernel version: Neo4j - Graph Database Kernel 1.9.4
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: Neo4j component versions:
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]:   Neo4j - Graph Database Kernel 1.9.4
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions END ---
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS START ---
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: Store versions:
+    Store versions:
+      NeoStore v0.A.0
+      NodeStore v0.A.0
+      RelationshipStore v0.A.0
+      RelationshipTypeStore v0.A.0
+      PropertyStore v0.A.0
+      PropertyIndexStore v0.A.0
+      StringPropertyStore v0.A.0
+      ArrayPropertyStore v0.A.0
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS END ---
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE START ---
+2013-11-01 12:18:37.047+0000 INFO  [org.neo4j]: Id usage:
+    Id usage:
+      NodeStore: used=1 high=0
+      RelationshipStore: used=0 high=-1
+      RelationshipTypeStore: used=0 high=-1
+      PropertyStore: used=0 high=-1
+      PropertyIndexStore: used=0 high=-1
+      StringPropertyStore: used=1 high=0
+      ArrayPropertyStore: used=1 high=0
+2013-11-01 12:18:37.063+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE END ---
+2013-11-01 12:18:37.063+0000 INFO  [org.neo4j]: --- STARTED diagnostics for PERSISTENCE_WINDOW_POOL_STATS START ---
+2013-11-01 12:18:37.063+0000 INFO  [org.neo4j]: --- STARTED diagnostics for PERSISTENCE_WINDOW_POOL_STATS END ---
+2013-11-01 12:18:37.063+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles START ---
+2013-11-01 12:18:37.063+0000 INFO  [org.neo4j]: Disk space on partition (Total / Free / Free %): 80570478592 / 30948478976 / 38
+Storage files: (filename : modification date - size)
+      active_tx_log: 2013-11-01T19:18:36+0700 - 11,00 B
+      index:
+        lucene-store.db: 2013-11-01T19:18:37+0700 - 40,00 B
+        lucene.log.1: 2013-11-01T19:18:37+0700 - 16,00 B
+        lucene.log.active: 2013-11-01T19:18:37+0700 - 4,00 B
+      - Total: 2013-11-01T19:18:37+0700 - 60,00 B
+      lock: 2013-11-01T19:18:36+0700 - 0,00 B
+      messages.log: 2013-11-01T19:18:35+0700 - 21,34 kB
+      neostore: 2013-11-01T19:18:36+0700 - 54,00 B
+      neostore.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.nodestore.db: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.nodestore.db.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.propertystore.db: 2013-11-01T19:18:36+0700 - 0,00 B
+      neostore.propertystore.db.arrays: 2013-11-01T19:18:36+0700 - 128,00 B
+      neostore.propertystore.db.arrays.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.propertystore.db.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.propertystore.db.index: 2013-11-01T19:18:36+0700 - 0,00 B
+      neostore.propertystore.db.index.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.propertystore.db.index.keys: 2013-11-01T19:18:36+0700 - 38,00 B
+      neostore.propertystore.db.index.keys.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.propertystore.db.strings: 2013-11-01T19:18:36+0700 - 128,00 B
+      neostore.propertystore.db.strings.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.relationshipstore.db: 2013-11-01T19:18:36+0700 - 0,00 B
+      neostore.relationshipstore.db.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.relationshiptypestore.db: 2013-11-01T19:18:36+0700 - 0,00 B
+      neostore.relationshiptypestore.db.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      neostore.relationshiptypestore.db.names: 2013-11-01T19:18:36+0700 - 38,00 B
+      neostore.relationshiptypestore.db.names.id: 2013-11-01T19:18:36+0700 - 9,00 B
+      nioneo_logical.log.1: 2013-11-01T19:18:36+0700 - 16,00 B
+      nioneo_logical.log.active: 2013-11-01T19:18:36+0700 - 4,00 B
+      store_lock: 2013-11-01T19:18:36+0700 - 0,00 B
+      tm_tx_log.1: 2013-11-01T19:18:36+0700 - 0,00 B
+2013-11-01 12:18:37.078+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles END ---
+2013-11-01 12:18:37.078+0000 INFO  [org.neo4j]: Started - database is now available
+2013-11-01 12:18:37.078+0000 INFO  [org.neo4j]: GC Monitor started. 
+2013-11-01 12:18:38.609+0000 INFO  [org.neo4j]: Shutdown started
+2013-11-01 12:18:38.609+0000 INFO  [org.neo4j]: Stopping - database is now unavailable
+2013-11-01 12:18:38.609+0000 INFO  [org.neo4j]: GC Monitor stopped. 
+2013-11-01 12:18:38.609+0000 INFO  [org.neo4j]: Close invoked with 1 running transaction(s). 
+2013-11-01 12:18:38.625+0000 INFO  [org.neo4j]: Dirty log: wordnet\graph.db\index\lucene.log.1 now closed. Recovery will be started automatically next time it is opened.
+2013-11-01 12:18:38.718+0000 INFO  [org.neo4j]: TM shutting down
+2013-11-01 12:18:38.718+0000 INFO  [org.neo4j]: Close invoked with 1 running transaction(s). 
+2013-11-01 12:18:38.718+0000 INFO  [org.neo4j]: Dirty log: wordnet\graph.db\nioneo_logical.log.1 now closed. Recovery will be started automatically next time it is opened.
+2013-11-01 12:18:38.749+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.relationshiptypestore.db.names hit=0 miss=3 switches=0 ooe=0
+2013-11-01 12:18:38.859+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.relationshiptypestore.db hit=0 miss=3 switches=0 ooe=0
+2013-11-01 12:18:38.953+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db.strings hit=22 miss=0 switches=0 ooe=0
+2013-11-01 12:18:39.000+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db.index.keys hit=0 miss=5 switches=0 ooe=0
+2013-11-01 12:18:39.016+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db.index hit=0 miss=5 switches=0 ooe=0
+2013-11-01 12:18:39.016+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db.arrays hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:18:39.031+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.propertystore.db hit=73 miss=0 switches=0 ooe=0
+2013-11-01 12:18:39.031+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.relationshipstore.db hit=60 miss=0 switches=0 ooe=0
+2013-11-01 12:18:39.031+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore.nodestore.db hit=60 miss=0 switches=0 ooe=0
+2013-11-01 12:18:39.047+0000 INFO  [org.neo4j]: wordnet\graph.db\neostore hit=0 miss=24 switches=0 ooe=0
+2013-11-01 12:18:39.047+0000 INFO  [org.neo4j]: NeoStore closed
+2013-11-01 12:18:39.047+0000 INFO  [org.neo4j]: --- STOPPING diagnostics START ---
+2013-11-01 12:18:39.047+0000 INFO  [org.neo4j]: --- STOPPING diagnostics END ---
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics START ---
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: Neo4j Kernel properties:
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: neostore.propertystore.db.mapped_memory=26M
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: neostore.nodestore.db.mapped_memory=7M
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: allow_store_upgrade=true
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: neostore.relationshipstore.db.mapped_memory=32M
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: neostore.propertystore.db.strings.mapped_memory=22M
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: store_dir=C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: neostore.propertystore.db.arrays.mapped_memory=26M
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: Diagnostics providers:
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.configuration.Config
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.info.DiagnosticsManager
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_MEMORY
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_MEMORY
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: OPERATING_SYSTEM
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_VIRTUAL_MACHINE
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: CLASSPATH
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: LIBRARY_PATH
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_PROPERTIES
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: NETWORK
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: System memory information:
+2013-11-01 12:50:05.878+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total Physical memory: 1,91 GB
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free Physical memory: 703,07 MB
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Committed virtual memory: 190,91 MB
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total swap space: 4,15 GB
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free swap space: 2,06 GB
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM memory information:
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free  memory: 47,16 MB
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total memory: 69,00 MB
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max   memory: 435,50 MB
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: PS Scavenge: [PS Eden Space, PS Survivor Space]
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: PS MarkSweep: [PS Eden Space, PS Survivor Space, PS Old Gen, PS Perm Gen]
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Code Cache (Non-heap memory): committed=2,44 MB, used=1,26 MB, max=48,00 MB, threshold=0,00 B
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: PS Eden Space (Heap memory): committed=30,00 MB, used=3,44 MB, max=152,00 MB, threshold=?
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: PS Survivor Space (Heap memory): committed=4,50 MB, used=4,48 MB, max=4,50 MB, threshold=?
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: PS Old Gen (Heap memory): committed=34,50 MB, used=13,91 MB, max=326,50 MB, threshold=0,00 B
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: PS Perm Gen (Non-heap memory): committed=41,50 MB, used=32,00 MB, max=82,00 MB, threshold=0,00 B
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating system information:
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating System: Windows 7; version: 6.1; arch: amd64; cpus: 4
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Process id: 1176@tuan-PC
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Byte order: LITTLE_ENDIAN
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Local timezone: Asia/Bangkok
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM information:
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Name: Java HotSpot(TM) 64-Bit Server VM
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Vendor: Oracle Corporation
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Version: 24.0-b56
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: JIT compiler: HotSpot 64-Bit Tiered Compilers
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Arguments: []
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Java classpath:
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [bootstrap] C:\Program Files\Java\jre7\lib\jsse.jar
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [bootstrap] C:\Program Files\Java\jre7\lib\resources.jar
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [bootstrap] C:\Program Files\Java\jre7\lib\jce.jar
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [bootstrap] C:\Program Files\Java\jre7\lib\rt.jar
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] C:\neoclipse-1.9.1-win32.win32.x86_64\plugins\org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [bootstrap] C:\Program Files\Java\jre7\classes
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [bootstrap] C:\Program Files\Java\jre7\lib\sunrsasign.jar
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [bootstrap] C:\Program Files\Java\jre7\lib\jfr.jar
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [bootstrap] C:\Program Files\Java\jre7\lib\charsets.jar
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: Library path:
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\Windows\System32
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\Windows\Sun\Java\bin
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\Windows\System32
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\Windows
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\Windows\System32
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\Windows
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\Windows\System32\wbem
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\Windows\System32\WindowsPowerShell\v1.0
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\Program Files\Java\jdk1.7.0_40\bin
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: C:\neoclipse-1.9.1-win32.win32.x86_64
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: System.properties:
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.bundles.defaultStartLevel = 4
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.launcher = SUN_STANDARD
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.supports.framework.extension = true
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.country.format = VN
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.ws = win32
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.desktop = windows
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.instance.area = file:/C:/neoclipse-1.9.1-win32.win32.x86_64/neoclipse-workspace/
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.uuid = e0371c19-f442-0013-1e61-8cfa3da958ce
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.name = Anh Dinh
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.language.format = vi
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.system.packages = javax.accessibility,javax.activation,javax.activity,javax.annotation,javax.annotation.processing,javax.crypto,javax.crypto.interfaces,javax.crypto.spec,javax.imageio,javax.imageio.event,javax.imageio.metadata,javax.imageio.plugins.bmp,javax.imageio.plugins.jpeg,javax.imageio.spi,javax.imageio.stream,javax.jws,javax.jws.soap,javax.lang.model,javax.lang.model.element,javax.lang.model.type,javax.lang.model.util,javax.management,javax.management.loading,javax.management.modelmbean,javax.management.monitor,javax.management.openmbean,javax.management.relation,javax.management.remote,javax.management.remote.rmi,javax.management.timer,javax.naming,javax.naming.directory,javax.naming.event,javax.naming.ldap,javax.naming.spi,javax.net,javax.net.ssl,javax.print,javax.print.attribute,javax.print.attribute.standard,javax.print.event,javax.rmi,javax.rmi.CORBA,javax.rmi.ssl,javax.script,javax.security.auth,javax.security.auth.callback,javax.security.auth.kerberos,javax.security.auth.login,javax.security.auth.spi,javax.security.auth.x500,javax.security.cert,javax.security.sasl,javax.sound.midi,javax.sound.midi.spi,javax.sound.sampled,javax.sound.sampled.spi,javax.sql,javax.sql.rowset,javax.sql.rowset.serial,javax.sql.rowset.spi,javax.swing,javax.swing.border,javax.swing.colorchooser,javax.swing.event,javax.swing.filechooser,javax.swing.plaf,javax.swing.plaf.basic,javax.swing.plaf.metal,javax.swing.plaf.multi,javax.swing.plaf.nimbus,javax.swing.plaf.synth,javax.swing.table,javax.swing.text,javax.swing.text.html,javax.swing.text.html.parser,javax.swing.text.rtf,javax.swing.tree,javax.swing.undo,javax.tools,javax.transaction,javax.transaction.xa,javax.xml,javax.xml.bind,javax.xml.bind.annotation,javax.xml.bind.annotation.adapters,javax.xml.bind.attachment,javax.xml.bind.helpers,javax.xml.bind.util,javax.xml.crypto,javax.xml.crypto.dom,javax.xml.crypto.dsig,javax.xml.crypto.dsig.dom,javax.xml.crypto.dsig.keyinfo,javax.xml.crypto.dsig.spec,javax.xml.datatype,javax.xml.namespace,javax.xml.parsers,javax.xml.soap,javax.xml.stream,javax.xml.stream.events,javax.xml.stream.util,javax.xml.transform,javax.xml.transform.dom,javax.xml.transform.sax,javax.xml.transform.stax,javax.xml.transform.stream,javax.xml.validation,javax.xml.ws,javax.xml.ws.handler,javax.xml.ws.handler.soap,javax.xml.ws.http,javax.xml.ws.soap,javax.xml.ws.spi,javax.xml.ws.spi.http,javax.xml.ws.wsaddressing,javax.xml.xpath,org.ietf.jgss,org.omg.CORBA,org.omg.CORBA_2_3,org.omg.CORBA_2_3.portable,org.omg.CORBA.DynAnyPackage,org.omg.CORBA.ORBPackage,org.omg.CORBA.portable,org.omg.CORBA.TypeCodePackage,org.omg.CosNaming,org.omg.CosNaming.NamingContextExtPackage,org.omg.CosNaming.NamingContextPackage,org.omg.Dynamic,org.omg.DynamicAny,org.omg.DynamicAny.DynAnyFactoryPackage,org.omg.DynamicAny.DynAnyPackage,org.omg.IOP,org.omg.IOP.CodecFactoryPackage,org.omg.IOP.CodecPackage,org.omg.Messaging,org.omg.PortableInterceptor,org.omg.PortableInterceptor.ORBInitInfoPackage,org.omg.PortableServer,org.omg.PortableServer.CurrentPackage,org.omg.PortableServer.POAManagerPackage,org.omg.PortableServer.POAPackage,org.omg.PortableServer.portable,org.omg.PortableServer.ServantLocatorPackage,org.omg.SendingContext,org.omg.stub.java.rmi,org.w3c.dom,org.w3c.dom.bootstrap,org.w3c.dom.css,org.w3c.dom.events,org.w3c.dom.html,org.w3c.dom.ls,org.w3c.dom.ranges,org.w3c.dom.stylesheets,org.w3c.dom.traversal,org.w3c.dom.views,org.w3c.dom.xpath,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers
+2013-11-01 12:50:05.893+0000 INFO  [o.n.k.i.DiagnosticsManager]: eclipse.launcher = C:\neoclipse-1.9.1-win32.win32.x86_64\neoclipse.exe
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: eclipse.launcher.name = Neoclipse
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.language = en
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.language = en
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.processor = x86-64
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.syspath = c:\neoclipse-1.9.1-win32.win32.x86_64\plugins
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.boot.library.path = C:\Program Files\Java\jre7\bin
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.system.capabilities = osgi.ee; osgi.ee="OSGi/Minimum"; version:List<Version>="1.0, 1.1, 1.2",osgi.ee; osgi.ee="JRE"; version:List<Version>="1.0, 1.1",osgi.ee; osgi.ee="JavaSE"; version:List<Version>="1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7"
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.manifest.cache = C:\neoclipse-1.9.1-win32.win32.x86_64\configuration\org.eclipse.osgi\manifests
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.os.name = Windows7
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.timezone = Asia/Bangkok
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.arch.data.model = 64
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.bundles = org.eclipse.equinox.common@2:start,org.eclipse.update.configurator@3:start,org.eclipse.core.runtime@start
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.tracefile = C:\neoclipse-1.9.1-win32.win32.x86_64\neoclipse-workspace\.metadata\trace.log
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.cpu.isalist = amd64
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.jnu.encoding = Cp1258
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: eclipse.application = org.neo4j.neoclipse.application
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.encoding.pkg = sun.io
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.vendor = Eclipse
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.separator = \
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.country = US
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.eclipse.equinox.launcher.splash.location = c:\neoclipse-1.9.1-win32.win32.x86_64\configuration\org.eclipse.equinox.launcher\org.neo4j.neoclipse_1.9.1\splash.bmp
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.os = win32
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: eclipse.commands = -os
+win32
+-ws
+win32
+-arch
+x86_64
+-showsplash
+-launcher
+C:\neoclipse-1.9.1-win32.win32.x86_64\neoclipse.exe
+-name
+Neoclipse
+--launcher.library
+C:\neoclipse-1.9.1-win32.win32.x86_64\plugins\org.eclipse.equinox.launcher.win32.win32.x86_64_1.1.200.v20120913-144807\eclipse_1503.dll
+-startup
+C:\neoclipse-1.9.1-win32.win32.x86_64\plugins\org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar
+--launcher.overrideVmargs
+-exitdata
+1d8c_64
+-data
+@noDefault
+-vm
+C:\Windows\system32\javaw.exe
+
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.splashLocation = c:\neoclipse-1.9.1-win32.win32.x86_64\configuration\org.eclipse.equinox.launcher\org.neo4j.neoclipse_1.9.1\splash.bmp
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.arch = x86_64
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: path.separator = ;
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.supports.framework.fragment = true
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.variant = 
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.framework.shape = jar
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.io.unicode.encoding = UnicodeLittle
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.version = 1.7.0
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: awt.toolkit = sun.awt.windows.WToolkit
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.script = 
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.install.area = file:/C:/neoclipse-1.9.1-win32.win32.x86_64/
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.framework = file:/c:/neoclipse-1.9.1-win32.win32.x86_64/plugins/org.eclipse.osgi_3.8.2.v20130124-134944.jar
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.home = C:\Users\Anh Dinh
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.bundlestore = C:\neoclipse-1.9.1-win32.win32.x86_64\configuration\org.eclipse.osgi\bundles
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.splashPath = platform:/base/plugins/org.neo4j.neoclipse
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.nl = en_US
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.os.version = 6.1.0
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: eclipse.startTime = 1383310190714
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.command = C:\neoclipse-1.9.1-win32.win32.x86_64\plugins\org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar -os win32 -ws win32 -arch x86_64 -showsplash -launcher C:\neoclipse-1.9.1-win32.win32.x86_64\neoclipse.exe -name Neoclipse --launcher.library C:\neoclipse-1.9.1-win32.win32.x86_64\plugins\org.eclipse.equinox.launcher.win32.win32.x86_64_1.1.200.v20120913-144807\eclipse_1503.dll -startup C:\neoclipse-1.9.1-win32.win32.x86_64\plugins\org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar --launcher.overrideVmargs -exitdata 1d8c_64 -data @noDefault -vm C:\Windows\system32\javaw.exe -vmargs -jar C:\neoclipse-1.9.1-win32.win32.x86_64\plugins\org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: eclipse.vm = C:\Windows\system32\javaw.exe
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.cpu.endian = little
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.os.patch.level = Service Pack 1
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: gosh.args = --nointeractive
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: eclipse.product = org.neo4j.neoclipse.neoclipseProduct
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: eclipse.home.location = file:/C:/neoclipse-1.9.1-win32.win32.x86_64/
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.dir = C:\neoclipse-1.9.1-win32.win32.x86_64
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.supports.framework.requirebundle = true
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.encoding = Cp1258
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.framework.version = 3.8.2.v20130124-134944
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: eclipse.vmargs = -jar
+C:\neoclipse-1.9.1-win32.win32.x86_64\plugins\org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar
+
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.osgi.framework.executionenvironment = OSGi/Minimum-1.0,OSGi/Minimum-1.1,OSGi/Minimum-1.2,JRE-1.1,J2SE-1.2,J2SE-1.3,J2SE-1.4,J2SE-1.5,JavaSE-1.6,JavaSE-1.7
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.logfile = C:\neoclipse-1.9.1-win32.win32.x86_64\neoclipse-workspace\.metadata\.log
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: osgi.configuration.area = file:/C:/neoclipse-1.9.1-win32.win32.x86_64/configuration/
+2013-11-01 12:50:05.909+0000 INFO  [o.n.k.i.DiagnosticsManager]: Network information:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Software Loopback Interface 1:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 127.0.0.1
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 0:0:0:0:0:0:0:1
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (SSTP):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (L2TP):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (PPTP):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (PPPOE):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (IPv6):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (Network Monitor):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (IP):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface RAS Async Adapter:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (IKEv2):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Realtek PCIe GBE Family Controller:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:4973:dd0f:1ac1:3035%11
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Atheros AR9002WB-1NG Wireless Network Adapter:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 192.168.1.5
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1033:6355:6004:4bfe%12
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Bluetooth Device (RFCOMM Protocol TDI):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Bluetooth Device (Personal Area Network):
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Apple Mobile Device Ethernet:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Microsoft Virtual WiFi Miniport Adapter:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:f8ae:5c9e:a29f:857c%16
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface avast! Firewall NDIS Filter Miniport:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Apple Mobile Device Ethernet #2:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Atheros AR9002WB-1NG Wireless Network Adapter-Connectify LightWeight Filter-0000:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Atheros AR9002WB-1NG Wireless Network Adapter-QoS Packet Scheduler-0000:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Atheros AR9002WB-1NG Wireless Network Adapter-Virtual WiFi Filter Driver-0000:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Realtek PCIe GBE Family Controller-Connectify LightWeight Filter-0000:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Realtek PCIe GBE Family Controller-QoS Packet Scheduler-0000:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Realtek PCIe GBE Family Controller-WFP LightWeight Filter-0000:
+2013-11-01 12:50:06.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (Network Monitor)-Connectify LightWeight Filter-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (IP)-Connectify LightWeight Filter-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (IP)-QoS Packet Scheduler-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (IPv6)-Connectify LightWeight Filter-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface WAN Miniport (IPv6)-QoS Packet Scheduler-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Atheros AR9002WB-1NG Wireless Network Adapter-Native WiFi Filter Driver-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Atheros AR9002WB-1NG Wireless Network Adapter-WFP LightWeight Filter-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Microsoft Virtual WiFi Miniport Adapter-Native WiFi Filter Driver-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Microsoft Virtual WiFi Miniport Adapter-Connectify LightWeight Filter-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Microsoft Virtual WiFi Miniport Adapter-QoS Packet Scheduler-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface Microsoft Virtual WiFi Miniport Adapter-WFP LightWeight Filter-0000:
+2013-11-01 12:50:06.034+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics END ---
+2013-11-01 12:50:06.143+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.relationshiptypestore.db.names] brickCount=0 brickSize=0b mappedMem=0b (storeSize=152b)
+2013-11-01 12:50:06.159+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.relationshiptypestore.db] brickCount=0 brickSize=0b mappedMem=0b (storeSize=15b)
+2013-11-01 12:50:06.159+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db.strings] brickCount=2 brickSize=23040b mappedMem=23068672b (storeSize=51968b)
+2013-11-01 12:50:06.159+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db.index.keys] brickCount=0 brickSize=0b mappedMem=0b (storeSize=228b)
+2013-11-01 12:50:06.159+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db.index] brickCount=0 brickSize=0b mappedMem=0b (storeSize=45b)
+2013-11-01 12:50:06.159+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db.arrays] brickCount=0 brickSize=27136b mappedMem=27262976b (storeSize=128b)
+2013-11-01 12:50:06.159+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db] brickCount=1 brickSize=27224b mappedMem=27262976b (storeSize=52726b)
+2013-11-01 12:50:06.174+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.relationshipstore.db] brickCount=0 brickSize=33528b mappedMem=33554432b (storeSize=24222b)
+2013-11-01 12:50:06.174+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.nodestore.db] brickCount=0 brickSize=7335b mappedMem=7340032b (storeSize=5841b)
+2013-11-01 12:50:06.174+0000 INFO  [o.n.k.i.n.s.StoreFactory]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore] brickCount=0 brickSize=0b mappedMem=0b (storeSize=54b)
+2013-11-01 12:50:06.190+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Non clean shutdown detected on log [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\nioneo_logical.log.1]. Recovery started ...
+2013-11-01 12:50:06.205+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\nioneo_logical.log.1] logVersion=0 with committed tx=1
+2013-11-01 12:50:06.268+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\nioneo_logical.log.1] entries found=211 lastEntryPos=14538
+2013-11-01 12:50:06.268+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Opened logical log [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\nioneo_logical.log.1] version=0, lastTxId=11 (recovered)
+2013-11-01 12:50:06.268+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: XaResourceManager[nioneo_logical.log] sorting 0 xids
+2013-11-01 12:50:06.268+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: XaResourceManager[nioneo_logical.log] checkRecoveryComplete 0 xids
+2013-11-01 12:50:06.283+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: XaResourceManager[nioneo_logical.log] recovery completed.
+2013-11-01 12:50:06.283+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Recovery on log [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\nioneo_logical.log.1] completed.
+2013-11-01 12:50:06.299+0000 INFO  [o.n.k.i.t.TxManager]: TM opening log: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\tm_tx_log.1
+2013-11-01 12:50:06.346+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Non clean shutdown detected on log [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\index\lucene.log.1]. Recovery started ...
+2013-11-01 12:50:06.346+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\index\lucene.log.1] logVersion=0 with committed tx=1
+2013-11-01 12:50:06.861+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\index\lucene.log.1] entries found=108 lastEntryPos=5232
+2013-11-01 12:50:06.861+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Opened logical log [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\index\lucene.log.1] version=0, lastTxId=11 (recovered)
+2013-11-01 12:50:06.861+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: XaResourceManager[lucene.log] sorting 0 xids
+2013-11-01 12:50:06.861+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: XaResourceManager[lucene.log] checkRecoveryComplete 0 xids
+2013-11-01 12:50:06.861+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: XaResourceManager[lucene.log] recovery completed.
+2013-11-01 12:50:06.861+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Recovery on log [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\index\lucene.log.1] completed.
+2013-11-01 12:50:06.861+0000 INFO  [o.n.k.i.t.TxManager]: Unresolved transactions found in C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\tm_tx_log.1, recovery started... 
+2013-11-01 12:50:06.939+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Rotating [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\index\lucene.log.1] @ version=0 to C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\index\lucene.log.2 from position 5232
+2013-11-01 12:50:06.939+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Rotate: old log scanned, newLog @ pos=16
+2013-11-01 12:50:06.954+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Log rotated, newLog @ pos=16, version 1 and last tx 11
+2013-11-01 12:50:06.954+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Rotating [C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\nioneo_logical.log.1] @ version=0 to C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\nioneo_logical.log.2 from position 14538
+2013-11-01 12:50:06.954+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Rotate: old log scanned, newLog @ pos=16
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Log rotated, newLog @ pos=16, version 1 and last tx 11
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.t.TxManager]: Recovery completed, all transactions have been resolved to a consistent state.
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for KernelDiagnostics:Versions START ---
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: Graph Database: org.neo4j.kernel.EmbeddedGraphDatabase StoreId[time:1383308316470, id:-2391473050381063431, store version: 13561656364791302]
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: Kernel version: Neo4j - Graph Database Kernel 1.9.1
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: Neo4j component versions:
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   Neo4j - Graph Database Kernel 1.9.1
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for KernelDiagnostics:Versions END ---
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for NEO_STORE_VERSIONS START ---
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: Store versions:
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: Store versions:
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   NeoStore v0.A.0
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   NodeStore v0.A.0
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   RelationshipStore v0.A.0
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   RelationshipTypeStore v0.A.0
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   PropertyStore v0.A.0
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   PropertyIndexStore v0.A.0
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   StringPropertyStore v0.A.0
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   ArrayPropertyStore v0.A.0
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for NEO_STORE_VERSIONS END ---
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for NEO_STORE_ID_USAGE START ---
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: Id usage:
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: Id usage:
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   NodeStore: used=649 high=648
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   RelationshipStore: used=734 high=733
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   RelationshipTypeStore: used=3 high=2
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   PropertyStore: used=1286 high=1285
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   PropertyIndexStore: used=5 high=4
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   StringPropertyStore: used=406 high=405
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   ArrayPropertyStore: used=1 high=0
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for NEO_STORE_ID_USAGE END ---
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for PERSISTENCE_WINDOW_POOL_STATS START ---
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for PERSISTENCE_WINDOW_POOL_STATS END ---
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles START ---
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]: Disk space on partition (Total / Free / Free %): 80570478592 / 30705745920 / 38
+Storage files: (filename : modification date - size)
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   active_tx_log: 2013-11-01T19:18:36+0700 - 11,00 B
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:   index:
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:     lucene:
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:       node:
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:         words:
+2013-11-01 12:50:06.970+0000 INFO  [o.n.k.i.DiagnosticsManager]:           segments.gen: 2013-11-01T19:50:06+0700 - 20,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           segments_2: 2013-11-01T19:50:06+0700 - 1,05 kB
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           write.lock: 2013-11-01T19:50:06+0700 - 0,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _4.fdt: 2013-11-01T19:18:38+0700 - 109,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _4.fdx: 2013-11-01T19:18:38+0700 - 44,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _4.frq: 2013-11-01T19:18:38+0700 - 15,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _4.prx: 2013-11-01T19:18:38+0700 - 15,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _4.tis: 2013-11-01T19:18:38+0700 - 128,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _5.fdt: 2013-11-01T19:50:06+0700 - 229,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _5.fdx: 2013-11-01T19:50:06+0700 - 60,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _5.fnm: 2013-11-01T19:50:06+0700 - 29,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _5.frq: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _5.nrm: 2013-11-01T19:50:06+0700 - 25,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _5.prx: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _5.tii: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _5.tis: 2013-11-01T19:50:06+0700 - 156,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _6.fdt: 2013-11-01T19:50:06+0700 - 242,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _6.fdx: 2013-11-01T19:50:06+0700 - 60,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _6.fnm: 2013-11-01T19:50:06+0700 - 29,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _6.frq: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _6.nrm: 2013-11-01T19:50:06+0700 - 25,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _6.prx: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _6.tii: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _6.tis: 2013-11-01T19:50:06+0700 - 158,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _7.fdt: 2013-11-01T19:50:06+0700 - 458,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _7.fdx: 2013-11-01T19:50:06+0700 - 100,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _7.fnm: 2013-11-01T19:50:06+0700 - 29,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _7.frq: 2013-11-01T19:50:06+0700 - 60,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _7.nrm: 2013-11-01T19:50:06+0700 - 40,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _7.prx: 2013-11-01T19:50:06+0700 - 60,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _7.tii: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _7.tis: 2013-11-01T19:50:06+0700 - 241,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _8.cfs: 2013-11-01T19:50:06+0700 - 284,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _9.fdt: 2013-11-01T19:50:06+0700 - 184,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _9.fdx: 2013-11-01T19:50:06+0700 - 44,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _9.fnm: 2013-11-01T19:50:06+0700 - 29,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _9.frq: 2013-11-01T19:50:06+0700 - 25,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _9.nrm: 2013-11-01T19:50:06+0700 - 19,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _9.prx: 2013-11-01T19:50:06+0700 - 25,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _9.tii: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:06.985+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _9.tis: 2013-11-01T19:50:06+0700 - 128,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:         - Total: 2013-11-01T19:50:06+0700 - 4,32 kB
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:       - Total: 2013-11-01T19:18:37+0700 - 4,32 kB
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:       relationship:
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:         antonym:
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           segments.gen: 2013-11-01T19:50:06+0700 - 20,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           segments_2: 2013-11-01T19:50:06+0700 - 448,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           write.lock: 2013-11-01T19:50:06+0700 - 0,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _1.fdt: 2013-11-01T19:18:38+0700 - 46,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _1.fdx: 2013-11-01T19:18:38+0700 - 20,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _1.frq: 2013-11-01T19:18:38+0700 - 8,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _1.nrm: 2013-11-01T19:18:38+0700 - 10,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _1.prx: 2013-11-01T19:18:38+0700 - 8,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _1.tis: 2013-11-01T19:18:38+0700 - 86,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _2.fdt: 2013-11-01T19:50:06+0700 - 48,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _2.fdx: 2013-11-01T19:50:06+0700 - 20,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _2.fnm: 2013-11-01T19:50:06+0700 - 59,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _2.frq: 2013-11-01T19:50:06+0700 - 10,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _2.nrm: 2013-11-01T19:50:06+0700 - 12,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _2.prx: 2013-11-01T19:50:06+0700 - 10,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _2.tii: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _2.tis: 2013-11-01T19:50:06+0700 - 80,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _3.fdt: 2013-11-01T19:50:06+0700 - 56,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _3.fdx: 2013-11-01T19:50:06+0700 - 20,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _3.fnm: 2013-11-01T19:50:06+0700 - 59,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _3.frq: 2013-11-01T19:50:06+0700 - 10,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _3.nrm: 2013-11-01T19:50:06+0700 - 12,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _3.prx: 2013-11-01T19:50:06+0700 - 10,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _3.tii: 2013-11-01T19:50:06+0700 - 35,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:           _3.tis: 2013-11-01T19:50:06+0700 - 86,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:         - Total: 2013-11-01T19:50:06+0700 - 1,18 kB
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:       - Total: 2013-11-01T19:18:37+0700 - 1,18 kB
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:     - Total: 2013-11-01T19:18:37+0700 - 5,50 kB
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:     lucene-store.db: 2013-11-01T19:18:38+0700 - 40,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:     lucene.log.2: 2013-11-01T19:50:06+0700 - 16,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:     lucene.log.active: 2013-11-01T19:50:06+0700 - 4,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:     lucene.log.v0: 2013-11-01T19:50:06+0700 - 5,11 kB
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:   - Total: 2013-11-01T19:50:06+0700 - 10,67 kB
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:   index.db: 2013-11-01T19:18:37+0700 - 271,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:   lock: 2013-11-01T19:50:06+0700 - 0,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:   messages.log: 2013-11-01T19:50:06+0700 - 70,84 kB
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore: 2013-11-01T19:50:06+0700 - 54,00 B
+2013-11-01 12:50:07.001+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.id: 2013-11-01T19:18:39+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.nodestore.db: 2013-11-01T19:50:06+0700 - 7,16 kB
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.nodestore.db.id: 2013-11-01T19:18:39+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db: 2013-11-01T19:50:06+0700 - 51,49 kB
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db.arrays: 2013-11-01T19:50:06+0700 - 128,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db.arrays.id: 2013-11-01T19:18:39+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db.id: 2013-11-01T19:18:39+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db.index: 2013-11-01T19:50:06+0700 - 45,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db.index.id: 2013-11-01T19:18:39+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db.index.keys: 2013-11-01T19:50:06+0700 - 228,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db.index.keys.id: 2013-11-01T19:18:39+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db.strings: 2013-11-01T19:50:06+0700 - 50,75 kB
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.propertystore.db.strings.id: 2013-11-01T19:18:38+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.relationshipstore.db: 2013-11-01T19:50:06+0700 - 32,74 kB
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.relationshipstore.db.id: 2013-11-01T19:18:39+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.relationshiptypestore.db: 2013-11-01T19:50:06+0700 - 15,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.relationshiptypestore.db.id: 2013-11-01T19:18:38+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.relationshiptypestore.db.names: 2013-11-01T19:50:06+0700 - 152,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   neostore.relationshiptypestore.db.names.id: 2013-11-01T19:18:38+0700 - 9,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   nioneo_logical.log.2: 2013-11-01T19:50:06+0700 - 16,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   nioneo_logical.log.active: 2013-11-01T19:50:06+0700 - 4,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   nioneo_logical.log.v0: 2013-11-01T19:50:06+0700 - 14,20 kB
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   store_lock: 2013-11-01T19:18:36+0700 - 0,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]:   tm_tx_log.1: 2013-11-01T19:50:06+0700 - 0,00 B
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles END ---
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.EmbeddedGraphDatabase]: Started - database is now available
+2013-11-01 12:50:07.017+0000 INFO  [o.n.k.EmbeddedGraphDatabase]: GC Monitor started. 
+2013-11-01 12:51:39.016+0000 INFO  [o.n.k.EmbeddedGraphDatabase]: Stopping - database is now unavailable
+2013-11-01 12:51:39.016+0000 INFO  [o.n.k.EmbeddedGraphDatabase]: GC Monitor stopped. 
+2013-11-01 12:51:39.515+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Closed log C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\index\lucene.log
+2013-11-01 12:51:39.547+0000 INFO  [o.n.k.i.t.TxManager]: TM shutting down
+2013-11-01 12:51:39.578+0000 INFO  [o.n.k.i.t.x.XaLogicalLog]: Closed log C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\nioneo_logical.log
+2013-11-01 12:51:39.593+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.relationshiptypestore.db.names hit=0 miss=15 switches=0 ooe=0
+2013-11-01 12:51:39.625+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.relationshiptypestore.db hit=0 miss=9 switches=0 ooe=0
+2013-11-01 12:51:39.703+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db.strings hit=0 miss=66 switches=0 ooe=0
+2013-11-01 12:51:39.749+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db.index.keys hit=0 miss=25 switches=0 ooe=0
+2013-11-01 12:51:39.749+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db.index hit=0 miss=15 switches=0 ooe=0
+2013-11-01 12:51:39.765+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db.arrays hit=0 miss=0 switches=0 ooe=0
+2013-11-01 12:51:39.765+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.propertystore.db hit=0 miss=167 switches=0 ooe=0
+2013-11-01 12:51:39.765+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.relationshipstore.db hit=168 miss=0 switches=0 ooe=0
+2013-11-01 12:51:39.781+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore.nodestore.db hit=156 miss=0 switches=0 ooe=0
+2013-11-01 12:51:39.781+0000 INFO  [o.n.k.i.n.s.StoreFactory]: C:\Users\Anh Dinh\git\SummarizingCustomerReviews\wordnet\graph.db\neostore hit=0 miss=32 switches=0 ooe=0
+2013-11-01 12:51:39.781+0000 INFO  [o.n.k.i.n.x.NeoStoreXaDataSource]: NeoStore closed
+2013-11-01 12:51:39.781+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STOPPING diagnostics START ---
+2013-11-01 12:51:39.781+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STOPPING diagnostics END ---

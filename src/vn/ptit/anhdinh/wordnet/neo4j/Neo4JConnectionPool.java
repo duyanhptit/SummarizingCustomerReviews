@@ -6,7 +6,7 @@ import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 public class Neo4JConnectionPool {
 	private static Neo4JConnectionPool mNeo4JConnectionPool;
 
-	public static final String NEO4J_PATH = "C:/neo4j-enterprise-1.9.4/data/graph.db";
+	public static final String NEO4J_PATH = "wordnet/graph.db";
 	private GraphDatabaseService mGrapDatabaseService;
 
 	private Neo4JConnectionPool() {

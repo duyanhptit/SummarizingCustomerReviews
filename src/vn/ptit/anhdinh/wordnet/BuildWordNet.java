@@ -1,5 +1,6 @@
 package vn.ptit.anhdinh.wordnet;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import vn.ptit.anhdinh.wordnet.model.Cluster;
@@ -9,16 +10,22 @@ import vn.ptit.anhdinh.wordnet.utils.BuildWordNetUtils;
 
 public class BuildWordNet {
 	private static int mSum = 0;
+	private static List<Cluster> mClusters = new LinkedList<Cluster>();
 
 	public static void main(String[] args) throws Exception {
-		WordNetAPI wordNetAPI = new WordNetAPI();
-		List<String> adjectives = BuildWordNetUtils.getAllAdjective("data/commentsOfZalo.xml");
+		// testBuildCluster();
+		buildClusters();
+		insertClusterToWordNet();
+	}
+
+	private static void buildClusters() throws Exception {
+		List<String> adjectives = BuildWordNetUtils.getAllAdjective("data/reviewsOfZalo.xml");
 		for (String adjective : adjectives) {
 			System.out.println(adjective);
 		}
 		for (int i = 0; i < adjectives.size(); i++) {
 			Cluster cluster = BuildWordNetUtils.buildCluster(adjectives.get(i), 3);
-			// wordNetAPI.insertCluster(cluster);
+			mClusters.add(cluster);
 			System.out.println("(" + String.valueOf(i + 1) + "/" + String.valueOf(adjectives.size()) + " )");
 			System.out.println("ĐỒNG NGHĨA:");
 			printSynset(cluster.getmSynset1());
@@ -27,8 +34,14 @@ public class BuildWordNet {
 			System.out.println("==============================================================================");
 		}
 		System.out.println("Summarizing has: " + String.valueOf(mSum) + " words.");
+	}
+
+	private static void insertClusterToWordNet() {
+		WordNetAPI wordNetAPI = new WordNetAPI();
+		for (Cluster cluster : mClusters) {
+			wordNetAPI.insertCluster(cluster);
+		}
 		wordNetAPI.shutDown();
-		// testBuildCluster();
 	}
 
 	public static void testBuildCluster() {
