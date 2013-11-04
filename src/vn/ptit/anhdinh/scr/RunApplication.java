@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import vn.ptit.anhdinh.scr.data.GetReviews;
 import vn.ptit.anhdinh.scr.data.WPStoreReviews;
@@ -18,6 +19,7 @@ public class RunApplication {
 	private List<List<WordTag>> mReviewsTagged = new LinkedList<List<WordTag>>();
 	private List<String> mFeatures = new LinkedList<String>();
 	private final Map<List<WordTag>, Integer> mOpinionReviews = new HashMap<List<WordTag>, Integer>();
+	private Map<String, Opinion> mOpinionAdjectives = new TreeMap<String, Opinion>();
 
 	public static void main(String[] args) throws Exception {
 		RunApplication runApp = new RunApplication();
@@ -27,6 +29,7 @@ public class RunApplication {
 		runApp.featureExtraction();
 		runApp.opinionReviewsExtraction();
 		runApp.showOpinionReviews();
+		runApp.adjectiveOpinionIdentification();
 	}
 
 	private void downloadReviews() {
@@ -66,6 +69,19 @@ public class RunApplication {
 				mOpinionReviews.put(reviewTagged, i);
 			}
 		}
+	}
+
+	private void adjectiveOpinionIdentification() {
+		List<String> adjectives = new LinkedList<String>();
+		for (List<WordTag> opinionReview : mOpinionReviews.keySet()) {
+			for (WordTag wordTag : opinionReview) {
+				if ("A".equals(wordTag.tag()) && !adjectives.contains(wordTag.word())) {
+					adjectives.add(wordTag.word());
+				}
+			}
+		}
+		AdjectiveOrientationIdentification adjOI = new AdjectiveOrientationIdentification();
+		mOpinionAdjectives = adjOI.OrientationPrediction(adjectives);
 	}
 
 	private boolean checkOpinionReview(List<WordTag> reviewTagged) {

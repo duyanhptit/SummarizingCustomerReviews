@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import vn.ptit.anhdinh.wordnet.model.POS;
+import vn.ptit.anhdinh.wordnet.utils.GetRelationWord;
 import edu.stanford.nlp.ling.WordTag;
 
 public class FeatureExtraction {
@@ -53,7 +55,16 @@ public class FeatureExtraction {
 				topNouns.add(noun);
 			}
 		}
-		return topNouns;
+		return removeInvalidWord(topNouns);
 	}
 
+	private List<String> removeInvalidWord(List<String> words) {
+		List<String> validWords = new LinkedList<String>();
+		for (String word : words) {
+			if (GetRelationWord.checkValidWord(word, POS.NOUN)) {
+				validWords.add(word);
+			}
+		}
+		return validWords;
+	}
 }

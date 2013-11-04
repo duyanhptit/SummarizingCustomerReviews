@@ -80,12 +80,16 @@ public class BuildWordNetUtils {
 		return words;
 	}
 
-	public static Cluster buildCluster(String keyWord, int depth) {
-		if (checkValidWord(keyWord)) {
-			mSynonym.add(keyWord);
-			buildCluster(mSynonym, mAntonym, depth);
-		}
+	public static Cluster buildCluster(String keyWord) {
+		return buildCluster(keyWord, 3);
+	}
 
+	public static Cluster buildCluster(String keyWord, int depth) {
+		if (!GetRelationWord.checkValidWord(keyWord, POS.ADJECTIVE)) {
+			return null;
+		}
+		mSynonym.add(keyWord.toLowerCase());
+		buildCluster(mSynonym, mAntonym, depth);
 		List<Word> synonymWords = new LinkedList<Word>();
 		List<Word> antonymWords = new LinkedList<Word>();
 		for (String word : mSynonym) {
@@ -111,13 +115,5 @@ public class BuildWordNetUtils {
 			return new Word(lemma, POS.ADJECTIVE, defination);
 		}
 		return new Word(lemma, POS.ADJECTIVE, "");
-	}
-
-	private static boolean checkValidWord(String lemma) {
-		Map<String, List<String>> relationWord = GetRelationWord.getRelationWord(lemma);
-		if (relationWord != null) {
-			return true;
-		}
-		return false;
 	}
 }

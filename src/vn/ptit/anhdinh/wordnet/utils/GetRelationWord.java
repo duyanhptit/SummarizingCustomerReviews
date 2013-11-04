@@ -10,6 +10,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import vn.ptit.anhdinh.wordnet.model.POS;
 import vn.ptit.anhdinh.wordnet.model.RelationType;
 
 public class GetRelationWord {
@@ -22,6 +23,14 @@ public class GetRelationWord {
 	public static final String KEY_ANTONYMS = RelationType.ANTONYM.getmKey();
 
 	public static Map<String, List<String>> getRelationWord(String word) {
+		String content = getContentFormSoHa(word);
+		if (content == null) {
+			return null;
+		}
+		return processContent(content);
+	}
+
+	private static String getContentFormSoHa(String word) {
 		String url = createURL(word);
 		while (true) {
 			try {
@@ -30,12 +39,28 @@ public class GetRelationWord {
 				if (element == null) {
 					return null;
 				}
-				String content = element.text();
-				return processContent(content);
+				return element.text();
 			} catch (IOException e) {
 				System.out.println("Error get data form URL: " + url);
 			}
 		}
+	}
+
+	public static boolean checkValidWord(String word, POS pos) {
+		String content = getContentFormSoHa(word);
+		if (content == null) {
+			return false;
+		}
+		String[] lines = content.split("\n");
+		for (String line : lines) {
+			if (POS.ADJECTIVE.equals(pos) && line.contains("=== Tính từ ===")) {
+				return true;
+			}
+			if (POS.NOUN.equals(pos) && line.contains("=== Danh từ ===")) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private static Map<String, List<String>> processContent(String content) {

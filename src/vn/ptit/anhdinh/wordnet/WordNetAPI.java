@@ -1,7 +1,15 @@
 package vn.ptit.anhdinh.wordnet;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import vn.ptit.anhdinh.wordnet.model.Cluster;
+import vn.ptit.anhdinh.wordnet.model.POS;
+import vn.ptit.anhdinh.wordnet.model.RelationType;
 import vn.ptit.anhdinh.wordnet.model.Synset;
+import vn.ptit.anhdinh.wordnet.model.Word;
 import vn.ptit.anhdinh.wordnet.neo4j.Neo4JConnectionPool;
 import vn.ptit.anhdinh.wordnet.neo4j.WordNetDAO;
 
@@ -28,6 +36,24 @@ public class WordNetAPI {
 			return cluster;
 		}
 		return null;
+	}
+
+	public Map<String, List<String>> getSynonymAndAntonym(String lemma) {
+		Word word = new Word(lemma.toLowerCase(), POS.ADJECTIVE, "");
+		Map<String, List<String>> mapResult = new HashMap<String, List<String>>();
+		List<Word> synonym = mWordNetDAO.loadSynonym(word);
+		mapResult.put(RelationType.SIMILARITY.getmKey(), getLemmaFromListWord(synonym));
+		List<Word> antonym = mWordNetDAO.loadAntonym(word);
+		mapResult.put(RelationType.ANTONYM.getmKey(), getLemmaFromListWord(antonym));
+		return mapResult;
+	}
+
+	private List<String> getLemmaFromListWord(List<Word> words) {
+		List<String> lemmas = new LinkedList<String>();
+		for (Word word : words) {
+			lemmas.add(word.getmLemma());
+		}
+		return lemmas;
 	}
 
 	public void shutDown() {
