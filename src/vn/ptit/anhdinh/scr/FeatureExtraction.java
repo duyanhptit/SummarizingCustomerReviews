@@ -27,7 +27,7 @@ public class FeatureExtraction {
 		for (List<WordTag> reviewTagged : mReviewsTagged) {
 			List<String> nouns = new LinkedList<String>();
 			for (WordTag wordTag : reviewTagged) {
-				String word = wordTag.word().toLowerCase();
+				String word = wordTag.word();
 				if ("N".equals(wordTag.tag()) && !nouns.contains(word)) {
 					nouns.add(word);
 				}

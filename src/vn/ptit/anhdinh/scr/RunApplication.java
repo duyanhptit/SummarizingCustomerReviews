@@ -4,22 +4,26 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+
+import org.json.simple.JSONArray;
 
 import vn.ptit.anhdinh.scr.data.GetReviews;
 import vn.ptit.anhdinh.scr.data.WPStoreReviews;
+import vn.ptit.anhdinh.scr.model.SummaryFeature;
 import vn.ptit.anhdinh.scr.utils.FileUtils;
 import vn.ptit.anhdinh.wordnet.model.Opinion;
 import edu.stanford.nlp.ling.WordTag;
 
 public class RunApplication {
 
-	// private static WordNetAPI mWordNetAPI = new WordNetAPI();
-	private List<String> mReviews = new LinkedList<String>();
-	private List<List<WordTag>> mReviewsTagged = new LinkedList<List<WordTag>>();
-	private List<String> mFeatures = new LinkedList<String>();
-	private final Map<List<WordTag>, Integer> mOpinionReviews = new HashMap<List<WordTag>, Integer>();
-	private Map<String, Opinion> mOpinionAdjectives = new TreeMap<String, Opinion>();
+	private List<String> mReviews;
+	private List<List<WordTag>> mReviewsTagged;
+	private List<String> mFeatures;
+	private final Map<List<WordTag>, String> mOpinionReviews = new HashMap<List<WordTag>, String>();
+	private Map<String, Opinion> mOpinionAdjectives;
+	private Map<String, SummaryFeature> mSummaryFeatures;
+
+	private static final String SUMMARY_PATH = "data/summaryOfZalo.json";
 
 	public static void main(String[] args) throws Exception {
 		RunApplication runApp = new RunApplication();
@@ -30,9 +34,12 @@ public class RunApplication {
 		runApp.opinionReviewsExtraction();
 		runApp.showOpinionReviews();
 		runApp.adjectiveOpinionIdentification();
+		runApp.summarizingReviewsBaseOnFeature();
+		runApp.generateSummaryFeature();
 	}
 
 	private void downloadReviews() {
+		System.out.print("Crawl and download Reviews...");
 		String appName = "Zalo";
 		GetReviews wpsrs = new WPStoreReviews();
 		List<String> rawReviews = wpsrs.getReviews(appName);
@@ -49,29 +56,36 @@ public class RunApplication {
 	}
 
 	private void vnTagging() {
+		System.out.print("Vietnamese Tagging...");
 		mReviews = FileUtils.ReadFile("data/reviewsOfZalo.txt");
 		ReviewsPOSTagging reviewsTagging = new ReviewsPOSTagging(mReviews);
 		mReviewsTagged = reviewsTagging.getReviewsTagged();
+		System.out.println("OK");
 	}
 
 	private void featureExtraction() {
+		System.out.print("Feature Extraction...");
 		FeatureExtraction featureExtraction = new FeatureExtraction(mReviewsTagged);
 		mFeatures = featureExtraction.getFrequentFeature(0.02);
 		for (String nouns : mFeatures) {
 			System.out.println(nouns);
 		}
+		System.out.println("OK");
 	}
 
 	private void opinionReviewsExtraction() {
+		System.out.print("Opinion Reviews Extraction...");
 		for (int i = 0; i < mReviewsTagged.size(); i++) {
 			List<WordTag> reviewTagged = mReviewsTagged.get(i);
 			if (checkOpinionReview(reviewTagged)) {
-				mOpinionReviews.put(reviewTagged, i);
+				mOpinionReviews.put(reviewTagged, mReviews.get(i));
 			}
 		}
+		System.out.println("OK");
 	}
 
 	private void adjectiveOpinionIdentification() {
+		System.out.print("Adjective Opinion Identification...");
 		List<String> adjectives = new LinkedList<String>();
 		for (List<WordTag> opinionReview : mOpinionReviews.keySet()) {
 			for (WordTag wordTag : opinionReview) {
@@ -82,6 +96,24 @@ public class RunApplication {
 		}
 		AdjectiveOrientationIdentification adjOI = new AdjectiveOrientationIdentification();
 		mOpinionAdjectives = adjOI.OrientationPrediction(adjectives);
+		System.out.println("OK");
+	}
+
+	private void summarizingReviewsBaseOnFeature() {
+		System.out.print("Summarizing Reviews Base On Feature...");
+		SummarizingOpinionReviews summarizingReviews = new SummarizingOpinionReviews(mOpinionReviews, mFeatures, mOpinionAdjectives);
+		mSummaryFeatures = summarizingReviews.getSummaryFeature();
+		System.out.println("OK");
+	}
+
+	private void generateSummaryFeature() {
+		System.out.print("Generate Summary Feature...");
+		JSONArray jsonSummary = new JSONArray();
+		for (SummaryFeature summaryFeature : mSummaryFeatures.values()) {
+			jsonSummary.add(summaryFeature.getJSONValue());
+		}
+		FileUtils.WriteJSONFile(SUMMARY_PATH, jsonSummary);
+		System.out.println("OK");
 	}
 
 	private boolean checkOpinionReview(List<WordTag> reviewTagged) {
@@ -102,33 +134,10 @@ public class RunApplication {
 
 	private void showOpinionReviews() {
 		for (List<WordTag> reviewTagged : mOpinionReviews.keySet()) {
-			String review = mReviews.get(mOpinionReviews.get(reviewTagged));
+			String review = mOpinionReviews.get(reviewTagged);
 			System.out.println(review);
 		}
 		System.out.println("Total: " + mOpinionReviews.keySet().size());
-	}
-
-	public Opinion getOpinionOfComment(String comment) {
-		int resultOpinion = 0;
-		// List<WordTag> wordTags = mVnTagger.tagText2(comment);
-		// for (WordTag wordTag : wordTags) {
-		// if ("A".equals(wordTag.tag())) {
-		// Opinion opinion = mWordNetAPI.getOpinion(wordTag.word());
-		// if (Opinion.NEGATIVE.equals(opinion)) {
-		// resultOpinion--;
-		// }
-		// if (Opinion.POSITIVE.equals(opinion)) {
-		// resultOpinion++;
-		// }
-		// }
-		// }
-		if (resultOpinion < 0) {
-			return Opinion.NEGATIVE;
-		}
-		if (resultOpinion > 0) {
-			return Opinion.POSITIVE;
-		}
-		return Opinion.NEUTRAL;
 	}
 
 	private void taggingToFile() {

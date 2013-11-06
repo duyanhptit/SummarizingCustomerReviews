@@ -82,13 +82,13 @@ public class AdjectiveOrientationIdentification {
 			if (synonym.isEmpty() && antonym.isEmpty()) {
 				buildClusterAndInsertToWordNet(adjective);
 				System.out.println(adjective);
-				mSeedList.put(adjective.toLowerCase(), Opinion.UNDEFINED);
+				mSeedList.put(adjective, Opinion.UNDEFINED);
 			}
 			String word;
 			if ((word = checkHasItemInSeeList(synonym)) != null) {
-				mSeedList.put(adjective.toLowerCase(), mSeedList.get(word));
+				mSeedList.put(adjective, mSeedList.get(word));
 			} else if ((word = checkHasItemInSeeList(antonym)) != null) {
-				mSeedList.put(adjective.toLowerCase(), oppositeOponion(mSeedList.get(word)));
+				mSeedList.put(adjective, oppositeOponion(mSeedList.get(word)));
 			}
 		}
 	}

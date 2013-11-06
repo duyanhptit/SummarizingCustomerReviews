@@ -22,9 +22,18 @@ public class ReviewsPOSTagging {
 	}
 
 	private void reviewTagging() {
-		for (String comment : mReviews) {
-			mReviewsTagged.add(mVnTagger.tagText2(comment));
+		for (String reiview : mReviews) {
+			List<WordTag> taggedReview = mVnTagger.tagText2(reiview);
+			mReviewsTagged.add(taggedReviewToLowCase(taggedReview));
 		}
+	}
+
+	private List<WordTag> taggedReviewToLowCase(List<WordTag> taggedReview) {
+		List<WordTag> taggedReviewLowCase = new LinkedList<WordTag>();
+		for (WordTag wordTag : taggedReview) {
+			taggedReviewLowCase.add(new WordTag(wordTag.word().toLowerCase(), wordTag.tag()));
+		}
+		return taggedReviewLowCase;
 	}
 
 	public static void writeFileTagged(String appName) {

@@ -6,6 +6,8 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import vn.ptit.anhdinh.wordnet.model.Opinion;
+
 public class PreprocessorDataTest {
 
 	@Test
@@ -36,5 +38,12 @@ public class PreprocessorDataTest {
 
 		Assert.assertTrue(listActual.contains(test1));
 		Assert.assertFalse(listActual.contains(test2));
+	}
+
+	@Test
+	public void demo() {
+		Opinion opinion = Opinion.POSITIVE;
+		System.out.println(opinion.getmValue());
+		System.out.println(Opinion.opposite(opinion).getmValue());
 	}
 }
