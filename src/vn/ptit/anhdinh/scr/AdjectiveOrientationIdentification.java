@@ -81,7 +81,7 @@ public class AdjectiveOrientationIdentification {
 			List<String> antonym = synonymAndAntonym.get(RelationType.ANTONYM.getmKey());
 			if (synonym.isEmpty() && antonym.isEmpty()) {
 				buildClusterAndInsertToWordNet(adjective);
-				System.out.println(adjective);
+				System.out.println("Build and Insert to WordNet. Need to update opinion orientation in SeedList: " + adjective);
 				mSeedList.put(adjective, Opinion.UNDEFINED);
 			}
 			String word;

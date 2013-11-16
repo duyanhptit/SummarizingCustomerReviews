@@ -8,8 +8,6 @@ import vn.ptit.anhdinh.wordnet.model.Word;
 
 public interface WordNetDAO {
 
-	public Word insertWord(long synsetId, Word word);
-
 	public Synset insertSynset(Synset synset);
 
 	public boolean createRelationship(long synsetId1, long synsetId2, RelationType relationType);

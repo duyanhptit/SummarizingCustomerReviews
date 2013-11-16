@@ -23,13 +23,13 @@ public class RunApplication {
 	private Map<String, Opinion> mOpinionAdjectives;
 	private Map<String, SummaryFeature> mSummaryFeatures;
 
-	private static final String SUMMARY_PATH = "data/summaryOfZalo.json";
+	private static final String APP_NAME = "Zalo"; // Zalo, Facebook, ZingMP3
 
 	public static void main(String[] args) throws Exception {
 		RunApplication runApp = new RunApplication();
 		// runApp.downloadReviews();
 		runApp.vnTagging();
-		// runApp.taggingToFile();
+		runApp.taggingToFile();
 		runApp.featureExtraction();
 		runApp.opinionReviewsExtraction();
 		runApp.showOpinionReviews();
@@ -39,10 +39,10 @@ public class RunApplication {
 	}
 
 	private void downloadReviews() {
-		System.out.print("Crawl and download Reviews...");
-		String appName = "Zalo";
+		System.out.println("Crawl and download Reviews...");
 		GetReviews wpsrs = new WPStoreReviews();
-		List<String> rawReviews = wpsrs.getReviews(appName);
+		// List<String> rawReviews = wpsrs.getReviews(APP_NAME);
+		List<String> rawReviews = FileUtils.ReadFile("data/zalo/rawReviewsOfZalo.txt");
 
 		PreprocessorData preprocessorData = new PreprocessorData(rawReviews);
 		preprocessorData.convertComposeUnicode();
@@ -50,42 +50,46 @@ public class RunApplication {
 		preprocessorData.removeReviewsNotVietnamese();
 		List<String> reviews = preprocessorData.getReviews();
 
-		System.out.print("Write reiviews to file: reviewsOf" + appName + ".txt... ");
-		FileUtils.WriteFile("data/reviewsOf" + appName + ".txt", reviews, false);
+		System.out.print("Write raw reiviews to file: reviewsOf" + APP_NAME + ".txt... ");
+		FileUtils.WriteFile("data/" + APP_NAME.toLowerCase() + "/rawReviewsOf" + APP_NAME + ".txt", rawReviews, false);
 		System.out.println("OK");
+
+		System.out.print("Write reiviews to file: reviewsOf" + APP_NAME + ".txt... ");
+		FileUtils.WriteFile("data/" + APP_NAME.toLowerCase() + "/reviewsOf" + APP_NAME + ".txt", reviews, false);
+		System.out.println("Crawl and download Reviews completed.");
 	}
 
 	private void vnTagging() {
-		System.out.print("Vietnamese Tagging...");
-		mReviews = FileUtils.ReadFile("data/reviewsOfZalo.txt");
+		System.out.println("Vietnamese Tagging...");
+		mReviews = FileUtils.ReadFile("data/" + APP_NAME.toLowerCase() + "/reviewsOf" + APP_NAME + ".txt");
 		ReviewsPOSTagging reviewsTagging = new ReviewsPOSTagging(mReviews);
 		mReviewsTagged = reviewsTagging.getReviewsTagged();
-		System.out.println("OK");
+		System.out.println("Vietnamese Tagging completed.");
 	}
 
 	private void featureExtraction() {
-		System.out.print("Feature Extraction...");
+		System.out.println("Feature Extraction...");
 		FeatureExtraction featureExtraction = new FeatureExtraction(mReviewsTagged);
-		mFeatures = featureExtraction.getFrequentFeature(0.02);
+		mFeatures = featureExtraction.getFrequentFeature(15);
 		for (String nouns : mFeatures) {
 			System.out.println(nouns);
 		}
-		System.out.println("OK");
+		System.out.println("Feature Extraction completed.");
 	}
 
 	private void opinionReviewsExtraction() {
-		System.out.print("Opinion Reviews Extraction...");
+		System.out.println("Opinion Reviews Extraction...");
 		for (int i = 0; i < mReviewsTagged.size(); i++) {
 			List<WordTag> reviewTagged = mReviewsTagged.get(i);
 			if (checkOpinionReview(reviewTagged)) {
 				mOpinionReviews.put(reviewTagged, mReviews.get(i));
 			}
 		}
-		System.out.println("OK");
+		System.out.println("Opinion Reviews Extraction completed.");
 	}
 
 	private void adjectiveOpinionIdentification() {
-		System.out.print("Adjective Opinion Identification...");
+		System.out.println("Adjective Opinion Identification...");
 		List<String> adjectives = new LinkedList<String>();
 		for (List<WordTag> opinionReview : mOpinionReviews.keySet()) {
 			for (WordTag wordTag : opinionReview) {
@@ -96,24 +100,24 @@ public class RunApplication {
 		}
 		AdjectiveOrientationIdentification adjOI = new AdjectiveOrientationIdentification();
 		mOpinionAdjectives = adjOI.OrientationPrediction(adjectives);
-		System.out.println("OK");
+		System.out.println("Adjective Opinion Identification completed.");
 	}
 
 	private void summarizingReviewsBaseOnFeature() {
-		System.out.print("Summarizing Reviews Base On Feature...");
+		System.out.println("Summarizing Reviews Base On Feature...");
 		SummarizingOpinionReviews summarizingReviews = new SummarizingOpinionReviews(mOpinionReviews, mFeatures, mOpinionAdjectives);
 		mSummaryFeatures = summarizingReviews.getSummaryFeature();
-		System.out.println("OK");
+		System.out.println("Summarizing Reviews Base On Feature completed.");
 	}
 
 	private void generateSummaryFeature() {
-		System.out.print("Generate Summary Feature...");
+		System.out.println("Generate Summary Feature...");
 		JSONArray jsonSummary = new JSONArray();
 		for (SummaryFeature summaryFeature : mSummaryFeatures.values()) {
 			jsonSummary.add(summaryFeature.getJSONValue());
 		}
-		FileUtils.WriteJSONFile(SUMMARY_PATH, jsonSummary);
-		System.out.println("OK");
+		FileUtils.WriteJSONFile("data/" + APP_NAME.toLowerCase() + "/summaryOf" + APP_NAME + ".json", jsonSummary);
+		System.out.println("Generate Summary Feature completed.");
 	}
 
 	private boolean checkOpinionReview(List<WordTag> reviewTagged) {

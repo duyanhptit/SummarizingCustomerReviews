@@ -38,8 +38,8 @@ public class ReviewsPOSTagging {
 
 	public static void writeFileTagged(String appName) {
 		System.out.println("Beginning Vietnamese Tagger comments...");
-		String inFile = "data/reviewsOf" + appName + ".txt";
-		String outFile = "data/reviewsOf" + appName + ".xml";
+		String inFile = "data/" + appName.toLowerCase() + "/reviewsOf" + appName + ".txt";
+		String outFile = "data/" + appName.toLowerCase() + "/reviewsOf" + appName + ".xml";
 		mVnTagger.tagFile(inFile, outFile);
 		System.out.println("Ended Vietnamese tagger.");
 	}

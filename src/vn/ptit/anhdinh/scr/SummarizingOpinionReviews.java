@@ -1,5 +1,6 @@
 package vn.ptit.anhdinh.scr;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -13,9 +14,10 @@ public class SummarizingOpinionReviews {
 	private final Map<List<WordTag>, String> mOpinionReviews;
 	private final List<String> mFeatures;
 	private final Map<String, Opinion> mOpinionAdjectives;
+	private final Map<String, Opinion> mOpinionReviewsWithOrientation = new HashMap<String, Opinion>();
 	private final Map<String, SummaryFeature> mSummaryFeatures = new TreeMap<String, SummaryFeature>();
 
-	private final String[] mNegationWord = { "không", "ko", "chưa" };
+	private final String[] mNegationWord = { "không", "ko", "k", "chưa", "chẳng" };
 
 	public SummarizingOpinionReviews(Map<List<WordTag>, String> opinionReviews, List<String> features, Map<String, Opinion> opinionAdjectives) {
 		mOpinionReviews = opinionReviews;
@@ -25,23 +27,38 @@ public class SummarizingOpinionReviews {
 			SummaryFeature summaryFeature = new SummaryFeature(feature, new LinkedList<String>(), new LinkedList<String>());
 			mSummaryFeatures.put(feature, summaryFeature);
 		}
-		SummarizingReviews();
+		reviewOrientation();
+		summarizingReviews();
+	}
+
+	private void summarizingReviews() {
+		for (String review : mOpinionReviewsWithOrientation.keySet()) {
+			Opinion opinion = mOpinionReviewsWithOrientation.get(review);
+			if (Opinion.POSITIVE.equals(opinion)) {
+				addPositiveReview(review);
+			}
+			if (Opinion.NEGATIVE.equals(opinion)) {
+				addNegativeReview(review);
+			}
+		}
 	}
 
 	public Map<String, SummaryFeature> getSummaryFeature() {
 		return mSummaryFeatures;
 	}
 
-	private void SummarizingReviews() {
+	private void reviewOrientation() {
 		for (List<WordTag> taggedReview : mOpinionReviews.keySet()) {
 			int orientation = 0;
 			for (String adjective : getAdjectiveInReview(taggedReview)) {
 				orientation += wordOrientation(adjective, taggedReview);
 			}
 			if (orientation > 0) {
-				addPositiveReview(mOpinionReviews.get(taggedReview));
+				// addPositiveReview(mOpinionReviews.get(taggedReview));
+				mOpinionReviewsWithOrientation.put(mOpinionReviews.get(taggedReview), Opinion.POSITIVE);
 			} else if (orientation < 0) {
-				addNegativeReview(mOpinionReviews.get(taggedReview));
+				// addNegativeReview(mOpinionReviews.get(taggedReview));
+				mOpinionReviewsWithOrientation.put(mOpinionReviews.get(taggedReview), Opinion.NEGATIVE);
 			} else {
 				for (String feature : getFeatureInside(taggedReview)) {
 					String adjClosely = getAdjectiveClosely(taggedReview, feature);
@@ -105,12 +122,32 @@ public class SummarizingOpinionReviews {
 		if (adjIndex == 0) {
 			return false;
 		}
-		for (int i = 0; i < mNegationWord.length; i++) {
-			if (mNegationWord[i].equals(taggedReview.get(adjIndex - 1).word())) {
-				return true;
+		int startSenIndex = 0;
+		for (int i = 0; i < taggedReview.size(); i++) {
+			if (",".equals(taggedReview.get(i).word()) && i < adjIndex) {
+				startSenIndex = i;
+			} else if (".".equals(taggedReview.get(i).word()) && i < adjIndex) {
+				startSenIndex = i;
+			} else if ("...".equals(taggedReview.get(i).word()) && i < adjIndex) {
+				startSenIndex = i;
+			}
+		}
+		for (int i = startSenIndex + 1; i < adjIndex; i++) {
+			for (int j = 0; j < mNegationWord.length; j++) {
+				if (mNegationWord[j].equals(taggedReview.get(i).word())) {
+					printlnSenAndAdj(taggedReview, adjective);
+					return true;
+				}
 			}
 		}
 		return false;
+	}
+
+	private void printlnSenAndAdj(List<WordTag> taggedReview, String adjective) {
+		for (WordTag wordTag : taggedReview) {
+			System.out.print(wordTag.word() + " ");
+		}
+		System.out.println(": " + adjective);
 	}
 
 	private List<String> getAdjectiveInReview(List<WordTag> taggedReview) {

@@ -5,11 +5,15 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import vn.ptit.anhdinh.scr.utils.FileUtils;
 import vn.ptit.anhdinh.wordnet.model.POS;
 import vn.ptit.anhdinh.wordnet.model.RelationType;
 
@@ -22,6 +26,27 @@ public class GetRelationWord {
 	public static final String KEY_SYNONYMS = RelationType.SIMILARITY.getmKey();
 	public static final String KEY_ANTONYMS = RelationType.ANTONYM.getmKey();
 
+	private static final Map<String, String> mResource = getResource();
+	private static final String PATH_RESOURCE = "data/tratuSohaVn.txt";
+	private static final String WORD_PROPERTY = "word";
+	private static final String CONTENT_PROPERTY = "content";
+
+	private static Map<String, String> getResource() {
+		Map<String, String> resource = new TreeMap<String, String>();
+		JSONArray jsonArray = FileUtils.ReadJSONFile(PATH_RESOURCE);
+		for (int i = 0; i < jsonArray.size(); i++) {
+			JSONObject jo = (JSONObject) jsonArray.get(i);
+			String word = (String) jo.get(WORD_PROPERTY);
+			String content = (String) jo.get(CONTENT_PROPERTY);
+			if ("".equals(content)) {
+				resource.put(word, null);
+			} else {
+				resource.put(word, content);
+			}
+		}
+		return resource;
+	}
+
 	public static Map<String, List<String>> getRelationWord(String word) {
 		String content = getContentFormSoHa(word);
 		if (content == null) {
@@ -30,15 +55,33 @@ public class GetRelationWord {
 		return processContent(content);
 	}
 
+	private static void saveResource() {
+		JSONArray jsonResource = new JSONArray();
+		for (String word : mResource.keySet()) {
+			JSONObject jo = new JSONObject();
+			jo.put(WORD_PROPERTY, word);
+			String content = mResource.get(word) == null ? "" : mResource.get(word);
+			jo.put(CONTENT_PROPERTY, content);
+			jsonResource.add(jo);
+		}
+		FileUtils.WriteJSONFile(PATH_RESOURCE, jsonResource);
+	}
+
 	private static String getContentFormSoHa(String word) {
+		if (mResource.containsKey(word)) {
+			return mResource.get(word);
+		}
 		String url = createURL(word);
 		while (true) {
 			try {
 				Document doc = Jsoup.connect(url).get();
 				Element element = doc.getElementById(ID_CONTENT);
 				if (element == null) {
+					mResource.put(word, null);
 					return null;
 				}
+				mResource.put(word, element.text());
+				saveResource();
 				return element.text();
 			} catch (IOException e) {
 				System.out.println("Error get data form URL: " + url);
@@ -64,7 +107,7 @@ public class GetRelationWord {
 	}
 
 	private static Map<String, List<String>> processContent(String content) {
-		Map<String, List<String>> relationWords = new HashMap<>();
+		Map<String, List<String>> relationWords = new HashMap<String, List<String>>();
 		List<String> definations = new LinkedList<String>();
 		List<String> synonyms = new LinkedList<String>();
 		List<String> antonyms = new LinkedList<String>();

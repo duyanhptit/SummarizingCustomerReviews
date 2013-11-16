@@ -22,7 +22,9 @@ public class FileUtils {
 
 	public static void WriteFile(String path, List<String> data, boolean append) {
 		try {
-			FileWriter fileWriter = new FileWriter(path, append);
+			File file = new File(path);
+			file.getParentFile().mkdirs();
+			FileWriter fileWriter = new FileWriter(file, append);
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 			PrintWriter out = new PrintWriter(bufferedWriter);
 			for (String stringLine : data) {
@@ -52,7 +54,9 @@ public class FileUtils {
 	public static void WriteJSONFile(String path, JSONArray jsonArray) {
 		String content = jsonArray.toJSONString();
 		try {
-			FileWriter fileWriter = new FileWriter(path);
+			File file = new File(path);
+			file.getParentFile().mkdirs();
+			FileWriter fileWriter = new FileWriter(file);
 			fileWriter.write(content);
 			fileWriter.flush();
 			fileWriter.close();

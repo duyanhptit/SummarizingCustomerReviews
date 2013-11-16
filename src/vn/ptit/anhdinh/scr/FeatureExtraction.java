@@ -16,14 +16,14 @@ public class FeatureExtraction {
 
 	public FeatureExtraction(List<List<WordTag>> reviewsTagged) {
 		mReviewsTagged = reviewsTagged;
-		computingFrequenceNoun();
+		nounStatistical();
 	}
 
 	public Map<String, Integer> getNounOccurrences() {
 		return mNounOccurrences;
 	}
 
-	private void computingFrequenceNoun() {
+	private void nounStatistical() {
 		for (List<WordTag> reviewTagged : mReviewsTagged) {
 			List<String> nouns = new LinkedList<String>();
 			for (WordTag wordTag : reviewTagged) {
@@ -56,6 +56,27 @@ public class FeatureExtraction {
 			}
 		}
 		return removeInvalidWord(topNouns);
+	}
+
+	public List<String> getFrequentFeature(int number) {
+		List<String> topNouns = new LinkedList<String>();
+		Map<String, Integer> nounOccurences = mNounOccurrences;
+		while (number > 0) {
+			int max = 0;
+			String topNoun = "";
+			for (String noun : nounOccurences.keySet()) {
+				if (nounOccurences.get(noun) > max) {
+					max = nounOccurences.get(noun);
+					topNoun = noun;
+				}
+			}
+			nounOccurences.remove(topNoun);
+			if (GetRelationWord.checkValidWord(topNoun, POS.NOUN)) {
+				topNouns.add(topNoun);
+				number--;
+			}
+		}
+		return topNouns;
 	}
 
 	private List<String> removeInvalidWord(List<String> words) {

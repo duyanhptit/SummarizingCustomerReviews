@@ -46,27 +46,27 @@ public class BuildWordNetUtils {
 		return mAdjective;
 	}
 
-	private static void buildCluster(List<String> synonyms, List<String> antonyms, int depth) {
+	private static void findWords(List<String> synonyms, List<String> antonyms, int depth) {
 		if (depth > 0) {
 			List<String> tempSynonyms = new LinkedList<String>();
 			List<String> tempAntonyms = new LinkedList<String>();
 			for (String synonym : synonyms) {
 				Map<String, List<String>> relationWord = GetRelationWord.getRelationWord(synonym);
 				if (relationWord != null) {
-					tempSynonyms.addAll(onlyAddNewWord(mSynonym, synonyms, relationWord.get(GetRelationWord.KEY_SYNONYMS)));
-					tempAntonyms.addAll(onlyAddNewWord(mAntonym, antonyms, relationWord.get(GetRelationWord.KEY_ANTONYMS)));
+					tempSynonyms.addAll(onlyAddNewWord(mSynonym, tempSynonyms, relationWord.get(GetRelationWord.KEY_SYNONYMS)));
+					tempAntonyms.addAll(onlyAddNewWord(mAntonym, tempAntonyms, relationWord.get(GetRelationWord.KEY_ANTONYMS)));
 				}
 			}
 			for (String antonym : antonyms) {
 				Map<String, List<String>> relationWord = GetRelationWord.getRelationWord(antonym);
 				if (relationWord != null) {
-					tempSynonyms.addAll(onlyAddNewWord(mSynonym, synonyms, relationWord.get(GetRelationWord.KEY_ANTONYMS)));
-					tempAntonyms.addAll(onlyAddNewWord(mAntonym, antonyms, relationWord.get(GetRelationWord.KEY_SYNONYMS)));
+					tempSynonyms.addAll(onlyAddNewWord(mSynonym, tempSynonyms, relationWord.get(GetRelationWord.KEY_ANTONYMS)));
+					tempAntonyms.addAll(onlyAddNewWord(mAntonym, tempAntonyms, relationWord.get(GetRelationWord.KEY_SYNONYMS)));
 				}
 			}
 			mSynonym.addAll(tempSynonyms);
 			mAntonym.addAll(tempAntonyms);
-			buildCluster(tempSynonyms, tempAntonyms, depth - 1);
+			findWords(tempSynonyms, tempAntonyms, depth - 1);
 		}
 	}
 
@@ -89,7 +89,7 @@ public class BuildWordNetUtils {
 			return null;
 		}
 		mSynonym.add(keyWord.toLowerCase());
-		buildCluster(mSynonym, mAntonym, depth);
+		findWords(mSynonym, mAntonym, depth);
 		List<Word> synonymWords = new LinkedList<Word>();
 		List<Word> antonymWords = new LinkedList<Word>();
 		for (String word : mSynonym) {

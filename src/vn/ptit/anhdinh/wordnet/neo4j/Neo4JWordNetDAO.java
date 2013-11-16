@@ -20,7 +20,7 @@ import vn.ptit.anhdinh.wordnet.model.Word;
 public class Neo4JWordNetDAO implements WordNetDAO {
 
 	private final GraphDatabaseService mGraphDatabaseService;
-	private final ExecutionEngine mExecutionEngine;
+	private ExecutionEngine mExecutionEngine;
 	private ExecutionResult mExecutionResult;
 	private final Index<Node> mWordIndex;
 	private final Index<Node> mSynsetIndex;
@@ -42,7 +42,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 
 	public Neo4JWordNetDAO(GraphDatabaseService graphDatabaseService) {
 		mGraphDatabaseService = graphDatabaseService;
-		mExecutionEngine = new ExecutionEngine(mGraphDatabaseService);
+		// mExecutionEngine = new ExecutionEngine(mGraphDatabaseService);
 		mWordIndex = mGraphDatabaseService.index().forNodes(WORD_KEY);
 		mSynsetIndex = mGraphDatabaseService.index().forNodes(SYNSET_KEY);
 		mAntonymIndex = mGraphDatabaseService.index().forRelationships(ANTONYM_KEY);
@@ -50,26 +50,6 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 
 	private Transaction getTransaction() {
 		return mGraphDatabaseService.beginTx();
-	}
-
-	@Override
-	public Word insertWord(long synsetId, Word word) {
-		if (wordIsExist(word)) {
-			System.out.println("Word: " + word.getmLemma() + " is exist.");
-			return null;
-		}
-		Transaction transaction = getTransaction();
-		try {
-			Node headSynset = mGraphDatabaseService.getNodeById(synsetId);
-			Word insertedWord = insertNode(headSynset, word);
-			transaction.success();
-			return insertedWord;
-		} catch (Exception e) {
-			System.out.println("Error when insert word is exist: " + e.toString());
-			return null;
-		} finally {
-			transaction.finish();
-		}
 	}
 
 	@Override
@@ -104,7 +84,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 			}
 			if (!addWords.isEmpty()) {
 				for (Word word : addWords) {
-					insertNode(headSynset, word);
+					insertWord(headSynset, word);
 				}
 			}
 			transaction.success();
@@ -124,7 +104,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 			Node headSynset = insertHeadSynset(synset);
 			List<Word> insertedWords = new LinkedList<Word>();
 			for (Word word : words) {
-				insertedWords.add(insertNode(headSynset, word));
+				insertedWords.add(insertWord(headSynset, word));
 			}
 			transaction.success();
 			return new Synset(headSynset.getId(), insertedWords, POS.valueOf((String) headSynset.getProperty(POS_LABEL)));
@@ -245,7 +225,7 @@ public class Neo4JWordNetDAO implements WordNetDAO {
 		return headSynset;
 	}
 
-	private Word insertNode(Node headSynset, Word word) {
+	private Word insertWord(Node headSynset, Word word) {
 		Node nodeWord = mGraphDatabaseService.createNode();
 		nodeWord.setProperty(TYPE, WORD);
 		nodeWord.setProperty(SYNSET_ID, headSynset.getId());
