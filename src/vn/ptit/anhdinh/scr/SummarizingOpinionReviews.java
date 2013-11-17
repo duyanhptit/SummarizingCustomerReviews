@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import vn.ptit.anhdinh.scr.model.SummaryFeature;
+import vn.ptit.anhdinh.scr.utils.FileUtils;
 import vn.ptit.anhdinh.wordnet.model.Opinion;
 import edu.stanford.nlp.ling.WordTag;
 
@@ -135,7 +136,7 @@ public class SummarizingOpinionReviews {
 		for (int i = startSenIndex + 1; i < adjIndex; i++) {
 			for (int j = 0; j < mNegationWord.length; j++) {
 				if (mNegationWord[j].equals(taggedReview.get(i).word())) {
-					printlnSenAndAdj(taggedReview, adjective);
+					// printlnSenAndAdj(taggedReview, adjective);
 					return true;
 				}
 			}
@@ -197,5 +198,25 @@ public class SummarizingOpinionReviews {
 
 	private int absoluteValue(int n1, int n2) {
 		return (n1 - n2) > 0 ? (n1 - n2) : (n2 - n1);
+	}
+
+	private void utilsTagOrientation() {
+		List<String> strs = new LinkedList<String>();
+		for (String review : mOpinionReviews.values()) {
+			String value = "";
+			if (mOpinionReviewsWithOrientation.containsKey(review)) {
+				Opinion opinion = mOpinionReviewsWithOrientation.get(review);
+				value = review + " $" + opinion.getmName();
+				for (String feature : mFeatures) {
+					if (review.contains(feature)) {
+						value = value + " <" + feature + ":$" + opinion.getmName() + ">";
+					}
+				}
+			} else {
+				value = review + " $" + Opinion.NEUTRAL.getmName();
+			}
+			strs.add(value);
+		}
+		FileUtils.WriteFile("data/zalo/opinionReviewsOfZalo - tagOrientation.txt", strs, false);
 	}
 }

@@ -27,12 +27,12 @@ public class RunApplication {
 
 	public static void main(String[] args) throws Exception {
 		RunApplication runApp = new RunApplication();
-		// runApp.downloadReviews();
+		// runApp.downloadReviews(); // không được bật
 		runApp.vnTagging();
-		runApp.taggingToFile();
+		// runApp.taggingToFile();
 		runApp.featureExtraction();
 		runApp.opinionReviewsExtraction();
-		runApp.showOpinionReviews();
+		runApp.saveOpinionReviews();
 		runApp.adjectiveOpinionIdentification();
 		runApp.summarizingReviewsBaseOnFeature();
 		runApp.generateSummaryFeature();
@@ -56,6 +56,7 @@ public class RunApplication {
 
 		System.out.print("Write reiviews to file: reviewsOf" + APP_NAME + ".txt... ");
 		FileUtils.WriteFile("data/" + APP_NAME.toLowerCase() + "/reviewsOf" + APP_NAME + ".txt", reviews, false);
+		System.out.println("OK");
 		System.out.println("Crawl and download Reviews completed.");
 	}
 
@@ -71,9 +72,9 @@ public class RunApplication {
 		System.out.println("Feature Extraction...");
 		FeatureExtraction featureExtraction = new FeatureExtraction(mReviewsTagged);
 		mFeatures = featureExtraction.getFrequentFeature(15);
-		for (String nouns : mFeatures) {
-			System.out.println(nouns);
-		}
+		// for (String nouns : mFeatures) {
+		// System.out.println(nouns);
+		// }
 		System.out.println("Feature Extraction completed.");
 	}
 
@@ -136,12 +137,13 @@ public class RunApplication {
 		return false;
 	}
 
-	private void showOpinionReviews() {
+	private void saveOpinionReviews() {
+		List<String> opinionReviews = new LinkedList<String>();
 		for (List<WordTag> reviewTagged : mOpinionReviews.keySet()) {
-			String review = mOpinionReviews.get(reviewTagged);
-			System.out.println(review);
+			opinionReviews.add(mOpinionReviews.get(reviewTagged));
 		}
-		System.out.println("Total: " + mOpinionReviews.keySet().size());
+		FileUtils.WriteFile("data/zalo/opinionReviewsOfZalo.txt", opinionReviews, false);
+		System.out.println("Write opinion reiviews to file: opinionReviewsOfZalo.txt");
 	}
 
 	private void taggingToFile() {
