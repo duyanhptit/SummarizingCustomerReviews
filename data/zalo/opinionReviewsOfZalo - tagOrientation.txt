@@ -1,13 +1,13 @@
-K hay sai lầm khi dùng hệ đjều hàh wp <negative> <khi:negative>
-Rất tốt, hơi ít chức năng cần update, mấy bạn nào k nt va gs đc là tại băng thông nhé <neutral>
-Không xem được cmt ảnh cmt stt == <neutral>
-Thích WP8 nhưng ứng dụng thì đi sau hoặc cùi bắp. Điển hình là FB và bây giờ là Zalo. Muốn Zalo vươn xa hơn nữa trên thị trường WP8 trên thế giới thì hãy nâng cấp lên cho bằng Android hoặc hơn nữa đi. Cho 3 sao cho sự cố gắng. <neutral>
+K hay sai lầm khi dùng hệ đjều hàh wp <negative>
+Rất tốt, hơi ít chức năng cần update, mấy bạn nào k nt va gs đc là tại băng thông nhé <neutral> <chức năng:negative>
+Không xem được cmt ảnh cmt stt == <neutral> <ảnh:negative>
+Thích WP8 nhưng ứng dụng thì đi sau hoặc cùi bắp. Điển hình là FB và bây giờ là Zalo. Muốn Zalo vươn xa hơn nữa trên thị trường WP8 trên thế giới thì hãy nâng cấp lên cho bằng Android hoặc hơn nữa đi. Cho 3 sao cho sự cố gắng. <neutral> <ứng dụng:negative>
 mình đã rất hóng đến ngày zalo có trên wp8, mà thất vọng quá __ có quá ít chức năng. <negative> <chức năng:negative>
-Còn thiếu nhiều chức năng,mong sớm có bản cập nhật <neutral>
-Tốt, nhưng vẫn chưa cập nhật phiên bản mới nhất <neutral>
+Còn thiếu nhiều chức năng,mong sớm có bản cập nhật <neutral> <chức năng:negative> <bản:neutral>
+Tốt, nhưng vẫn chưa cập nhật phiên bản mới nhất <neutral> <phiên bản:negative>
 Chán quá, k gọi điện đc, biểu tượng quá ít k cho tải về, cần cập nhật gấp 😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠 <negative> <điện:negative>
 Mong là sớm có cuộc gọi va thêm 1 số hình động <neutral>
-Mình aff friend mà ko thấy bạn đâu :( mong phiên bản mới sẽ đầy đủ <negative> <bản:negative> <phiên bản:negative> <bạn:negative>
+Mình aff friend mà ko thấy bạn đâu :( mong phiên bản mới sẽ đầy đủ <negative> <bản:negative> <phiên bản:negative>
 Như lần trước thoy, có thấy gì mới đâu... Thêm phòng chat đi, và thêm luôn cái Ola, Avatar nữa. Kết bạn zalo với mình nhek, 0972.146853 <neutral>
 Khá tốt. Tuy nhiên ứng dụng lại ko chạy ẩn được. Đợi bản cập nhật ! <positive> <bản:positive> <ứng dụng:positive>
 Wp ít ứng dụng quá.. Xài Android quá trời ứng dụng mà miễn phí. Nhưng wp có độ mượt và giao diện đẹp hơn hẳn Android <positive> <ứng dụng:positive>
@@ -34,7 +34,7 @@ Ung dung tuyet! Nhung chuc nang goi dt chua dc dap ung + k dc tham gia ve hình 
 Mẹ, bức xúc mấy cái app này lắm rồi, đã ko có thì thôi, có thì phải làm cho tốt chứ, mạg H+ down 9Mbsp/s mà load ảnh vs uploat lên éo đc, khi nào cũng lỗi.... Nói chung là rất tệ <negative> <khi:negative> <lỗi:negative> <ảnh:negative>
 Cần update thêm nhiều hình động hơn <neutral>
 Cần thêm phiên bản mới.phiên bản này cũ rồi.gọi điện ko dk. <negative> <bản:negative> <phiên bản:negative> <điện:negative>
-Mình đang sd lumia 520 k hiểu sao tải zalo về k cập nhật hình động được ..gọi và chơi đoán chữ cũg k luôn..bạn mình cũng xài lumia và cũngbị như vậy..lúc trước xài con Galaxy thì k bị như vậy...ai biết chỉ mình với... <neutral>
+Mình đang sd lumia 520 k hiểu sao tải zalo về k cập nhật hình động được ..gọi và chơi đoán chữ cũg k luôn..bạn mình cũng xài lumia và cũngbị như vậy..lúc trước xài con Galaxy thì k bị như vậy...ai biết chỉ mình với... <neutral> <fail>
 Tốt. Nhg cần bản cập nhật nhật để thêm tính năng <positive> <bản:positive> <tính năng:positive>
 Hơi ngốn pin, cần thêm các chức năng khác <neutral>
 Cập Nhật phiên bản mới nhất đi. Chán quá <positive> <bản:negative>-<fail> <phiên bản:positive>
@@ -187,7 +187,7 @@ Mình đang trông chờ vào WP từng ngày.Mình biết mọi người vẩn 
 Sau khi update v1.3 thì k nhận được tin nhắn khi đang thoát ứng dụng nữa, hoặc nếu có thì là rất chậm. Thường thì phải vào danh sách tin nhắn thì zalo mới load tin nhắn xuống <negative> <khi:negative> <tin:negative> <ứng dụng:negative>
 Tốt ^^ chờ đợi Zalo cập nhật thêm nhiều tính năng mới. <positive> <tính năng:positive>
 Cần phiên bản mới như các dòg máy khác 😞 <positive> <bản:negative>-<fail> <phiên bản:positive>
-Con mẹ tụi bây......ngu lồn wp8 ra sau nên ko bằng ios vs anroid........thì từ từ mới có ứng dụng cua ios và anroid cho lũ ngu chúng mày. Chơi.......có chơi thì dc rồi còn chê bai này nọ...........đồ ngu lồn. <neutral>
+Con mẹ tụi bây......ngu lồn wp8 ra sau nên ko bằng ios vs anroid........thì từ từ mới có ứng dụng cua ios và anroid cho lũ ngu chúng mày. Chơi.......có chơi thì dc rồi còn chê bai này nọ...........đồ ngu lồn. <neutral> <fail>
 Chưa có chat room. Hok gọi được trên l520 ạ . Hok xem được bình luận trên hình của người khác . Nhiều nhược điểm hơn cả em Nô 2700 classical thần thánh của e ạ . :(((((( <neutral>
 Thiếu nhiều chức năng , cđ thêm đi :(( <neutral>
 Người khác gọi tới kêu ngoài vùng phủ sóng...đểu thật <neutral>

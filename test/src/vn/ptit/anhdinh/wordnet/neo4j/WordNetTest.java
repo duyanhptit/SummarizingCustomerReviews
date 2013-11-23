@@ -34,4 +34,25 @@ public class WordNetTest {
 
 		neo4JConnectionPool.shutDownDatabase();
 	}
+
+	public void BuildClusterFastandSlow() {
+		Neo4JConnectionPool neo4JConnectionPool = Neo4JConnectionPool.getInstance();
+		WordNetDAO wordNetDAO = neo4JConnectionPool.getNeo4JConnection();
+
+		List<Word> words = new LinkedList<Word>();
+		words.add(new Word("nhanh", POS.ADJECTIVE, ""));
+		words.add(new Word("mau", POS.ADJECTIVE, ""));
+		words.add(new Word("chóng", POS.ADJECTIVE, ""));
+		Synset synsetBeauty = wordNetDAO.insertSynset(new Synset(words, POS.ADJECTIVE));
+
+		words = new LinkedList<Word>();
+		words.add(new Word("lâu", POS.ADJECTIVE, ""));
+		words.add(new Word("lâu la", POS.ADJECTIVE, ""));
+		words.add(new Word("chậm", POS.ADJECTIVE, ""));
+		Synset synsetUgly = wordNetDAO.insertSynset(new Synset(words, POS.ADJECTIVE));
+
+		wordNetDAO.createRelationship(synsetBeauty.getmId(), synsetUgly.getmId(), RelationType.ANTONYM);
+
+		neo4JConnectionPool.shutDownDatabase();
+	}
 }

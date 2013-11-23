@@ -84,7 +84,7 @@ public class SummarizingOpinionReviews {
 
 	private void addPositiveReview(String review) {
 		for (String feature : mFeatures) {
-			if (review.contains(feature)) {
+			if (review.toLowerCase().contains(feature)) {
 				SummaryFeature summaryFeature = mSummaryFeatures.get(feature);
 				summaryFeature.addPositiveReview(review);
 				mSummaryFeatures.put(feature, summaryFeature);
@@ -94,7 +94,7 @@ public class SummarizingOpinionReviews {
 
 	private void addNegativeReview(String review) {
 		for (String feature : mFeatures) {
-			if (review.contains(feature)) {
+			if (review.toLowerCase().contains(feature)) {
 				SummaryFeature summaryFeature = mSummaryFeatures.get(feature);
 				summaryFeature.addNegativeReview(review);
 				mSummaryFeatures.put(feature, summaryFeature);

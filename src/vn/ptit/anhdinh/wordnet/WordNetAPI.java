@@ -12,6 +12,7 @@ import vn.ptit.anhdinh.wordnet.model.Synset;
 import vn.ptit.anhdinh.wordnet.model.Word;
 import vn.ptit.anhdinh.wordnet.neo4j.Neo4JConnectionPool;
 import vn.ptit.anhdinh.wordnet.neo4j.WordNetDAO;
+import vn.ptit.anhdinh.wordnet.utils.BuildWordNetUtils;
 
 public class WordNetAPI {
 
@@ -36,6 +37,11 @@ public class WordNetAPI {
 			return cluster;
 		}
 		return null;
+	}
+
+	public void insertToWordNet(String word) {
+		Cluster cluster = BuildWordNetUtils.buildCluster(word);
+		insertCluster(cluster);
 	}
 
 	public Map<String, List<String>> getSynonymAndAntonym(String lemma) {

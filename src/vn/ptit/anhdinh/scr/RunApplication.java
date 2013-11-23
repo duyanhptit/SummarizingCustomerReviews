@@ -32,7 +32,7 @@ public class RunApplication {
 		// runApp.taggingToFile();
 		runApp.featureExtraction();
 		runApp.opinionReviewsExtraction();
-		runApp.saveOpinionReviews();
+		// runApp.saveOpinionReviews();
 		runApp.adjectiveOpinionIdentification();
 		runApp.summarizingReviewsBaseOnFeature();
 		runApp.generateSummaryFeature();

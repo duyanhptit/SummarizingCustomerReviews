@@ -10,11 +10,9 @@ import org.json.simple.JSONObject;
 
 import vn.ptit.anhdinh.scr.utils.FileUtils;
 import vn.ptit.anhdinh.wordnet.WordNetAPI;
-import vn.ptit.anhdinh.wordnet.model.Cluster;
 import vn.ptit.anhdinh.wordnet.model.Opinion;
 import vn.ptit.anhdinh.wordnet.model.POS;
 import vn.ptit.anhdinh.wordnet.model.RelationType;
-import vn.ptit.anhdinh.wordnet.utils.BuildWordNetUtils;
 import vn.ptit.anhdinh.wordnet.utils.GetRelationWord;
 
 public class AdjectiveOrientationIdentification {
@@ -80,7 +78,7 @@ public class AdjectiveOrientationIdentification {
 			List<String> synonym = synonymAndAntonym.get(RelationType.SIMILARITY.getmKey());
 			List<String> antonym = synonymAndAntonym.get(RelationType.ANTONYM.getmKey());
 			if (synonym.isEmpty() && antonym.isEmpty()) {
-				buildClusterAndInsertToWordNet(adjective);
+				mWordNetAPI.insertToWordNet(adjective);
 				System.out.println("Build and Insert to WordNet. Need to update opinion orientation in SeedList: " + adjective);
 				mSeedList.put(adjective, Opinion.UNDEFINED);
 			}
@@ -91,11 +89,6 @@ public class AdjectiveOrientationIdentification {
 				mSeedList.put(adjective, oppositeOponion(mSeedList.get(word)));
 			}
 		}
-	}
-
-	private void buildClusterAndInsertToWordNet(String word) {
-		Cluster cluster = BuildWordNetUtils.buildCluster(word);
-		mWordNetAPI.insertCluster(cluster);
 	}
 
 	private String checkHasItemInSeeList(List<String> words) {

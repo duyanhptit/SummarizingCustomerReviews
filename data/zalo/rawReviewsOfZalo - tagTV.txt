@@ -1,7 +1,7 @@
 Good
 Bị gì màk cở này nt ko đc bị lỗi hoài al <tv>
 Tốt <tv>
-Hay <fail>
+Hay <tv> <fail>
 Chan om khong co phong tro chuyen nan :((
 Hầu như không vào được.cho 1 sao có lẽ hơi bị nhiều <tv>
 Ko vào đc nữa là sao. Quá tệ. <tv>
@@ -172,10 +172,10 @@ Zalo cap nhat roi do a e zo cap nhat di nha ad mong cap nhat tip tuc nua nha 5* 
 Zo lo nay chưa ra miên bản mới hả <tv>
 Cài chạy ẩn roy.nhưg khi thoát thỳ k nhận dk thôg báo tn,hay cuộc gọi gì hết :(((....cần cập nhập thêm <tv>
 Very good
-Hay. <fail>
+Hay. <tv> <fail>
 Good
 Messi
-Hay <fail>
+Hay <tv> <fail>
 Good
 Nokia k vào dc,lôi là s <tv>
 Khả năng chạy ngầm quá tệ <tv>
@@ -251,12 +251,12 @@ Gui ban vua phan nan khoa man hinh ko nhan dc tin nhan:do ban ko biet su dung do
 Phần gọi điện vẫn chưa tốt,phải mở phần mềm mới có tín hiệu <tv>
 Good app
 Mình dùng thì thấy rất mượt. Các bạn kêu load lâu là do nhà mạng thôi. Mình thấy dùng Wp cũng sướng mà. Mình luôn yêu Nokia hơn những hãng còn lại. Wp sẽ thành số 1 nếu như Nokia vẫn sở hữa. <tv>
-Hay <fail>
+Hay <tv> <fail>
 Sao ko có chát room dzậy. <tv>
 Tuyet
 Rat ok .up hoang thien tinh nang goi nhe vng
 K ra qì cả...  <tv>
-Hay <fail>
+Hay <tv> <fail>
 Toan bi day ra ah
 Good
 Tệ <tv>
@@ -288,13 +288,13 @@ Cho them giai dieu vui vao di
 Can up phiên ban moi
 Cho game vào đi <tv>
 Không nhận được cuộc gọi. <tv>
-Hay <fail>
+Hay <tv> <fail>
 Yêu cầu ra iwin <tv>
 BQT khac phuc loi tn den khj dg nghe tai phone k bao tn den j het lm kpit j het
 Ok
 Hay do. Nhung Sao ko thay Ai muon ket bn voi Minh het vay ta
 1 chữ tệ cho zalo này,không hài lòng tý nào cả <tv>
-Hay <fail>
+Hay <tv> <fail>
 Trời ơi. Sao gửi tin nhắn hết đc òi <tv>
 Ko giốg như pb trướk,. Phiên bản đợt này kô báo bất cứ cái j hết( tn + cuôc gọi đến....) mong nph sớm fix và cho ra bản cập nhật mới,. Thks <tv>
 cap nhat jum kaj
@@ -351,7 +351,7 @@ Tạm thôi. Vì chưa có biểu cảm và đoán chữ <tv>
 Nt nhanh hình anh hai hay ...nhung cuoc,gọi kem kem qua ...ko bang viber <tv>
 Exelent
 Cập nhập cho wp chơi trò chơi đc đi... <tv>
-Hay <fail>
+Hay <tv> <fail>
 Sao k co room chat nhi
 cung dc nhung nêu co them phan dăng video thi ok...chia se clip cho ban be cung hay
 Rat tot
@@ -444,13 +444,13 @@ Verygood
 Đáng cho 5☕⭐ <tv>
 Ok.
 Dc lm ok..
-Hay <fail>
+Hay <tv> <fail>
 đéo tải về đk máy <tv>
 Hjhj zalo cang ngay cang phát trien <tv>
 Tha hồ chat chit :D <tv>
 Tot
 cần cập nhật nhanh hơn nhá,nhìu ứng dụng hơn nữa,iu zalo nhất đấy,💕💕💕💕💗😍😘 <tv>
-Hay <fail>
+Hay <tv> <fail>
 Tốt! <tv>
 Chức năng còn thua xa so với hỗ trợ Adroid và IOS <tv>
 5*
@@ -466,10 +466,10 @@ Bt
 God
 Ngon
 Can cap nhat
-Hay <fail>
+Hay <tv> <fail>
 Cap nhap phien ban moi thuong xuyen hon thi tuyet. Thanks
 Khá tốt. Cần thường xuyên cập nhật các tính năng như trên android <tv>
-Hay <fail>
+Hay <tv> <fail>
 Cug đc.cần cải thjên chưc năg gọi. Cho 5 sao ủg hộ😊 <tv>
 Good nhưng cái notification báo trễ quá nên khắc phục <tv>
 Thông báo chậm vs lại thêm phần phòng trò chuyện như android đi tg <tv>
@@ -574,17 +574,17 @@ Update thêm biểu cảm nữa là ok. <tv>
 Cap nhap them goi video call nua thi ok ln
 Được <tv>
 Khá tốt nếu có cuộc gọi videos thì tuyệt vời cảm ơn các bạn nhiều nhé! <tv>
-Hay <fail>
+Hay <tv> <fail>
 Good hơn trước <tv>
 Tốt lắm <tv>
-Hay <fail>
+Hay <tv> <fail>
 Chua cap nhap game nhi?
 Không thông báo khi có tn!!!!! <tv>
 Nhanh cập Nhật đi ạ <tv>
 Nang cap nhiu len su dug tot hon
 Tam
 Đúng là cần cập nhập nhiu ưng dụng hơn nữa <tv>
-Hay <fail>
+Hay <tv> <fail>
 Cập nhật nữa đêêêêêê <tv>
 Không ổn lắm. Thoát khỏi zalo mà không thông báo có tin nhắn đến. <tv>
 Goog
@@ -636,7 +636,7 @@ Thieu nhung bieu cam.
 Zalo cua wp kem vl . Mh sai lam khi mua he dieu hanh wp chan vl
 HIV Hay
 Dc đó. <tv>
-Hay <fail>
+Hay <tv> <fail>
 Quá hay cho 1 ứng dụng <tv>
 Cug tam on ui...con mi hjh meo tai sao..zj be dau to au... Up full dum jk bn oi
 Không gọi điện được nhưng cho 5sao ủng hộ. <tv>
@@ -701,7 +701,7 @@ Chỉ dc 1 sao thui nhe ,co gag lam fien ban moi nhan va gap dj nhé <tv>
 Can cap nhat giai dieu vui...
 Tạm được cần được nâng cấp giống với ss hay ip nha <tv>
 Cần cập nhật đoán chữ <tv>
-Hay . <fail>
+Hay . <tv> <fail>
 Mơi xai thay cug dc.
 Sao phiên bản trước hình ảnh đưa lên được chỉnh sửa màu sắc..sao phiên bản này k có nhỉ <tv>
 B jo moi co phong chat day wp
@@ -742,7 +742,7 @@ Bao giờ mới có phòng trò truyện đây <tv>
 Can cai tien nhiu hon
 Duươc mà chưa có anh động . Chưa có phòng cháy . Núi chung chưa vừa ý lăm . Mong cập nhât tấc cả đễ có thễ đè pẹp androin và ios <tv>
 Ứng dụng tốt. Bh update thêm cái tải thêm dc mấy bộ biểu tượng như bên android thì mình sẽ chuyển thành 5 sao :) <tv>
-Hay <fail>
+Hay <tv> <fail>
 Đã có call! <tv>
 Hay qua mong som cap nhat them chux nang khac
 Chưa cập nhật, chán. <tv>
@@ -759,9 +759,9 @@ Moi nguoi oi lam sao nhan dc thog bao khi tat ug dug vay
 Ko báo và đổ chuông khi người ta goi đến,nên nâng cấp phần mềm đi nokia <tv>
 Dùng được <tv>
 Can co tjnh nag moj
-Hay <fail>
+Hay <tv> <fail>
 Nâng cấp lên pong chat nua di ban oi <tv>
-Hay...👍 <fail>
+Hay...👍 <tv> <fail>
 Cần update thêm. Ngoài màn hình chính ko nhận đc cuộc gọi. <tv>
 Gọi điện ổn định vs thông báo chính xác hơn chút thì ok. Nói chug là được <tv>
 Dit con me,nag cap mau lon,nag cap sog hog be bet,sog thj deo bat dk,huy con me no dj!
@@ -793,7 +793,7 @@ Tuyet
 Phiên bản chán qua nhưng có cũng tốt rồi <tv>
 Sao dang choi bt h lai ko choi dc nua zay
 Ko gọi được <tv>
-Hay <fail>
+Hay <tv> <fail>
 Duok 4 sao roj....
 Tốt nhưng chờ cập Nhật hơi lâu <tv>
 👍
@@ -836,7 +836,7 @@ Sao bj thoat ra kg vay,,
 rat tot, cap nhat nhieu hon nua nhe
 Ủng hộ cho VNG <tv>
 Windowsphone không được zalo ưu ái. Sao kỳ vậy. <tv>
-Hay <fail>
+Hay <tv> <fail>
 Moi cao nhat tinh nang goi dien nhung sao goi dien ko dc toan bao loi. Chan wa
 Người khác gọi tới kêu ngoài vùng phủ sóng...đểu thật <tv>
 Cần có phiên bản mới để có đoán chứ.hay!! <tv>
@@ -863,7 +863,7 @@ Chưa thử nhưg cập nhật là tốt rùi <tv>
 Chưa hoàn thiện thiếu room chát và mấy biểu cảm khác sắp xếp các hiển thị như androi với ios thì tuyệt <tv>
 Zalo winphone thieu xot nhiu wa de nghi cap nhap them
 Goog.cho 5* nho nag cap them nua nha nha san xuat.chuc ban thanh cong
-Hay <fail>
+Hay <tv> <fail>
 Xem dum dt sao goi la bi vang ra la sao vay, co ban nao giup e dc k
 Goi dien sang hdh android k thay bao cuoc goi nhung van thay bi goi nho😞
 Good hehe
@@ -877,7 +877,7 @@ Bản cập nhật mới cho WP gọi điện được rồi. <tv>
 Gọi sao toàn vọng tiếng mình lại vậy,cập nhập lại đi zalo ơi <tv>
 ben mih xai tuyet voi ,ben ng ta k goi dc lm mih bùn wa. <tv>
 Sao 520 ko gọi dien đươc vay ai bít chi với <tv>
-Hay <fail>
+Hay <tv> <fail>
 Củng cố tinh thần lập trình zalo winphone 5sao để tiếp tục cập nhật <tv>
 Cơ bản đã đủ tính năng rồi...Mong rằng các bản update tiếp theo sẽ full chức năng và ổn định. <tv>
 Perfecto :)
@@ -917,7 +917,7 @@ phiên ban moi good
 Qua tuyet voi
 Hehe.ság nay thấy bản cập nhật <tv>
 Rất tốt <tv>
-Hay <fail>
+Hay <tv> <fail>
 sai lầm khi chuyển từ ar sag wdp :( chả co j ra hồn <tv>
 Minh dung 520 khi thoat ra co tin nhan zalo hk bao la sao.tat ca dieu tot chi la hk co chuc nang goi dien
 Good
@@ -940,7 +940,7 @@ Cũng đc nhung hơi thiếu call vs... Mong wp8 co phiên bản New ??? <tv>
 Mong Wp sẽ sớm cập nhập phiên bản đầy đủ có chức năng gđiện hay biểu cảm v.v... giống như ios ;) <tv>
 Dùng tốt mà ko gọi duoc mong zalo khac phuc <tv>
 Good
-Hay <fail>
+Hay <tv> <fail>
 Chan m
 Ko gọi điên đàm thoại đk <tv>
 Cug dc
@@ -959,7 +959,7 @@ Như **** vẽ tay đéo đc pòq chat cũq hk coa nhju tih năq sử dụq ứ 
 K goi mien phi dc
 loi hoai chan vai
 Cho hỏi mấy cài hình động tên gì mọi ng.để mk lên google tìm.01688610580: elbituyen@yahoo.com <tv>
-Hay <fail>
+Hay <tv> <fail>
 Sao pien ban j ma goi dien ko dc vay. Cap nhat lai dj
 Phiên bản mới đâu chả thấy <tv>
 Tốt <tv>
@@ -977,11 +977,11 @@ Van con thieu nhieu tih nag.cho 3 sao
 Còn thiếu 1 số tính năng cần nâng cấp thêm nên cho 4 sao thôi <tv>
 Còn thiếu nhiều tính năng nhưng cũng ok rồi <tv>
 Tạm dk <tv>
-Hay <fail>
+Hay <tv> <fail>
 Ổn định, tốt <tv>
 Cần nâng cấp lên nữa! <tv>
 Thiếu chúc nag goi nua la ok <tv>
-Ngon <fail>
+Ngon <tv> <fail>
 K thích lắm <tv>
 Dễ sử dụng,gọi được nữa thì tốt <tv>
 Hóng update full :( <tv>
@@ -1008,7 +1008,7 @@ Chê wp thì cút cmmđ dùng làm gì <tv>
 Các bác comment thế không sợ người khác đánh giá à??? <tv>
 Thoi gian ngan ma dc nhu z rui,them chut thoi jan nua se full tih nag thui,ung ho het mih.
 Chua du chuc nang gi ca
-Hay. <fail>
+Hay. <tv> <fail>
 Can cap nhat them
 Cập nhập thêm đi,thíc vlìn . <tv>
 Good app
@@ -1038,7 +1038,7 @@ Dc. Vay la tam on. Tuy ko bang adroi
 Great
 Cập nhật thêm <tv>
 Great#save money#waste time^^#i love it
-Hay wá troi <fail>
+Hay wá troi <tv> <fail>
 Update thêm icon và chức năng gọi nữa là quá tuyệt vời <tv>
 Lỗi kjh khủng!! <tv>
 good for all people
@@ -1069,7 +1069,7 @@ Wá tuyệt vời....5* Đág để dùg..vào kết p vs tớ nké..0964463179 
 Mấy cái ứng dụng này là một công cụ theo dõi người dùng tuyệt vời, thông qua ứng dụng nhà phát triển có thể can thiệp sâu vào danh bạ và họ vẽ lên sơ đồ mối quan hệ của người ấy trong xh ơ, yọ có thể theo dõi vị trí, các cuộc gọi điện, nhắn tin và quan hệ gia đình của bạn...., như snowden đã công bố ở mỹ đó, đây là lý do vì sao ứng dụng đầu tư tiền tỷ mà đc cung cấp miễn phí <tv>
 Ủng hộ 5 sao cho zalo. Cái gì cũng cần có thời gian để hoàn thiện, WP sinh sau đẻ muộn thì trong thời gian ngắn sao mà đòi hỏi nó hoàn hảo như các hệ điều hành khác được. <tv>
 Good nhưng còn thiếu 1 số ứng dụng giống của phiên bản ios <tv>
-Hay <fail>
+Hay <tv> <fail>
 Tam
 Mun co goi dien va them hinh bieu cam
 Like zalo....
@@ -1110,7 +1110,7 @@ Mình đang sd lumia 520 k hiểu sao tải zalo về k cập nhật hình độ
 Hay . 5s
 K gọi dc.hạn chế nhiều quá. Dùng viber cho rồi <tv>
 **** cap nhat di chu cui vai
-Hay <fail>
+Hay <tv> <fail>
 Lam sao ma biet ai on hay ko
 Cập nhật thêm gọi điện và nhìu hình động nữa đi <tv>
 Khá ổn, bổ sung thêm trạng thái bạn bè online , chát room và số tính năng còn thiếu nữa <tv>
@@ -1127,7 +1127,7 @@ Cap nhat nhu ios va android dj nao. Vai thu kem wa
 Cập nhật hết các tính năng còn lại đi, để lâu câu giờ quá đấy. <tv>
 Tot,nhug con thieu nhieu tinh nag... Mong cap nhat som hon.
 Khôh tkấy call free .. <tv>
-Ngon <fail>
+Ngon <tv> <fail>
 Can co them chuc nang goi dien va doan chu nua thi ok men
 Ok, can them chuc nag gd nua, noi chug la tot, cho 5 sao -, lumia 520 muon xem bb ai onl thi vao dah sach, ai onl thi dag sau acc mih co them cai dau stick, ai onl thi dug sau dau do 😁. Cam on wp!
 K goi dien dc.xai k bang android
@@ -1230,7 +1230,7 @@ Hay qá, có thêm gọi điện toẹt vời gơn <tv>
 Cố lên zalo <tv>
 Hay..dùng đc. <tv>
 Cập nhật thế này quá tốt,gọi ở zalo chưa hề có trên ios và android giống gì winphone <tv>
-Hay <fail>
+Hay <tv> <fail>
 Ta da! Có pản cẩp nhật ùi 💕 <tv>
 Kha hay.neu co them chuk nang goi dien thi ok
 Jhkk
@@ -1249,7 +1249,7 @@ Mới có bản cập nhật mới cũng đc, cập nhật thêm nha, ủng hộ
 Phiên ban nay vân con thiêu nhiêu phan lm.hy vong se cap nhạt phiên ban moi hon <tv>
 Thay dau có anh dong dau ma nói có. Tham gia phong chat cug k có nua <tv>
 Quan trọng nhất là chức năng free call. Vậy mà không có, tệ thật.... 😞 <tv>
-Ngon <fail>
+Ngon <tv> <fail>
 Sao e k choi dc doan chu mng oi???
 Tuyet voi :)
 Ra thêm myplay di vng oi
@@ -1277,7 +1277,7 @@ Can cap nhat them nua
 Người Việt dùng hàng Việt <tv>
 Công tinh cập nhật mà ko có tính nặng gọi đt trời. Dm quá holao thật <tv>
 Phiên bản mới tuyệt Cập nhập nữa đi nào <tv>
-Hay <fail>
+Hay <tv> <fail>
 New update qua good :)) vote 5 sao
 Mất tiên tri rồi <tv>
 Oke con de luon... :)
@@ -1527,7 +1527,7 @@ Ad oi sao nang cap zalo len di de the nay thi chan lam do.
 Đợi lâu rồi giờ mới ra...còn ola nữa thoy....nhưg còn thiếu nhìu wa...cần bản cập nhật sớm...cho 3* khích lệ tinh thần... <tv>
 cái gì vậy...người ta bình luận mà ko xem đc haizzz chán thật <tv>
 Cập nhật thêm nhiều ứng dụng nữa <tv>
-Hay <fail>
+Hay <tv> <fail>
 Ok
 Cãi thiện thêm đi <tv>
 Thíu khá nhìu ứng dụng. Cập nhật sớm sớm nhé. ^^ <tv>
@@ -1566,7 +1566,7 @@ Sao wp lai k gọi dc zay? <tv>
 Cho update đi.thiếu nhiều cái vậy <tv>
 Không xem được cmt ảnh cmt stt == <tv>
 Con thieu nhieu tinh nang qua
-Hay.. <fail>
+Hay.. <tv> <fail>
 Cham,tn toi va gui di con cham.thua whatsapp
 Good
 Ung dung nhan tin rat nhanh nhung neu duoc day du chuc nang nhu ios hay androi thi qua la tuyet voi
@@ -1589,7 +1589,7 @@ Dc
 Windowphone đang nâng cấp thêm. Có phải làm ra 1phần mềm là dễ lắm đâu... Bọn Ngu..... Phải chửi cho chúng mày,chúng mày mới hiểu ra được....thằng nào giỏi thì làm đê, nâng cấp lên cho tao dùng với... <tv>
 Đòi hỏi cl <tv>
 K koa video call cho windows phone
-Hay <fail>
+Hay <tv> <fail>
 Dc
 Phiên bản cũ quá <tv>
 Hơi nhàm nhưng cũng ok, câôn nâng cấp <tv>
@@ -1626,7 +1626,7 @@ Good nhung tinh nang thieu nhieu
 Den bao gjo moi co ola vay hjxjx
 Đùng so sánh cái não thành với cái non trẻ. <tv>
 Shjt...lau wa ko cap nhat za troi
-Hay <fail>
+Hay <tv> <fail>
 Chan2 ko co ban cap nhan ms Thi dung the deo nao dc toan bi lôi
 Cần nâng cấp thêm nhiều, mà sao ko thay đc ảnh bìa vậy??? Chán ghê! <tv>
 Lag vải <tv>
@@ -2019,7 +2019,7 @@ Uhng hộ app việt.nhưng vẫn còn ít tính năng lắm.mong sớm có bả
 Mong chờ mỏi mòn giờ mới có,cần cập nhật phiên bản mới để hoàn thiện hơn.... <tv>
 Can nhiu uodate de = ios va abdroid
 Need new version :)
-Hay <fail>
+Hay <tv> <fail>
 Dung nhu cc
 Te wa,ton pin cuc nhanh,hon nhung trang mang xa hoi khac nua
 Good
@@ -2037,7 +2037,7 @@ Chưa cập nhật hết mọi tính năng.mong zl cập nhật nhah tí <tv>
 Tot
 He Windows Phone gj ma cham fat trien qua,chi dc cai mac,androi phan men nao cug du tjh nag,ra toan ra sau ma ngu hon thag dj truoc,can fai dj thue may đo độ ngu den bao nhiu,chac ngu hon cho,cho dag con bit an cut <tv>
 Rất tốt rất nhanh <tv>
-Cho 5 sao^^ <fail>
+Cho 5 sao^^ <tv> <fail>
 Thay doi ảnh bìa ko đc, còn nhiều cái tệ <tv>
 Tốt <tv>
 Ngon
@@ -2057,7 +2057,7 @@ Ko like đc ảnh và stt của người khác <tv>
 Sau ko cap nhan phien ban ms,co goi nua con cai nay ko co gi hit
 Tốt lắm! <tv>
 Đợi mãi cuối cùng cũng được xài. <tv>
-ngon <fail>
+ngon <tv> <fail>
 Đc
 Cug tam chua hiey ơam
 Xài app nài rồi là vứt wechat của tàu là được <tv>
@@ -2093,7 +2093,7 @@ Tuyệt <tv>
 Chưa gọi điện đc mấy bạn nhỉ <tv>
 Tốt,nhưng cần cập nhật phiên bản đầy đủ hơn <tv>
 Khá tốt. Tuy nhiên ứng dụng lại ko chạy ẩn được. Đợi bản cập nhật ! <tv>
-Ngon <fail>
+Ngon <tv> <fail>
 Tốt, ứng dụng Việt nên ủng hộ <tv>
 Gut,,can mien phi nhiu ung dung va game hon....ung ho 5s
 Sao ko cai duoc phien ban 114 hey nhu nay van buon lam
@@ -2102,7 +2102,7 @@ hêhê ngon, mong là sớm ra ola. ủng hộ 5sao ai làm quen ad ních giấc
 Cai ma cung mua na sao game da bong mien phj ddi
 Chờ mãi bây giờ mới xuất hiện...zui tóa <tv>
 Cũg đc 😊 <tv>
-Hay <fail>
+Hay <tv> <fail>
 Oh ...yes
 Không đưa đc thông báo lên màn hình chính, không báo bạn bè dùng, tin nhắn báo chậm, không chuông khi thoát, ghi âm k nghe thử được, chờ bản cập nhật thôi <tv>
 Hay.nhug khi thoat ra neu co tin nhan thy máy ko bao <tv>
@@ -2139,8 +2139,8 @@ Thank.mong som up them nhiu chuc nang hon
 Cố gắng up 😏😏 <tv>
 Sao khong co phong chat gi het vay? Ntn thj biet aj ma ket pan..update mau dii
 Xoa tin nhan thi pan cham gju khoang vai gjay vao muc muon xoa lak ok
-Hay <fail>
-Hay <fail>
+Hay <tv> <fail>
+Hay <tv> <fail>
 Co update nha😃
 Ung ho app vjet
 Qua beo.xai wechat con ngon hon
@@ -2169,7 +2169,7 @@ Sao tn den hok pao j het z? Faj zo zalo thj moj pao. Chan wa.
 Dk
 Phien ban nay zo ec
 Mong zalo cập nhật phiên bản mới nhé. Zalo sd rất hay mà <tv>
-Hay <fail>
+Hay <tv> <fail>
 4 sao ủng hộ . . Cố gắng update <tv>
 Can phai nang cap len nua ak!!!
 Cập nhật mau đi nào <tv>
@@ -2210,7 +2210,7 @@ Pls mau cập nhật!!! <tv>
 F
 Như shit...thua cả androi <tv>
 Chán qá bản này từ thời chiến rồy <tv>
-Hay <fail>
+Hay <tv> <fail>
 Doi da lau....can them tinh nang
 Có ola nữa. Thì tốt. <tv>
 Hay lắm <tv>
@@ -2278,7 +2278,7 @@ Cho 5 sao.tiếc là chưa có gọi.mong sẽ sớm cập nhập <tv>
 Có còn hơn k.nhưg update nữa điiii <tv>
 Có còn hơn ko.vào xem ảnh gái xung quanh.keke <tv>
 Cac ban cho minh hoicach su dung, minh danh chu roi,nhung o thay nut enter o dau lam sao goi tin nhan duoc vay,chi gium cam on
-Hay <fail>
+Hay <tv> <fail>
 Mong có sớm cập nhât <tv>
 Ko dong bo dc voi danh ba, lu520
 Dùng tốt, push notification rất nhanh. Cần update để hỗ trợ tất cả tính năng!! <tv>
@@ -2345,6 +2345,6 @@ Công cụ chăn rau của nông dân hiện đại ... Thiện tai thiện tai 
 Bi han che nhieu tinh nang qua.ve tay,goi dien deu ko dc.not good.lumia 520
 Bản này cùi nhất à :| <tv>
 Thanks! Zing
-5 sao <fail>
+5 sao <tv> <fail>
 Ok
 Hehe,cuoi cung wdp cug da co zalo roi :3
