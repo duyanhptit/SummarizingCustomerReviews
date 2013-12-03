@@ -118,9 +118,7 @@ public class VietnameseMaxentTagger {
 	public List<WordTag> tagText2(String text) {
 		try {
 			// tokenizer the reader
-			// System.out.println("Line: " + text);
 			String tokenizedString = getTokenizer().segment(text);
-			// System.out.println("Tokenized: " + tokenizedString);
 			String[] arr = tokenizedString.split("\\s+");
 			List<String> words = new ArrayList<String>(Arrays.asList(arr));
 			return tagList(words);

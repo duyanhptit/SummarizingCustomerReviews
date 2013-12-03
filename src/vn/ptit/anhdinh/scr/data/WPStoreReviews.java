@@ -1,24 +1,32 @@
 package vn.ptit.anhdinh.scr.data;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class WPStoreComments implements GetComments {
+public class WPStoreReviews implements GetReviews {
 
-	private static final String RESOURCE_URL_ZALO = "http://www.windowsphone.com/vi-vn/store/app/zalo/ca5b631e-1cb9-4e39-b03e-9499443afe73";
 	private static final String CLASS_COMMENTS = "reviewText";
 	private static final String ID_PAGE_NEXT = "moreReviews";
+	private static final Map<String, String> mURLApp = new HashMap<String, String>();
+
+	public WPStoreReviews() {
+		mURLApp.put("Zalo", "http://www.windowsphone.com/vi-vn/store/app/zalo/ca5b631e-1cb9-4e39-b03e-9499443afe73");
+		mURLApp.put("Facebook", "http://www.windowsphone.com/vi-vn/store/app/facebook/82a23635-5bd9-df11-a844-00237de2db9e");
+		mURLApp.put("ZingMP3", "http://www.windowsphone.com/vi-vn/store/app/zing-mp3/a99f4688-480e-4c46-9071-1e96c6138395");
+	}
 
 	@Override
-	public List<String> getComments(String appName) {
+	public List<String> getReviews(String appName) {
 		List<String> comments = new LinkedList<String>();
-		String url = RESOURCE_URL_ZALO;
+		String url = mURLApp.get(appName);
 		System.out.println("Getting comments of app: " + appName + " ...");
 		while (true) {
 			try {

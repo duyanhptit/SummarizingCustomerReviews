@@ -15,18 +15,18 @@ import org.json.simple.parser.ParseException;
 
 import vn.ptit.anhdinh.scr.utils.FileUtils;
 
-public class TGDDComments implements GetComments {
+public class TGDDComments implements GetReviews {
 	private static final String RESOURCE_URL_TEMPLATE = "http://www.thegioididong.com/comment/Services/CommentSvc.asmx/GetCommentsByFilterPage?lDetailId=%s&strCMTCategoryId=2&intWatchBy=-1&intOrderBy=1&intCache=1&intPage=%s";
 
 	private static final String KEY_CONTENT = "Content";
 
 	public static void main(String args[]) {
 		TGDDComments getComments = new TGDDComments();
-		getComments.getComments("55872");
+		getComments.getReviews("55872");
 	}
 
 	@Override
-	public List<String> getComments(String productID) {
+	public List<String> getReviews(String productID) {
 		System.out.println("Starting get comments of product id: " + productID + " form The Gioi Di Dong...");
 		List<String> comments = new LinkedList<String>();
 		int page = 0;

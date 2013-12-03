@@ -3,34 +3,62 @@ package vn.ptit.anhdinh.wordnet;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import vn.ptit.anhdinh.scr.utils.FileUtils;
+import vn.ptit.anhdinh.wordnet.model.Cluster;
+import vn.ptit.anhdinh.wordnet.model.Synset;
+import vn.ptit.anhdinh.wordnet.model.Word;
+import vn.ptit.anhdinh.wordnet.utils.BuildWordNetUtils;
 
 public class BuildWordNet {
+	private static int mSum = 0;
+	private static List<Cluster> mClusters = new LinkedList<Cluster>();
 
 	public static void main(String[] args) throws Exception {
-		String inputFile = "data/commentsOfZalo.xml";
-		Document document = FileUtils.ReadFileXML(inputFile);
-		List<String> adjectives = new LinkedList<String>();
-
-		XPathFactory xPathFactory = XPathFactory.newInstance();
-		XPath xPath = xPathFactory.newXPath();
-		XPathExpression xPathExpression = xPath.compile("//w[@pos=\"A\"]");
-		NodeList nodeAdjectives = (NodeList) xPathExpression.evaluate(document, XPathConstants.NODESET);
-		for (int i = 0; i < nodeAdjectives.getLength(); i++) {
-			Element elAdjective = (Element) nodeAdjectives.item(i);
-			NodeList nodeValue = elAdjective.getChildNodes();
-			String adjective = nodeValue.item(0).getNodeValue();
-			System.out.println(adjective);
-			adjectives.add(adjective);
-		}
+		// testBuildCluster();
+		buildClusters();
+		insertClusterToWordNet();
 	}
+
+	private static void buildClusters() throws Exception {
+		List<String> adjectives = BuildWordNetUtils.getAllAdjective("data/reviewsOfZalo.xml");
+		for (String adjective : adjectives) {
+			System.out.println(adjective);
+		}
+		for (int i = 0; i < adjectives.size(); i++) {
+			Cluster cluster = BuildWordNetUtils.buildCluster(adjectives.get(i), 3);
+			mClusters.add(cluster);
+			System.out.println("(" + String.valueOf(i + 1) + "/" + String.valueOf(adjectives.size()) + " )");
+			System.out.println("ĐỒNG NGHĨA:");
+			printSynset(cluster.getmSynset1());
+			System.out.println("TRÁI NGHĨA:");
+			printSynset(cluster.getmSynset2());
+			System.out.println("==============================================================================");
+		}
+		System.out.println("Summarizing has: " + String.valueOf(mSum) + " words.");
+	}
+
+	private static void insertClusterToWordNet() {
+		WordNetAPI wordNetAPI = new WordNetAPI();
+		for (Cluster cluster : mClusters) {
+			wordNetAPI.insertCluster(cluster);
+		}
+		wordNetAPI.shutDown();
+	}
+
+	public static void testBuildCluster() {
+		Cluster cluster = BuildWordNetUtils.buildCluster("đẹp", 5);
+		System.out.println("ĐỒNG NGHĨA:");
+		printSynset(cluster.getmSynset1());
+		System.out.println("TRÁI NGHĨA:");
+		printSynset(cluster.getmSynset2());
+	}
+
+	public static void printSynset(Synset synset) {
+		List<Word> words = synset.getmWords();
+		mSum += words.size();
+		for (Word word : words) {
+			System.out.print(word.getmLemma() + ", ");
+		}
+		System.out.println("");
+	}
+
 }

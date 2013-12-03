@@ -4,11 +4,21 @@ import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 
 public class Neo4JConnectionPool {
-	private static final String NEO4J_PATH = "C:/neo4j-enterprise-1.9.4/data/graph.db";
+	private static Neo4JConnectionPool mNeo4JConnectionPool;
+
+	public static final String NEO4J_PATH = "wordnet/graph.db";
+	// public static final String NEO4J_PATH = "C:/neo4j-enterprise-1.9.4/data/graph.db";
 	private GraphDatabaseService mGrapDatabaseService;
 
-	public Neo4JConnectionPool() {
+	private Neo4JConnectionPool() {
 		startDatabase();
+	}
+
+	public static synchronized Neo4JConnectionPool getInstance() {
+		if (mNeo4JConnectionPool == null) {
+			mNeo4JConnectionPool = new Neo4JConnectionPool();
+		}
+		return mNeo4JConnectionPool;
 	}
 
 	private void startDatabase() {
