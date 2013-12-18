@@ -23,7 +23,15 @@ public class RunApplication {
 	private Map<String, Opinion> mOpinionAdjectives;
 	private Map<String, SummaryFeature> mSummaryFeatures;
 
-	private static final String APP_NAME = "Zalo"; // Zalo, Facebook, ZingMP3
+	private static String APP_NAME = "Facebook"; // Zalo, Facebook, ZingMP3
+
+	public RunApplication() {
+
+	}
+
+	public RunApplication(String appName) {
+		APP_NAME = appName;
+	}
 
 	public static void main(String[] args) throws Exception {
 		RunApplication runApp = new RunApplication();
@@ -41,8 +49,8 @@ public class RunApplication {
 	private void downloadReviews() {
 		System.out.println("Crawl and download Reviews...");
 		GetReviews wpsrs = new WPStoreReviews();
-		// List<String> rawReviews = wpsrs.getReviews(APP_NAME);
-		List<String> rawReviews = FileUtils.ReadFile("data/zalo/rawReviewsOfZalo.txt");
+		List<String> rawReviews = wpsrs.getReviews(APP_NAME);
+		// List<String> rawReviews = FileUtils.ReadFile("data/zalo/rawReviewsOfZalo.txt");
 
 		PreprocessorData preprocessorData = new PreprocessorData(rawReviews);
 		preprocessorData.convertComposeUnicode();
@@ -60,7 +68,7 @@ public class RunApplication {
 		System.out.println("Crawl and download Reviews completed.");
 	}
 
-	private void vnTagging() {
+	public void vnTagging() {
 		System.out.println("Vietnamese Tagging...");
 		mReviews = FileUtils.ReadFile("data/" + APP_NAME.toLowerCase() + "/reviewsOf" + APP_NAME + ".txt");
 		ReviewsPOSTagging reviewsTagging = new ReviewsPOSTagging(mReviews);
@@ -68,7 +76,7 @@ public class RunApplication {
 		System.out.println("Vietnamese Tagging completed.");
 	}
 
-	private void featureExtraction() {
+	public void featureExtraction() {
 		System.out.println("Feature Extraction...");
 		FeatureExtraction featureExtraction = new FeatureExtraction(mReviewsTagged);
 		mFeatures = featureExtraction.getFrequentFeature(15);
@@ -78,7 +86,7 @@ public class RunApplication {
 		System.out.println("Feature Extraction completed.");
 	}
 
-	private void opinionReviewsExtraction() {
+	public void opinionReviewsExtraction() {
 		System.out.println("Opinion Reviews Extraction...");
 		for (int i = 0; i < mReviewsTagged.size(); i++) {
 			List<WordTag> reviewTagged = mReviewsTagged.get(i);
@@ -89,7 +97,7 @@ public class RunApplication {
 		System.out.println("Opinion Reviews Extraction completed.");
 	}
 
-	private void adjectiveOpinionIdentification() {
+	public void adjectiveOpinionIdentification() {
 		System.out.println("Adjective Opinion Identification...");
 		List<String> adjectives = new LinkedList<String>();
 		for (List<WordTag> opinionReview : mOpinionReviews.keySet()) {
@@ -104,14 +112,14 @@ public class RunApplication {
 		System.out.println("Adjective Opinion Identification completed.");
 	}
 
-	private void summarizingReviewsBaseOnFeature() {
+	public void summarizingReviewsBaseOnFeature() {
 		System.out.println("Summarizing Reviews Base On Feature...");
 		SummarizingOpinionReviews summarizingReviews = new SummarizingOpinionReviews(mOpinionReviews, mFeatures, mOpinionAdjectives);
 		mSummaryFeatures = summarizingReviews.getSummaryFeature();
 		System.out.println("Summarizing Reviews Base On Feature completed.");
 	}
 
-	private void generateSummaryFeature() {
+	public void generateSummaryFeature() {
 		System.out.println("Generate Summary Feature...");
 		JSONArray jsonSummary = new JSONArray();
 		for (SummaryFeature summaryFeature : mSummaryFeatures.values()) {
@@ -148,6 +156,30 @@ public class RunApplication {
 
 	private void taggingToFile() {
 		ReviewsPOSTagging.writeFileTagged("Zalo");
+	}
+
+	public List<String> getmReviews() {
+		return mReviews;
+	}
+
+	public List<List<WordTag>> getmReviewsTagged() {
+		return mReviewsTagged;
+	}
+
+	public List<String> getmFeatures() {
+		return mFeatures;
+	}
+
+	public Map<List<WordTag>, String> getmOpinionReviews() {
+		return mOpinionReviews;
+	}
+
+	public Map<String, Opinion> getmOpinionAdjectives() {
+		return mOpinionAdjectives;
+	}
+
+	public Map<String, SummaryFeature> getmSummaryFeatures() {
+		return mSummaryFeatures;
 	}
 
 }
